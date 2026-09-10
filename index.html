@@ -350,7 +350,7 @@
       updateCartUI();
     }
 
-    function updateCartUI() {
+    function updateCartUI(s) {
       const count = cart.reduce((sum, item) => sum + item.qty, 0);
       document.getElementById("cartBadge").innerText = count;
       document.getElementById("totalItemsCount").innerText = count;

@@ -8,32 +8,32 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     body { background-color: #FAF8F5; color: #2D2A26; padding-bottom: 70px; }
     
-    header { position: sticky; top: 0; z-index: 30; background: #ffffff; border-bottom: 1px solid #E7E5E4; padding: 16px 28px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
-    .brand h1 { font-size: 24px; font-weight: 800; color: #7C2D12; letter-spacing: 1px; }
-    .brand p { font-size: 11px; color: #78716C; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; }
+    header { position: sticky; top: 0; z-index: 30; background: #ffffff; border-bottom: 1px solid #E7E5E4; padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
+    .brand h1 { font-size: 26px; font-weight: 800; color: #7C2D12; letter-spacing: 1.5px; }
+    .brand p { font-size: 11px; color: #78716C; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; margin-top: 2px; }
     
-    .cart-btn { background: #1C1917; color: #ffffff; border: none; padding: 9px 20px; border-radius: 999px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; transition: background 0.2s; }
+    .cart-btn { background: #1C1917; color: #ffffff; border: none; padding: 10px 22px; border-radius: 999px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; transition: background 0.2s; }
     .cart-btn:hover { background: #292524; }
     .cart-badge { background: #D97706; color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 999px; font-weight: 700; }
 
-    .banner { max-width: 1200px; margin: 24px auto; padding: 20px 24px; background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border: 1px solid #FCD34D; border-radius: 16px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.08); }
-    .banner h2 { font-size: 20px; color: #78350F; margin-bottom: 4px; font-weight: 800; }
-    .banner p { font-size: 13px; color: #92400E; font-weight: 500; }
-    .notice-tag { background: #B45309; color: #ffffff; font-size: 11px; font-weight: 700; padding: 6px 12px; border-radius: 8px; letter-spacing: 0.5px; text-transform: uppercase; }
+    .banner { max-width: 1200px; margin: 24px auto; padding: 22px 28px; background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border: 1px solid #FCD34D; border-radius: 18px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; box-shadow: 0 4px 16px rgba(245, 158, 11, 0.08); }
+    .banner h2 { font-size: 21px; color: #78350F; margin-bottom: 4px; font-weight: 800; letter-spacing: 0.3px; }
+    .banner p { font-size: 13px; color: #92400E; font-weight: 500; line-height: 1.5; }
+    .notice-tag { background: #B45309; color: #ffffff; font-size: 11px; font-weight: 700; padding: 6px 12px; border-radius: 8px; letter-spacing: 0.8px; text-transform: uppercase; }
 
     .container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 30px; }
 
     /* Product Card */
     .card { background: #ffffff; border: 1px solid #E7E5E4; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 16px rgba(0,0,0,0.03); cursor: pointer; transition: transform 0.25s ease, box-shadow 0.25s ease; }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0,0,0,0.07); }
-    .card-img-wrap { position: relative; width: 100%; height: 380px; background: #F5F5F4; overflow: hidden; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,0.08); }
+    .card-img-wrap { position: relative; width: 100%; height: 390px; background: #F5F5F4; overflow: hidden; }
     .card-img-wrap img { width: 100%; height: 100%; object-fit: contain; background-color: #f7f5f0; transition: transform 0.3s ease; }
     .card:hover .card-img-wrap img { transform: scale(1.02); }
     
     .tag-left { position: absolute; top: 14px; left: 14px; background: rgba(255,255,255,0.95); color: #1C1917; font-size: 11px; font-weight: 700; padding: 5px 12px; border-radius: 8px; border: 1px solid #E7E5E4; box-shadow: 0 2px 6px rgba(0,0,0,0.05); z-index: 5; }
     .tag-right { position: absolute; top: 14px; right: 14px; background: #1C1917; color: #ffffff; font-size: 11px; font-weight: 700; padding: 5px 12px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); z-index: 5; }
-    .swipe-hint { position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); color: #ffffff; font-size: 10px; font-weight: 600; padding: 5px 10px; border-radius: 20px; display: flex; align-items: center; gap: 5px; letter-spacing: 0.3px; }
+    .swipe-hint { position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,0.75); backdrop-filter: blur(4px); color: #ffffff; font-size: 10px; font-weight: 600; padding: 6px 12px; border-radius: 20px; display: flex; align-items: center; gap: 6px; letter-spacing: 0.3px; }
 
     .card-body { padding: 22px; flex: 1; }
     .card-title { font-size: 18px; font-weight: 800; margin-bottom: 14px; color: #1C1917; line-height: 1.35; }
@@ -41,11 +41,11 @@
     .details-box strong { color: #1C1917; font-weight: 600; }
 
     .card-action { padding: 16px 22px; border-top: 1px solid #F5F5F4; }
-    .add-btn { width: 100%; background: #7C2D12; color: #ffffff; border: none; padding: 13px; border-radius: 12px; font-size: 13px; font-weight: 700; cursor: pointer; transition: background 0.2s, transform 0.1s; letter-spacing: 0.3px; }
+    .add-btn { width: 100%; background: #7C2D12; color: #ffffff; border: none; padding: 13px; border-radius: 12px; font-size: 13px; font-weight: 700; cursor: pointer; transition: background 0.2s, transform 0.1s; letter-spacing: 0.4px; }
     .add-btn:hover { background: #601F0C; }
     .add-btn:active { transform: scale(0.98); }
 
-    /* Amazon Style Product Modal */
+    /* Modal Styling */
     .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(5px); z-index: 60; display: none; align-items: center; justify-content: center; padding: 16px; }
     .modal-box { background: #ffffff; border-radius: 24px; width: 100%; max-width: 920px; max-height: 90vh; overflow-y: auto; display: flex; flex-direction: column; position: relative; box-shadow: 0 24px 48px rgba(0,0,0,0.25); animation: modalPop 0.25s ease-out; }
     @keyframes modalPop { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
@@ -104,7 +104,7 @@
       <p>Tradition in Every Thread</p>
     </div>
     <button class="cart-btn" onclick="openCart()">
-      <span>Shortlisted Items</span>
+      <span>Shortlisted Collection</span>
       <span id="cartBadge" class="cart-badge">0</span>
     </button>
   </header>
@@ -112,16 +112,16 @@
   <div class="container">
     <div class="banner">
       <div>
-        <h2>Festive Collection Vol. 1</h2>
-        <p>Explore exclusive designer suit sets. Tap any card to view detailed close-ups and specifications.</p>
+        <h2>Festive Collection Vol. I</h2>
+        <p>Immerse yourself in our handcrafted artisanal ensembles. Tap any masterpiece to view intricate close-ups and complete specifications.</p>
       </div>
-      <div class="notice-tag">Preview Mode</div>
+      <div class="notice-tag">Curated Preview</div>
     </div>
 
     <div class="grid" id="productGrid"></div>
   </div>
 
-  <!-- Amazon-style Detail & Swipe Modal -->
+  <!-- Detailed Modal -->
   <div class="modal-overlay" id="detailModal">
     <div class="modal-box">
       <button class="modal-close" onclick="closeDetailModal()">&times;</button>
@@ -129,13 +129,13 @@
     </div>
   </div>
 
-  <!-- Cart Drawer -->
+  <!-- Shortlist Drawer -->
   <div class="drawer-overlay" id="overlay" onclick="closeCart()"></div>
   <div class="drawer-content" id="drawer">
     <div class="drawer-header">
       <div>
-        <h3 style="font-size: 17px; font-weight: 800; color: #1C1917;">Shortlisted Selection</h3>
-        <p style="font-size: 11px; color: #78716C; margin-top: 2px;">Your saved favourites from this collection</p>
+        <h3 style="font-size: 17px; font-weight: 800; color: #1C1917;">Your Shortlisted Pieces</h3>
+        <p style="font-size: 11px; color: #78716C; margin-top: 2px;">Saved favorites for your festive wardrobe</p>
       </div>
       <button class="close-btn" onclick="closeCart()">&times;</button>
     </div>
@@ -147,8 +147,8 @@
         <span>Total Shortlisted:</span>
         <span id="totalItemsCount">0</span>
       </div>
-      <button class="disabled-order-btn" disabled>Place Order (Disabled)</button>
-      <p class="order-warning">⚠️ Direct online checkout is currently turned off for preview.</p>
+      <button class="disabled-order-btn" disabled>Direct Checkout Unavailable</button>
+      <p class="order-warning">⚠️ Online ordering is currently disabled for catalogue preview mode.</p>
     </div>
   </div>
 
@@ -164,7 +164,7 @@
         work: "Original Pearl with Dabka work, Timeless Paisley motif & Neckline detail",
         dupatta: "Premium Organza Dupatta with fine embroidery and pearl detailing",
         bottom: "Pure unstitched bottom fabric",
-        occasion: "Festive & Party Wear"
+        occasion: "Festive & Grand Celebrations"
       },
       {
         id: "b-42",
@@ -176,7 +176,7 @@
         work: "Designer Neck with Nag buttons, Samosa Gota lace & fine Zari border",
         dupatta: "Pure Silk Dupatta with elegant Zari work & handcrafted tassels",
         bottom: "Premium Silk Bottom Fabric",
-        occasion: "Classy Party Wear & Celebrations"
+        occasion: "Classy Evening Wear & Festivities"
       },
       {
         id: "b-46",
@@ -188,7 +188,7 @@
         work: "Designer neck with cut work, heavy lace detailing on Daman & Sleeves",
         dupatta: "Coordinating printed dupatta with all-around lace",
         bottom: "Solid comfort silk bottom",
-        occasion: "Timeless Festive & Day Wear"
+        occasion: "Graceful Day Wear & Celebrations"
       },
       {
         id: "b-40-shimmer",
@@ -200,7 +200,7 @@
         work: "Metallic Pearl & Sequin work, intricate front neck patch work",
         dupatta: "Full length dupatta with woven stripes & decorative border",
         bottom: "Matching rich plain fabric",
-        occasion: "Festive Occasions & Parties"
+        occasion: "Festive Occasions & Evening Parties"
       },
       {
         id: "b-40-ziraf",
@@ -212,7 +212,7 @@
         work: "Zari, dabka & sitara work on neck, heavy floral daman embroidery",
         dupatta: "Pure Silk Dupatta with delicate zari floral motifs",
         bottom: "Soft soothing all-day wear fabric",
-        occasion: "Main Functions, Weddings & Celebrations"
+        occasion: "Weddings & Milestone Celebrations"
       },
       {
         id: "b-34",
@@ -221,10 +221,10 @@
         badge: "Silk Maslin",
         images: ["img51.jpg", "img54.jpg"],
         fabric: "Premium Silk Maslin",
-        work: "Original pearl with black metallic per pot work, sequence and fine thread work",
+        work: "Original pearl with black metallic pot work, sequence and fine thread embroidery",
         dupatta: "Pure machine silk dupatta with contrast dark tassels",
         bottom: "Matching bottom fabric",
-        occasion: "Ethnic Gatherings & Celebrations"
+        occasion: "Ethnic Gatherings & Festivities"
       }
     ];
 
@@ -236,7 +236,7 @@
         <div class="card" onclick="openDetailModal('${s.id}')">
           <div>
             <div class="card-img-wrap">
-              <img src="${s.images[0]}" alt="${s.title}" onerror="this.onerror=null; this.src='https://placehold.co/600x800/FAF5EE/7C2D12?text=Photo';" />
+              <img src="${s.images[0]}" alt="${s.title}" onerror="this.onerror=null; this.src='https://placehold.co/600x800/FAF5EE/7C2D12?text=Soch+Vastr';" />
               <span class="tag-left">${s.badge}</span>
               <span class="tag-right">${s.itemNo}</span>
               <div class="swipe-hint">
@@ -273,12 +273,12 @@
           <div class="swipe-track" id="swipeTrack">
             ${suit.images.map((img, idx) => `
               <div class="swipe-slide" id="slide-${idx}">
-                <img src="${img}" alt="${suit.title} preview" onerror="this.onerror=null; this.src='https://placehold.co/600x800/FAF5EE/7C2D12?text=Photo';" />
+                <img src="${img}" alt="${suit.title} preview" onerror="this.onerror=null; this.src='https://placehold.co/600x800/FAF5EE/7C2D12?text=Soch+Vastr';" />
               </div>
             `).join("")}
           </div>
           <div style="font-size: 11px; color: #78716C; margin-top: 8px; display:flex; align-items:center; gap:5px; font-weight: 500;">
-            <span>👉 Swipe horizontally or select thumbnails below</span>
+            <span>👉 Swipe horizontally or select thumbnails below to inspect details</span>
           </div>
           <div class="thumbnail-row">
             ${suit.images.map((img, idx) => `

@@ -283,7 +283,7 @@
           <div class="thumbnail-row">
             ${suit.images.map((img, idx) => `
               <button class="thumb-btn ${idx === 0 ? 'active' : ''}" onclick="scrollToSlide(${idx})">
-                <img src="${img}" alt="thumb" />
+                <img src="${img}" alt="thumb" onerror="this.onerror=null; this.src='https://placehold.co/100x100/FAF5EE/7C2D12?text=Img';" />
               </button>
             `).join("")}
           </div>

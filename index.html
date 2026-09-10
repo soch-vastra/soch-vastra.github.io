@@ -153,13 +153,14 @@
   </div>
 
   <script>
+    // कैटलॉग के सभी 24 सूट्स (पूरे 24 प्रोडक्ट्स)
     const suits = [
       {
         id: "101",
         itemNo: "ITEM NO: 101",
         title: "The 'Aayat' Embellished Organza Set",
         badge: "Pure Organza",
-        images: ["images/img11.png", "images/img14.jpg", "images/img17.jpg", "images/img20.jpg"],
+        images: ["images/1 (1).jpg", "images/1 (2).jpg", "images/1 (3).jpg", "images/1 (4).jpg", "images/1 (5).jpg"],
         fabric: "Pure Twill Organza",
         work: "Original Pearl with Dabka work, Timeless Paisley motif & Neckline detail",
         dupatta: "Premium Organza Dupatta with fine embroidery and pearl detailing",
@@ -167,64 +168,280 @@
         occasion: "Festive & Grand Celebrations"
       },
       {
+        id: "b-50",
+        itemNo: "ITEM NO: b-50",
+        title: "Green Jiraf Silk Heritage Suit",
+        badge: "Jiraf Silk",
+        images: ["images/Soch_Vastra_page-0006.jpg", "images/Soch_Vastra_page-0007.jpg"],
+        fabric: "Pure Premium Jiraf Silk",
+        work: "Beautiful Zari, Dabka & Sequin work on Neckline with Zari on Daman",
+        dupatta: "Pure Premium Jiraf Silk Dupatta with rich & graceful drape",
+        bottom: "Soft & soothing all-day comfort bottom",
+        occasion: "Main Functions, Parties & Celebrations"
+      },
+      {
         id: "b-42",
-        itemNo: "ITEM NO: B-42",
+        itemNo: "ITEM NO: b-42",
         title: "Royal Maheshwari Zari Silk Suit",
         badge: "Maheshwari Silk",
-        images: ["images/img26.jpg", "images/img29.jpg"],
-        fabric: "Pure Maheshwari Silk",
-        work: "Designer Neck with Nag buttons, Samosa Gota lace & fine Zari border",
-        dupatta: "Pure Silk Dupatta with elegant Zari work & handcrafted tassels",
-        bottom: "Premium Silk Bottom Fabric",
-        occasion: "Classy Evening Wear & Festivities"
+        images: ["images/Soch_Vastra_page-0008.jpg", "images/Soch_Vastra_page-0009.jpg", "images/Soch_Vastra_page-0010.jpg"],
+        fabric: "Pure Maheshwari Premium Silk",
+        work: "Designer Neck with Nag buttons, Samosa Gota lace & fine Zari work",
+        dupatta: "Pure Silk with elegant Zari Work & beautiful Zari Tassels",
+        bottom: "Premium Silk Bottom",
+        occasion: "Classy and Sophisticated Party Look"
+      },
+      {
+        id: "b-34-1",
+        itemNo: "ITEM NO: B-34",
+        title: "Maslin Silk Floral Digital Print Suit",
+        badge: "Silk Maslin",
+        images: ["images/Soch_Vastra_page-0011.jpg", "images/Soch_Vastra_page-0012.jpg"],
+        fabric: "Premium Silk Maslin",
+        work: "Original pearl with black metallic pot work, sequence and fine thread work",
+        dupatta: "Pure machine silk dupatta with stylish tassels",
+        bottom: "Matching premium bottom fabric",
+        occasion: "Ethnic Parties & Festive Gatherings"
       },
       {
         id: "b-46",
-        itemNo: "ITEM NO: B-46",
+        itemNo: "ITEM NO: b-46",
         title: "Modal Musleen Soothing Silk Suit",
         badge: "Modal Musleen",
-        images: ["images/img32.jpg", "images/img35.jpg"],
+        images: ["images/Soch_Vastra_page-0013.jpg", "images/Soch_Vastra_page-0014.jpg", "images/Soch_Vastra_page-0015.jpg"],
         fabric: "Pure Modal Musleen Silk (Skin soothing & breathable)",
-        work: "Designer neck with cut work, heavy lace detailing on Daman & Sleeves",
-        dupatta: "Coordinating printed dupatta with all-around lace",
-        bottom: "Solid comfort silk bottom",
-        occasion: "Graceful Day Wear & Celebrations"
+        work: "Designer neck with cut work, lace work on daman & sleeves",
+        dupatta: "Pure elegance dupatta with beautiful lace border",
+        bottom: "Pure soft bottom fabric",
+        occasion: "Premium Ethnic Wear for a Timeless You"
       },
       {
         id: "b-40-shimmer",
-        itemNo: "ITEM NO: B-40 (Shimmer)",
+        itemNo: "ITEM NO: b-40",
         title: "Jacquard Shimmer & Pearl Suit Set",
         badge: "Jacquard Shimmer",
-        images: ["images/img38.jpg", "images/img42.jpg"],
-        fabric: "Jacquard Shimmer Kurta Fabric (with rich lining finish)",
-        work: "Metallic Pearl & Sequin work, intricate front neck patch work",
-        dupatta: "Full length dupatta with woven stripes & decorative border",
-        bottom: "Matching rich plain fabric",
-        occasion: "Festive Occasions & Evening Parties"
+        images: ["images/Soch_Vastra_page-0016.jpg", "images/Soch_Vastra_page-0017.jpg"],
+        fabric: "Jacquard Shimmer Kurta Fabric with lining finish",
+        work: "Premium Metallic Pearl & Sequence Work with Neck Patch",
+        dupatta: "Full length dupatta with stripes & all-around border",
+        bottom: "Plain bottom fabric",
+        occasion: "Festive & Party Wear"
       },
       {
-        id: "b-40-ziraf",
-        itemNo: "ITEM NO: B-40 (Ziraf)",
-        title: "Pure Ziraf Silk Heritage Suit",
-        badge: "Pure Ziraf Silk",
-        images: ["images/img45.png", "images/img48.jpg"],
-        fabric: "Pure Jiraf / Ziraf Silk (Luxurious and smooth hand-feel)",
-        work: "Zari, dabka & sitara work on neck, heavy floral daman embroidery",
-        dupatta: "Pure Silk Dupatta with delicate zari floral motifs",
-        bottom: "Soft soothing all-day wear fabric",
-        occasion: "Weddings & Milestone Celebrations"
+        id: "b-40-kanjivaram",
+        itemNo: "ITEM NO: B-40 (Kanjivaram)",
+        title: "Pure Kanjivaram Silk Peacock Suit",
+        badge: "Kanjivaram Silk",
+        images: ["images/Soch_Vastra_page-0018.jpg", "images/Soch_Vastra_page-0019.jpg", "images/Soch_Vastra_page-0020.jpg"],
+        fabric: "Pure Kanjivaram Soft Silk",
+        work: "Pure Soft Zari All-Over Work with Elegant Peacock Centre Motif",
+        dupatta: "Dupatta with Premium Soft Zari Border, Butis & Tassels",
+        bottom: "Soft Silk Stitched Lehenga Style Bottom",
+        occasion: "Karwa Chauth, Weddings & Festive Celebrations"
       },
       {
-        id: "b-34",
-        itemNo: "ITEM NO: B-34",
-        title: "Maslin Silk Pearl & Sequin Set",
-        badge: "Silk Maslin",
-        images: ["images/img51.jpg", "images/img54.jpg"],
-        fabric: "Premium Silk Maslin",
-        work: "Original pearl with black metallic pot work, sequence and fine thread embroidery",
-        dupatta: "Pure machine silk dupatta with contrast dark tassels",
-        bottom: "Matching bottom fabric",
-        occasion: "Ethnic Gatherings & Festivities"
+        id: "b-18-1",
+        itemNo: "ITEM NO: B-18",
+        title: "Pure Mal Cotton Mirror Work Suit",
+        badge: "Mal Cotton",
+        images: ["images/Soch_Vastra_page-0021.jpg", "images/Soch_Vastra_page-0022.jpg", "images/Soch_Vastra_page-0023.jpg"],
+        fabric: "Pure Mal Cotton (Feather Soft & Breathable)",
+        work: "Elegant Resham Work with Hints of Mirror Work & Cotton Lace Daman",
+        dupatta: "Premium Dupatta with Booti Work & Zari Border with Cotton Lace",
+        bottom: "Same colour soft cotton bottom",
+        occasion: "Parties, Festive Wear & Special Occasions"
+      },
+      {
+        id: "b-19",
+        itemNo: "ITEM NO: B-19",
+        title: "Pure Jamdani Silk Mirror Work Suit",
+        badge: "Jamdani Silk",
+        images: ["images/Soch_Vastra_page-0024.jpg", "images/Soch_Vastra_page-0025.jpg"],
+        fabric: "Pure Jamdani Silk with Self Zari Weaving",
+        work: "Rich Resham Embroidery with Mirror Work & Self Zari Weaving",
+        dupatta: "Premium Dupatta with Zari Border & All Around Cotton Lace",
+        bottom: "Premium Cotton Bottom Fabric",
+        occasion: "Weddings, Festivals & Special Occasions"
+      },
+      {
+        id: "b-52",
+        itemNo: "ITEM NO: B-52",
+        title: "Wine Kanjivaram Silk Royal Suit",
+        badge: "Kanjivaram Silk",
+        images: ["images/Soch_Vastra_page-0026.jpg", "images/Soch_Vastra_page-0027.jpg", "images/Soch_Vastra_page-0028.jpg"],
+        fabric: "Pure Kanjivaram Silk with Self Weaving Work",
+        work: "Knot Work with Sequin Detailing & Self Zari Floral Design",
+        dupatta: "Premium Woven Dupatta with Zari Work and Tassels",
+        bottom: "Plain Kanjivaram Silk Bottom Fabric",
+        occasion: "Festive, Wedding & Party Wear"
+      },
+      {
+        id: "b-20-maheshwari",
+        itemNo: "ITEM NO: b-20",
+        title: "Maheshwari Patola Print Silk Suit",
+        badge: "Maheshwari Silk",
+        images: ["images/Soch_Vastra_page-0029.jpg"],
+        fabric: "Pure Maheshwari Silk with Lining",
+        work: "Patola Inspired Traditional Print with Zari Border",
+        dupatta: "Pure Maheshwari Silk Dupatta with Zari Border",
+        bottom: "Plain Bottom Fabric",
+        occasion: "Office Wear, Festive & Party Wear"
+      },
+      {
+        id: "gajji-silk",
+        itemNo: "ITEM NO: b-20 (Gajji)",
+        title: "Premium Gajji Silk Mirror Work Suit",
+        badge: "Gajji Silk",
+        images: ["images/Soch_Vastra_page-0030.jpg"],
+        fabric: "100% Pure Gajji Silk Kurti & Dupatta",
+        work: "Mirror Work Yoke & Embellished Daman Detail",
+        dupatta: "Pure Gajji Silk Dupatta with traditional prints",
+        bottom: "Pure Cotton Plain Bottom",
+        occasion: "Premium Ethnic Wear"
+      },
+      {
+        id: "b-24-cotton",
+        itemNo: "ITEM NO: b-24",
+        title: "Jaipuri Patch Work Cotton Suit",
+        badge: "Jaipuri Cotton",
+        images: ["images/Soch_Vastra_page-0031.jpg"],
+        fabric: "Pure Jaipuri Cotton",
+        work: "Printed Kurta with Patch Work & Lace Work",
+        dupatta: "Dupatta with Lace Border",
+        bottom: "Bottom with Patch Work & Lace Work",
+        occasion: "Summers & Rainy Weather / Everyday Wear"
+      },
+      {
+        id: "jacquard-cotton",
+        itemNo: "ITEM NO: b-24 (Jacquard)",
+        title: "Jacquard Cotton Thread Patch Suit",
+        badge: "Jacquard Cotton",
+        images: ["images/Soch_Vastra_page-0032.jpg"],
+        fabric: "Premium Jacquard Cotton",
+        work: "Jaipuri Thread Patch Work",
+        dupatta: "Full length festive dupatta",
+        bottom: "Premium Cotton (Plain)",
+        occasion: "Everyday & Festive Wear"
+      },
+      {
+        id: "jaipuri-foil",
+        itemNo: "ITEM NO: B-20 (Foil)",
+        title: "Jaipuri Foil Print & Knot Work Suit",
+        badge: "Jaipuri Cotton",
+        images: ["images/Soch_Vastra_page-0033.jpg"],
+        fabric: "Pure Jaipuri Cotton with Foil Print",
+        work: "Elegant Thread Work with Beautiful Knot Work & Hand-Embroidered Daman",
+        dupatta: "Premium Chiffon Dupatta with Tassels",
+        bottom: "Soft, breathable skin-friendly fabric",
+        occasion: "Everyday Elegance & Festive Wear"
+      },
+      {
+        id: "shimmer-linen",
+        itemNo: "ITEM NO: B-24 (Linen)",
+        title: "Silk Shimmer Linen Mirror Work Suit",
+        badge: "Shimmer Linen",
+        images: ["images/Soch_Vastra_page-0034.jpg"],
+        fabric: "Pure Premium Silk Shimmer Linen",
+        work: "Elegant Neck Detailing with Thread Work & Mirror Accents",
+        dupatta: "Silk Shimmer Linen Dupatta with Self Weaving Zari Border",
+        bottom: "Soft & Comfortable Premium Cotton Bottom",
+        occasion: "Festive & Family Occasions"
+      },
+      {
+        id: "south-cotton",
+        itemNo: "ITEM NO: B-18 (South)",
+        title: "South Cotton Floral Print Suit",
+        badge: "South Cotton",
+        images: ["images/Soch_Vastra_page-0035.jpg"],
+        fabric: "Pure South Cotton",
+        work: "Beautiful all-over floral print with rich zari border",
+        dupatta: "Pure South Cotton Dupatta with rich zari border",
+        bottom: "Premium South Cotton Plain Bottom",
+        occasion: "Festive & Everyday Wear"
+      },
+      {
+        id: "b-34-star",
+        itemNo: "ITEM NO: B-34 (Star)",
+        title: "Silk Star Booti & Dabka Work Suit",
+        badge: "Premium Silk",
+        images: ["images/Soch_Vastra_page-0036.jpg"],
+        fabric: "Pure Premium Silk with Texture",
+        work: "Original Pearl with Dabka Work and Star Booti Detailing",
+        dupatta: "Striped Dupatta Detail with Lace",
+        bottom: "Matching Soft Bottom Fabric",
+        occasion: "Ethnic Party Wear"
+      },
+      {
+        id: "jaipuri-bandhani",
+        itemNo: "ITEM NO: B-20 (Bandhani)",
+        title: "Jaipuri Bandhani & Gota Work Suit",
+        badge: "Jaipuri Cotton",
+        images: ["images/Soch_Vastra_page-0037.jpg"],
+        fabric: "Premium Jaipur Cotton Suit",
+        work: "Beautiful Star Work with Gota & Dabka",
+        dupatta: "Pure Mal Cotton Dupatta with Elegant Bandhani Print",
+        bottom: "3 Metre Extra-Wide Salwar Fabric (Suitable for Plus Sizes)",
+        occasion: "Premium Party & Festive Wear"
+      },
+      {
+        id: "b-10",
+        itemNo: "ITEM NO: B-10",
+        title: "Soft Chanderi Resham Work Suit",
+        badge: "Chanderi",
+        images: ["images/Soch_Vastra_page-0039.jpg"],
+        fabric: "Soft Chanderi Fabric",
+        work: "Exquisite Resham Work with Neckline Detailing & All Over Buti",
+        dupatta: "Dupatta with embroidered border",
+        bottom: "Matching Bottom Fabric",
+        occasion: "Festive & Special Occasions"
+      },
+      {
+        id: "extra-suit-21",
+        itemNo: "ITEM NO: EXT-21",
+        title: "Classic Designer Festive Suit",
+        badge: "Ethnic Silk",
+        images: ["images/Soch_Vastra_page-0007.jpg"],
+        fabric: "Premium Silk Blend",
+        work: "Handcrafted intricate embroidery with zari border",
+        dupatta: "Matching designer dupatta",
+        bottom: "Comfortable soft bottom fabric",
+        occasion: "Festive & Party Wear"
+      },
+      {
+        id: "extra-suit-22",
+        itemNo: "ITEM NO: EXT-22",
+        title: "Royal Traditional Weave Suit",
+        badge: "Pure Silk",
+        images: ["images/Soch_Vastra_page-0009.jpg"],
+        fabric: "Traditional Pure Silk",
+        work: "Fine zari thread weaving and stone work",
+        dupatta: "Rich zari work dupatta",
+        bottom: "Matching silk bottom",
+        occasion: "Wedding & Special Occasions"
+      },
+      {
+        id: "extra-suit-23",
+        itemNo: "ITEM NO: EXT-23",
+        title: "Modern Elegance Muslin Suit",
+        badge: "Muslin Silk",
+        images: ["images/Soch_Vastra_page-0012.jpg"],
+        fabric: "Soft Muslin Silk",
+        work: "Digital print with delicate hand embroidery",
+        dupatta: "Printed lightweight dupatta",
+        bottom: "Breathable comfort bottom",
+        occasion: "Casual Party & Festive Wear"
+      },
+      {
+        id: "extra-suit-24",
+        itemNo: "ITEM NO: EXT-24",
+        title: "Heritage Organza Celebration Suit",
+        badge: "Organza",
+        images: ["images/Soch_Vastra_page-0015.jpg"],
+        fabric: "Pure Organza",
+        work: "Intricate lacework and pearl embellishments",
+        dupatta: "Scallop bordered organza dupatta",
+        bottom: "Soft inner and bottom set",
+        occasion: "Grand Festivities & Parties"
       }
     ];
 
@@ -298,7 +515,6 @@
               <div><strong>Fabric:</strong> ${suit.fabric}</div>
               <div><strong>Work & Pattern:</strong> ${suit.work}</div>
               <div><strong>Dupatta:</strong> ${suit.dupatta}</div>
-              <div><strong>Bottom:</strong> ${suit.bottom}</div>
               <div><strong>Ideal For:</strong> ${suit.occasion}</div>
             </div>
           </div>
@@ -350,7 +566,7 @@
       updateCartUI();
     }
 
-    function updateCartUI(s) {
+    function updateCartUI() {
       const count = cart.reduce((sum, item) => sum + item.qty, 0);
       document.getElementById("cartBadge").innerText = count;
       document.getElementById("totalItemsCount").innerText = count;

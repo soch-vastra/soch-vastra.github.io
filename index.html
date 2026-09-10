@@ -8,44 +8,50 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     body { background-color: #FAF8F5; color: #2D2A26; padding-bottom: 70px; }
     
-    header { position: sticky; top: 0; z-index: 30; background: #ffffff; border-bottom: 1px solid #E7E5E4; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; }
-    .brand h1 { font-size: 22px; font-weight: 800; color: #7C2D12; letter-spacing: 0.5px; }
-    .brand p { font-size: 11px; color: #78716C; text-transform: uppercase; letter-spacing: 1px; }
+    header { position: sticky; top: 0; z-index: 30; background: #ffffff; border-bottom: 1px solid #E7E5E4; padding: 16px 28px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
+    .brand h1 { font-size: 24px; font-weight: 800; color: #7C2D12; letter-spacing: 1px; }
+    .brand p { font-size: 11px; color: #78716C; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; }
     
-    .cart-btn { background: #1C1917; color: #ffffff; border: none; padding: 8px 18px; border-radius: 999px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; }
-    .cart-badge { background: #D97706; color: #fff; font-size: 11px; padding: 2px 7px; border-radius: 999px; }
+    .cart-btn { background: #1C1917; color: #ffffff; border: none; padding: 9px 20px; border-radius: 999px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; transition: background 0.2s; }
+    .cart-btn:hover { background: #292524; }
+    .cart-badge { background: #D97706; color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 999px; font-weight: 700; }
 
-    .banner { max-width: 1200px; margin: 20px auto; padding: 16px 20px; background: #FEF3C7; border: 1px solid #FDE68A; border-radius: 14px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
-    .banner h2 { font-size: 18px; color: #78350F; margin-bottom: 2px; }
-    .banner p { font-size: 13px; color: #92400E; }
-    .notice-tag { background: #F59E0B; color: #ffffff; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 6px; }
+    .banner { max-width: 1200px; margin: 24px auto; padding: 20px 24px; background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border: 1px solid #FCD34D; border-radius: 16px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.08); }
+    .banner h2 { font-size: 20px; color: #78350F; margin-bottom: 4px; font-weight: 800; }
+    .banner p { font-size: 13px; color: #92400E; font-weight: 500; }
+    .notice-tag { background: #B45309; color: #ffffff; font-size: 11px; font-weight: 700; padding: 6px 12px; border-radius: 8px; letter-spacing: 0.5px; text-transform: uppercase; }
 
     .container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 28px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 30px; }
 
     /* Product Card */
-    .card { background: #ffffff; border: 1px solid #E7E5E4; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 12px rgba(0,0,0,0.03); cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; }
-    .card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
+    .card { background: #ffffff; border: 1px solid #E7E5E4; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 16px rgba(0,0,0,0.03); cursor: pointer; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0,0,0,0.07); }
     .card-img-wrap { position: relative; width: 100%; height: 380px; background: #F5F5F4; overflow: hidden; }
-    .card-img-wrap img { width: 100%; height: 100%; object-fit: contain; background-color: #f7f5f0; }
+    .card-img-wrap img { width: 100%; height: 100%; object-fit: contain; background-color: #f7f5f0; transition: transform 0.3s ease; }
+    .card:hover .card-img-wrap img { transform: scale(1.02); }
     
-    .tag-left { position: absolute; top: 12px; left: 12px; background: rgba(255,255,255,0.95); color: #1C1917; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 6px; border: 1px solid #E7E5E4; z-index: 5; }
-    .tag-right { position: absolute; top: 12px; right: 12px; background: #1C1917; color: #ffffff; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 6px; z-index: 5; }
-    .swipe-hint { position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.65); color: #ffffff; font-size: 10px; font-weight: 600; padding: 4px 8px; border-radius: 20px; display: flex; align-items: center; gap: 4px; }
+    .tag-left { position: absolute; top: 14px; left: 14px; background: rgba(255,255,255,0.95); color: #1C1917; font-size: 11px; font-weight: 700; padding: 5px 12px; border-radius: 8px; border: 1px solid #E7E5E4; box-shadow: 0 2px 6px rgba(0,0,0,0.05); z-index: 5; }
+    .tag-right { position: absolute; top: 14px; right: 14px; background: #1C1917; color: #ffffff; font-size: 11px; font-weight: 700; padding: 5px 12px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); z-index: 5; }
+    .swipe-hint { position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); color: #ffffff; font-size: 10px; font-weight: 600; padding: 5px 10px; border-radius: 20px; display: flex; align-items: center; gap: 5px; letter-spacing: 0.3px; }
 
-    .card-body { padding: 20px; flex: 1; }
-    .card-title { font-size: 18px; font-weight: 800; margin-bottom: 12px; color: #1C1917; line-height: 1.3; }
-    .details-box { background: #FAF9F6; border: 1px solid #F0EEE9; border-radius: 12px; padding: 14px; font-size: 12px; line-height: 1.6; color: #44403C; display: flex; flex-direction: column; gap: 6px; }
-    .details-box strong { color: #1C1917; }
+    .card-body { padding: 22px; flex: 1; }
+    .card-title { font-size: 18px; font-weight: 800; margin-bottom: 14px; color: #1C1917; line-height: 1.35; }
+    .details-box { background: #FAF9F6; border: 1px solid #F0EEE9; border-radius: 12px; padding: 14px; font-size: 12px; line-height: 1.65; color: #44403C; display: flex; flex-direction: column; gap: 6px; }
+    .details-box strong { color: #1C1917; font-weight: 600; }
 
-    .card-action { padding: 16px 20px; border-top: 1px solid #F5F5F4; }
-    .add-btn { width: 100%; background: #7C2D12; color: #ffffff; border: none; padding: 12px; border-radius: 10px; font-size: 13px; font-weight: 700; cursor: pointer; transition: background 0.2s; }
+    .card-action { padding: 16px 22px; border-top: 1px solid #F5F5F4; }
+    .add-btn { width: 100%; background: #7C2D12; color: #ffffff; border: none; padding: 13px; border-radius: 12px; font-size: 13px; font-weight: 700; cursor: pointer; transition: background 0.2s, transform 0.1s; letter-spacing: 0.3px; }
     .add-btn:hover { background: #601F0C; }
+    .add-btn:active { transform: scale(0.98); }
 
     /* Amazon Style Product Modal */
-    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.65); backdrop-filter: blur(4px); z-index: 60; display: none; align-items: center; justify-content: center; padding: 16px; }
-    .modal-box { background: #ffffff; border-radius: 20px; width: 100%; max-width: 900px; max-height: 90vh; overflow-y: auto; display: flex; flex-direction: column; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
-    .modal-close { position: absolute; top: 16px; right: 16px; background: #F5F5F4; border: none; font-size: 22px; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; color: #44403C; }
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(5px); z-index: 60; display: none; align-items: center; justify-content: center; padding: 16px; }
+    .modal-box { background: #ffffff; border-radius: 24px; width: 100%; max-width: 920px; max-height: 90vh; overflow-y: auto; display: flex; flex-direction: column; position: relative; box-shadow: 0 24px 48px rgba(0,0,0,0.25); animation: modalPop 0.25s ease-out; }
+    @keyframes modalPop { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    
+    .modal-close { position: absolute; top: 18px; right: 18px; background: #F5F5F4; border: none; font-size: 20px; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; color: #44403C; transition: background 0.2s; }
+    .modal-close:hover { background: #E7E5E4; }
     
     .modal-content { display: flex; flex-direction: column; }
     @media(min-width: 768px) {
@@ -53,40 +59,41 @@
     }
 
     /* Swipeable Gallery */
-    .gallery-container { flex: 1.2; background: #FAF9F6; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+    .gallery-container { flex: 1.2; background: #FAF9F6; padding: 24px; display: flex; flex-direction: column; align-items: center; border-right: 1px solid #F5F5F4; }
     .swipe-track { width: 100%; display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; border-radius: 14px; padding-bottom: 8px; }
     .swipe-track::-webkit-scrollbar { height: 6px; }
     .swipe-track::-webkit-scrollbar-thumb { background: #D6D3D1; border-radius: 4px; }
-    .swipe-slide { flex: 0 0 100%; scroll-snap-align: center; height: 420px; display: flex; align-items: center; justify-content: center; background: #ffffff; border-radius: 14px; overflow: hidden; border: 1px solid #E7E5E4; }
+    .swipe-slide { flex: 0 0 100%; scroll-snap-align: center; height: 440px; display: flex; align-items: center; justify-content: center; background: #ffffff; border-radius: 14px; overflow: hidden; border: 1px solid #E7E5E4; }
     .swipe-slide img { width: 100%; height: 100%; object-fit: contain; }
     
     .thumbnail-row { display: flex; gap: 8px; margin-top: 14px; width: 100%; overflow-x: auto; padding: 4px; }
-    .thumb-btn { flex: 0 0 60px; height: 60px; border-radius: 8px; border: 2px solid transparent; overflow: hidden; cursor: pointer; background: #ffffff; }
+    .thumb-btn { flex: 0 0 64px; height: 64px; border-radius: 10px; border: 2px solid transparent; overflow: hidden; cursor: pointer; background: #ffffff; transition: border-color 0.2s; }
     .thumb-btn.active { border-color: #7C2D12; }
     .thumb-btn img { width: 100%; height: 100%; object-fit: cover; }
 
     /* Modal Info */
-    .modal-info { flex: 1; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; }
-    .modal-info h3 { font-size: 22px; font-weight: 800; color: #1C1917; margin-bottom: 6px; }
-    .modal-info .item-tag { font-size: 12px; font-weight: 700; color: #7C2D12; background: #FEF3C7; padding: 4px 8px; border-radius: 6px; display: inline-block; margin-bottom: 12px; }
+    .modal-info { flex: 1; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; }
+    .modal-info h3 { font-size: 24px; font-weight: 800; color: #1C1917; margin-bottom: 8px; line-height: 1.3; }
+    .modal-info .item-tag { font-size: 12px; font-weight: 700; color: #7C2D12; background: #FEF3C7; padding: 5px 12px; border-radius: 8px; display: inline-block; margin-bottom: 16px; letter-spacing: 0.5px; }
     
     /* Cart Drawer */
-    .drawer-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 50; display: none; }
-    .drawer-content { position: fixed; top: 0; right: 0; bottom: 0; width: 100%; max-width: 400px; background: #ffffff; z-index: 51; display: flex; flex-direction: column; justify-content: space-between; transform: translateX(100%); transition: transform 0.25s ease-in-out; }
-    .drawer-header { padding: 18px 20px; border-bottom: 1px solid #E7E5E4; display: flex; justify-content: space-between; align-items: center; }
-    .drawer-body { padding: 18px 20px; overflow-y: auto; flex: 1; display: flex; flex-direction: column; gap: 14px; }
-    .drawer-footer { padding: 18px 20px; border-top: 1px solid #E7E5E4; background: #FAF9F6; }
-    .close-btn { background: none; border: none; font-size: 24px; cursor: pointer; color: #78716C; }
+    .drawer-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.55); backdrop-filter: blur(3px); z-index: 50; display: none; }
+    .drawer-content { position: fixed; top: 0; right: 0; bottom: 0; width: 100%; max-width: 410px; background: #ffffff; z-index: 51; display: flex; flex-direction: column; justify-content: space-between; transform: translateX(100%); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: -10px 0 30px rgba(0,0,0,0.1); }
+    .drawer-header { padding: 20px 24px; border-bottom: 1px solid #E7E5E4; display: flex; justify-content: space-between; align-items: center; }
+    .drawer-body { padding: 20px 24px; overflow-y: auto; flex: 1; display: flex; flex-direction: column; gap: 16px; }
+    .drawer-footer { padding: 20px 24px; border-top: 1px solid #E7E5E4; background: #FAF9F6; }
+    .close-btn { background: none; border: none; font-size: 24px; cursor: pointer; color: #78716C; line-height: 1; }
     
-    .cart-item { display: flex; gap: 12px; align-items: center; padding-bottom: 12px; border-bottom: 1px solid #F5F5F4; }
-    .cart-item img { width: 55px; height: 55px; object-fit: cover; border-radius: 8px; border: 1px solid #E7E5E4; }
+    .cart-item { display: flex; gap: 14px; align-items: center; padding-bottom: 14px; border-bottom: 1px solid #F5F5F4; }
+    .cart-item img { width: 60px; height: 60px; object-fit: cover; border-radius: 10px; border: 1px solid #E7E5E4; background: #FAF9F6; }
     .cart-item-info { flex: 1; font-size: 13px; }
-    .cart-item-info h5 { font-size: 13px; font-weight: 700; color: #1C1917; }
-    .cart-item-info span { font-size: 11px; color: #78716C; }
-    .remove-btn { background: none; border: none; color: #DC2626; font-size: 11px; cursor: pointer; font-weight: 700; }
+    .cart-item-info h5 { font-size: 13px; font-weight: 700; color: #1C1917; margin-bottom: 2px; }
+    .cart-item-info span { font-size: 11px; color: #78716C; font-weight: 500; }
+    .remove-btn { background: none; border: none; color: #DC2626; font-size: 11px; cursor: pointer; font-weight: 700; padding: 4px 0; }
+    .remove-btn:hover { text-decoration: underline; }
 
-    .disabled-order-btn { width: 100%; background: #E7E5E4; color: #A8A29E; border: none; padding: 14px; border-radius: 10px; font-size: 13px; font-weight: 700; cursor: not-allowed; }
-    .order-warning { font-size: 11px; color: #B45309; text-align: center; margin-top: 8px; }
+    .disabled-order-btn { width: 100%; background: #E7E5E4; color: #78716C; border: none; padding: 14px; border-radius: 12px; font-size: 13px; font-weight: 700; cursor: not-allowed; letter-spacing: 0.3px; }
+    .order-warning { font-size: 11px; color: #B45309; text-align: center; margin-top: 10px; font-weight: 500; }
   </style>
 </head>
 <body>
@@ -94,10 +101,10 @@
   <header>
     <div class="brand">
       <h1>SOCH VASTR</h1>
-      <p>Tradition in every thread</p>
+      <p>Tradition in Every Thread</p>
     </div>
     <button class="cart-btn" onclick="openCart()">
-      <span>Cart</span>
+      <span>Shortlisted Items</span>
       <span id="cartBadge" class="cart-badge">0</span>
     </button>
   </header>
@@ -106,9 +113,9 @@
     <div class="banner">
       <div>
         <h2>Festive Collection Vol. 1</h2>
-        <p>Suit par click karein aur swipe karke full details & close-up check karein.</p>
+        <p>Explore exclusive designer suit sets. Tap any card to view detailed close-ups and specifications.</p>
       </div>
-      <div class="notice-tag">Interactive Gallery Mode</div>
+      <div class="notice-tag">Preview Mode</div>
     </div>
 
     <div class="grid" id="productGrid"></div>
@@ -127,8 +134,8 @@
   <div class="drawer-content" id="drawer">
     <div class="drawer-header">
       <div>
-        <h3 style="font-size: 16px; font-weight: 800;">Your Cart</h3>
-        <p style="font-size: 11px; color: #78716C;">Catalogue Shortlist</p>
+        <h3 style="font-size: 17px; font-weight: 800; color: #1C1917;">Shortlisted Selection</h3>
+        <p style="font-size: 11px; color: #78716C; margin-top: 2px;">Your saved favourites from this collection</p>
       </div>
       <button class="close-btn" onclick="closeCart()">&times;</button>
     </div>
@@ -136,12 +143,12 @@
     <div class="drawer-body" id="cartList"></div>
 
     <div class="drawer-footer">
-      <div style="display: flex; justify-content: space-between; font-weight: 800; font-size: 14px; margin-bottom: 14px;">
-        <span>Total Items:</span>
+      <div style="display: flex; justify-content: space-between; font-weight: 800; font-size: 14px; margin-bottom: 14px; color: #1C1917;">
+        <span>Total Shortlisted:</span>
         <span id="totalItemsCount">0</span>
       </div>
       <button class="disabled-order-btn" disabled>Place Order (Disabled)</button>
-      <p class="order-warning">*Direct order booking is currently offline for this catalogue.</p>
+      <p class="order-warning">⚠️ Direct online checkout is currently turned off for preview.</p>
     </div>
   </div>
 
@@ -152,12 +159,7 @@
         itemNo: "ITEM NO: 101",
         title: "The 'Aayat' Embellished Organza Set",
         badge: "Pure Organza",
-        images: [
-          "img11.jpg",
-          "img14.jpg",
-          "img17.jpg",
-          "img20.jpg"
-        ],
+        images: ["img11.jpg", "img14.jpg", "img17.jpg", "img20.jpg"],
         fabric: "Pure Twill Organza",
         work: "Original Pearl with Dabka work, Timeless Paisley motif & Neckline detail",
         dupatta: "Premium Organza Dupatta with fine embroidery and pearl detailing",
@@ -169,11 +171,7 @@
         itemNo: "ITEM NO: B-42",
         title: "Royal Maheshwari Zari Silk Suit",
         badge: "Maheshwari Silk",
-        images: [
-          "img23.jpg",
-          "img26.jpg",
-          "img29.jpg"
-        ],
+        images: ["img23.jpg", "img26.jpg", "img29.jpg"],
         fabric: "Pure Maheshwari Silk",
         work: "Designer Neck with Nag buttons, Samosa Gota lace & fine Zari border",
         dupatta: "Pure Silk Dupatta with elegant Zari work & handcrafted tassels",
@@ -185,10 +183,7 @@
         itemNo: "ITEM NO: B-46",
         title: "Modal Musleen Soothing Silk Suit",
         badge: "Modal Musleen",
-        images: [
-          "img32.jpg",
-          "img35.jpg"
-        ],
+        images: ["img32.jpg", "img35.jpg"],
         fabric: "Pure Modal Musleen Silk (Skin soothing & breathable)",
         work: "Designer neck with cut work, heavy lace detailing on Daman & Sleeves",
         dupatta: "Coordinating printed dupatta with all-around lace",
@@ -200,10 +195,7 @@
         itemNo: "ITEM NO: B-40 (Shimmer)",
         title: "Jacquard Shimmer & Pearl Suit Set",
         badge: "Jacquard Shimmer",
-        images: [
-          "img38.jpg",
-          "img42.jpg"
-        ],
+        images: ["img38.jpg", "img42.jpg"],
         fabric: "Jacquard Shimmer Kurta Fabric (with rich lining finish)",
         work: "Metallic Pearl & Sequin work, intricate front neck patch work",
         dupatta: "Full length dupatta with woven stripes & decorative border",
@@ -215,10 +207,7 @@
         itemNo: "ITEM NO: B-40 (Ziraf)",
         title: "Pure Ziraf Silk Heritage Suit",
         badge: "Pure Ziraf Silk",
-        images: [
-          "img45.jpg",
-          "img48.jpg"
-        ],
+        images: ["img45.jpg", "img48.jpg"],
         fabric: "Pure Jiraf / Ziraf Silk (Luxurious and smooth hand-feel)",
         work: "Zari, dabka & sitara work on neck, heavy floral daman embroidery",
         dupatta: "Pure Silk Dupatta with delicate zari floral motifs",
@@ -230,10 +219,7 @@
         itemNo: "ITEM NO: B-34",
         title: "Maslin Silk Pearl & Sequin Set",
         badge: "Silk Maslin",
-        images: [
-          "img51.jpg",
-          "img54.jpg"
-        ],
+        images: ["img51.jpg", "img54.jpg"],
         fabric: "Premium Silk Maslin",
         work: "Original pearl with black metallic per pot work, sequence and fine thread work",
         dupatta: "Pure machine silk dupatta with contrast dark tassels",
@@ -255,7 +241,7 @@
               <span class="tag-right">${s.itemNo}</span>
               <div class="swipe-hint">
                 <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg>
-                ${s.images.length} Photos • Click to view
+                ${s.images.length} Photos • Tap to view
               </div>
             </div>
 
@@ -271,7 +257,7 @@
           </div>
 
           <div class="card-action">
-            <button class="add-btn" onclick="event.stopPropagation(); addToCart('${s.id}')">+ Add to Cart</button>
+            <button class="add-btn" onclick="event.stopPropagation(); addToCart('${s.id}')">+ Add to Shortlist</button>
           </div>
         </div>
       `).join("");
@@ -291,8 +277,8 @@
               </div>
             `).join("")}
           </div>
-          <div style="font-size: 11px; color: #78716C; margin-top: 6px; display:flex; align-items:center; gap:4px;">
-            <span>👉 Swipe right/left to view all details</span>
+          <div style="font-size: 11px; color: #78716C; margin-top: 8px; display:flex; align-items:center; gap:5px; font-weight: 500;">
+            <span>👉 Swipe horizontally or select thumbnails below</span>
           </div>
           <div class="thumbnail-row">
             ${suit.images.map((img, idx) => `
@@ -318,7 +304,7 @@
           </div>
 
           <div style="margin-top: 24px;">
-            <button class="add-btn" onclick="addToCart('${suit.id}'); closeDetailModal();">+ Add to Cart</button>
+            <button class="add-btn" onclick="addToCart('${suit.id}'); closeDetailModal();">+ Add to Shortlist</button>
           </div>
         </div>
       `;
@@ -371,7 +357,7 @@
 
       const list = document.getElementById("cartList");
       if (cart.length === 0) {
-        list.innerHTML = `<div style="text-align: center; color: #A8A29E; padding: 40px 0; font-size: 13px;">Your cart is empty.</div>`;
+        list.innerHTML = `<div style="text-align: center; color: #A8A29E; padding: 40px 0; font-size: 13px; font-weight: 500;">Your shortlist is currently empty.</div>`;
         return;
       }
 
@@ -381,7 +367,7 @@
           <div class="cart-item-info">
             <span style="font-weight: 700; color: #7C2D12;">${item.itemNo}</span>
             <h5>${item.title}</h5>
-            <span>Qty: ${item.qty}</span>
+            <span>Quantity: ${item.qty}</span>
           </div>
           <button class="remove-btn" onclick="removeFromCart('${item.id}')">Remove</button>
         </div>

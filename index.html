@@ -3,15 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Soch Vastr | Festive Collection Vol. 1</title>
+  <title>Soch Vastra | Festive Collection Vol. 1</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background-color: #FAF8F5; color: #2D2A26; padding-bottom: 70px; }
+    body { background-color: #FAF8F5; color: #2D2A26; padding-bottom: 0px; }
     
     header { position: sticky; top: 0; z-index: 30; background: #ffffff; border-bottom: 1px solid #E7E5E4; padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
     .brand h1 { font-size: 26px; font-weight: 800; color: #7C2D12; letter-spacing: 1.5px; }
     .brand p { font-size: 11px; color: #78716C; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; margin-top: 2px; }
     
+    .header-actions { display: flex; gap: 12px; align-items: center; }
+    .action-btn { background: #FAF8F5; color: #1C1917; border: 1px solid #E7E5E4; padding: 10px 18px; border-radius: 999px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; transition: background 0.2s; }
+    .action-btn:hover { background: #F0EEE9; }
+
     .cart-btn { background: #1C1917; color: #ffffff; border: none; padding: 10px 22px; border-radius: 999px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; transition: background 0.2s; }
     .cart-btn:hover { background: #292524; }
     .cart-badge { background: #D97706; color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 999px; font-weight: 700; }
@@ -98,17 +102,24 @@
 </head>
 <body>
 
+  <!-- Header Section -->
   <header>
     <div class="brand">
-      <h1>SOCH VASTR</h1>
+      <h1>SOCH VASTRA</h1>
       <p>Tradition in Every Thread</p>
     </div>
-    <button class="cart-btn" onclick="openCart()">
-      <span>Shortlisted Collection</span>
-      <span id="cartBadge" class="cart-badge">0</span>
-    </button>
+    <div class="header-actions">
+      <button class="action-btn" onclick="openLoginModal()">
+        <span>👤 Log In</span>
+      </button>
+      <button class="cart-btn" onclick="openCart()">
+        <span>Shortlisted Collection</span>
+        <span id="cartBadge" class="cart-badge">0</span>
+      </button>
+    </div>
   </header>
 
+  <!-- Main Banner & Grid Container -->
   <div class="container">
     <div class="banner">
       <div>
@@ -121,11 +132,105 @@
     <div class="grid" id="productGrid"></div>
   </div>
 
+  <!-- About Us Section (Tagline Based) -->
+  <section style="background: linear-gradient(to bottom, #FAF8F5, #F5F2EC); padding: 80px 20px; margin-top: 60px; border-top: 1px solid #E7E5E4; border-bottom: 1px solid #E7E5E4; text-align: center;">
+    <div style="max-width: 850px; margin: 0 auto;">
+      <span style="display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: #7C2D12; background: #FEF3C7; padding: 6px 16px; border-radius: 999px; margin-bottom: 18px;">
+        Tradition in Every Thread
+      </span>
+      <h2 style="font-size: 32px; font-weight: 800; color: #1C1917; line-height: 1.3; margin-bottom: 20px; letter-spacing: 0.5px;">
+        Where Tradition Meets You in Every Celebration
+      </h2>
+      <p style="font-size: 15px; line-height: 1.8; color: #57534E; margin-bottom: 30px;">
+        At <strong>Soch Vastra</strong>, we believe that clothing is more than just fabric—it is a living legacy. True to our core philosophy of <em>"Tradition in Every Thread"</em>, every unstitched suit set, pure silk, and organza ensemble is carefully woven to bring <em>Tradition Meets You</em> closer to your heart. From intricate Zari and Dabka handwork to skin-soothing pure cottons, our creations are designed to make you feel rooted, graceful, and extraordinary on every special occasion.
+      </p>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px; border-top: 1px solid #E7E5E4; padding-top: 35px;">
+        <div style="flex: 1; min-width: 200px; text-align: center;">
+          <h4 style="font-size: 16px; font-weight: 700; color: #7C2D12; margin-bottom: 6px;">🧵 Every Thread</h4>
+          <p style="font-size: 13px; color: #78716C;">Crafted with pure authenticity, premium silks, and fine weaves.</p>
+        </div>
+        <div style="flex: 1; min-width: 200px; text-align: center;">
+          <h4 style="font-size: 16px; font-weight: 700; color: #7C2D12; margin-bottom: 6px;">✨ Tradition Meets You</h4>
+          <p style="font-size: 13px; color: #78716C;">Designed to blend timeless ethnic heritage with modern elegance.</p>
+        </div>
+        <div style="flex: 1; min-width: 200px; text-align: center;">
+          <h4 style="font-size: 16px; font-weight: 700; color: #7C2D12; margin-bottom: 6px;">👑 Festive Grace</h4>
+          <p style="font-size: 13px; color: #78716C;">Hand-embroidered masterpieces tailored for your grandest moments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer style="background-color: #1C1917; color: #E7E5E4; padding: 48px 24px 24px; border-top: 2px solid #7C2D12;">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 36px; padding-bottom: 36px; border-bottom: 1px solid #292524;">
+      <div>
+        <h2 style="font-size: 22px; font-weight: 800; color: #FDE68A; letter-spacing: 1.5px; margin-bottom: 8px;">SOCH VASTRA</h2>
+        <p style="font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: #D6D3D1; font-weight: 600; margin-bottom: 14px;">Tradition in Every Thread</p>
+        <p style="font-size: 13px; line-height: 1.6; color: #A8A29E;">Discover our exclusive collection of handcrafted artisanal ensembles, designed to bring timeless elegance to your ethnic wardrobe.</p>
+      </div>
+      <div>
+        <h4 style="font-size: 14px; font-weight: 700; color: #FFFFFF; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px;">Collection Highlights</h4>
+        <ul style="list-style: none; font-size: 13px; line-height: 2; color: #A8A29E;">
+          <li>✨ Festive & Party Wear Ensembles</li>
+          <li>✨ Pure Organza & Kanjivaram Silks</li>
+          <li>✨ Handcrafted Zari & Dabka Details</li>
+          <li>✨ Premium Unstitched Suit Sets</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="font-size: 14px; font-weight: 700; color: #FFFFFF; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px;">Customer Care</h4>
+        <p style="font-size: 13px; line-height: 1.8; color: #A8A29E; margin-bottom: 10px;">For wholesale inquiries, order assistance, or catalogue previews, reach out to our support team.</p>
+        <span style="display: inline-block; background: #7C2D12; color: #FFFFFF; padding: 8px 16px; border-radius: 8px; font-size: 12px; font-weight: 700; letter-spacing: 0.5px;">Official Preview Portal</span>
+      </div>
+    </div>
+    <div style="max-width: 1200px; margin: 24px auto 0; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; font-size: 12px; color: #78716C; gap: 12px;">
+      <p>&copy; 2026 Soch Vastra. All Rights Reserved. Tradition Meets You.</p>
+      <p>Crafted for Festive Elegance</p>
+    </div>
+  </footer>
+
   <!-- Detailed Modal -->
   <div class="modal-overlay" id="detailModal">
     <div class="modal-box">
       <button class="modal-close" onclick="closeDetailModal()">&times;</button>
       <div class="modal-content" id="modalDynamicContent"></div>
+    </div>
+  </div>
+
+  <!-- Login / OTP Modal -->
+  <div class="modal-overlay" id="loginModal">
+    <div class="modal-box" style="max-width: 440px; padding: 30px; text-align: center;">
+      <button class="modal-close" onclick="closeLoginModal()">&times;</button>
+      <h2 style="font-size: 22px; font-weight: 800; color: #1C1917; margin-bottom: 8px;">Login / Sign Up</h2>
+      <p style="font-size: 13px; color: #78716C; margin-bottom: 24px;">Enter your phone number or email to access your account</p>
+
+      <div style="display: flex; background: #F5F5F4; border-radius: 10px; padding: 4px; margin-bottom: 20px;">
+        <button id="phoneTabBtn" onclick="switchLoginMode('phone')" style="flex: 1; padding: 10px; border: none; background: #FFFFFF; font-weight: 700; font-size: 12px; border-radius: 8px; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">Phone Number</button>
+        <button id="emailTabBtn" onclick="switchLoginMode('email')" style="flex: 1; padding: 10px; border: none; background: transparent; font-weight: 600; font-size: 12px; border-radius: 8px; cursor: pointer; color: #78716C;">Email ID</button>
+      </div>
+
+      <div id="phoneLoginForm">
+        <div style="display: flex; border: 1px solid #D6D3D1; border-radius: 12px; overflow: hidden; margin-bottom: 16px;">
+          <span style="background: #FAF9F6; padding: 12px 14px; font-size: 14px; font-weight: 600; color: #44403C; border-right: 1px solid #D6D3D1;">+91</span>
+          <input type="tel" id="phoneNumberInput" placeholder="Enter 10 digit mobile number" maxlength="10" style="width: 100%; border: none; padding: 12px; font-size: 14px; outline: none;" />
+        </div>
+        <button onclick="sendOTP('phone')" style="width: 100%; background: #7C2D12; color: #fff; border: none; padding: 14px; border-radius: 12px; font-weight: 700; font-size: 14px; cursor: pointer;">Request OTP</button>
+      </div>
+
+      <div id="emailLoginForm" style="display: none;">
+        <input type="email" id="emailInput" placeholder="Enter your email address" style="width: 100%; border: 1px solid #D6D3D1; border-radius: 12px; padding: 12px; font-size: 14px; outline: none; margin-bottom: 16px;" />
+        <button onclick="sendOTP('email')" style="width: 100%; background: #7C2D12; color: #fff; border: none; padding: 14px; border-radius: 12px; font-weight: 700; font-size: 14px; cursor: pointer;">Send OTP</button>
+      </div>
+
+      <div id="otpSection" style="display: none; margin-top: 20px;">
+        <p style="font-size: 13px; color: #44403C; margin-bottom: 12px;">Please enter the 4-digit OTP</p>
+        <input type="text" id="otpInput" placeholder="• • • •" maxlength="4" style="width: 120px; text-align: center; letter-spacing: 8px; font-size: 18px; border: 1px solid #D6D3D1; border-radius: 10px; padding: 10px; margin-bottom: 14px; outline: none;" />
+        <br>
+        <button onclick="verifyOTP()" style="background: #1C1917; color: #fff; border: none; padding: 10px 24px; border-radius: 10px; font-weight: 700; font-size: 13px; cursor: pointer;">Verify & Login</button>
+      </div>
+
+      <p style="font-size: 11px; color: #A8A29E; margin-top: 20px;">By continuing, you agree to Soch Vastra's Terms of Use & Privacy Policy.</p>
     </div>
   </div>
 
@@ -139,9 +244,7 @@
       </div>
       <button class="close-btn" onclick="closeCart()">&times;</button>
     </div>
-
     <div class="drawer-body" id="cartList"></div>
-
     <div class="drawer-footer">
       <div style="display: flex; justify-content: space-between; font-weight: 800; font-size: 14px; margin-bottom: 14px; color: #1C1917;">
         <span>Total Shortlisted:</span>
@@ -153,7 +256,6 @@
   </div>
 
   <script>
-    // कैटलॉग के सभी 24 सूट्स (पूरे 24 प्रोडक्ट्स)
     const suits = [
       {
         id: "101",
@@ -164,7 +266,6 @@
         fabric: "Pure Twill Organza",
         work: "Original Pearl with Dabka work, Timeless Paisley motif & Neckline detail",
         dupatta: "Premium Organza Dupatta with fine embroidery and pearl detailing",
-        bottom: "Pure unstitched bottom fabric",
         occasion: "Festive & Grand Celebrations"
       },
       {
@@ -176,7 +277,6 @@
         fabric: "Pure Premium Jiraf Silk",
         work: "Beautiful Zari, Dabka & Sequin work on Neckline with Zari on Daman",
         dupatta: "Pure Premium Jiraf Silk Dupatta with rich & graceful drape",
-        bottom: "Soft & soothing all-day comfort bottom",
         occasion: "Main Functions, Parties & Celebrations"
       },
       {
@@ -188,7 +288,6 @@
         fabric: "Pure Maheshwari Premium Silk",
         work: "Designer Neck with Nag buttons, Samosa Gota lace & fine Zari work",
         dupatta: "Pure Silk with elegant Zari Work & beautiful Zari Tassels",
-        bottom: "Premium Silk Bottom",
         occasion: "Classy and Sophisticated Party Look"
       },
       {
@@ -200,7 +299,6 @@
         fabric: "Premium Silk Maslin",
         work: "Original pearl with black metallic pot work, sequence and fine thread work",
         dupatta: "Pure machine silk dupatta with stylish tassels",
-        bottom: "Matching premium bottom fabric",
         occasion: "Ethnic Parties & Festive Gatherings"
       },
       {
@@ -212,7 +310,6 @@
         fabric: "Pure Modal Musleen Silk (Skin soothing & breathable)",
         work: "Designer neck with cut work, lace work on daman & sleeves",
         dupatta: "Pure elegance dupatta with beautiful lace border",
-        bottom: "Pure soft bottom fabric",
         occasion: "Premium Ethnic Wear for a Timeless You"
       },
       {
@@ -224,7 +321,6 @@
         fabric: "Jacquard Shimmer Kurta Fabric with lining finish",
         work: "Premium Metallic Pearl & Sequence Work with Neck Patch",
         dupatta: "Full length dupatta with stripes & all-around border",
-        bottom: "Plain bottom fabric",
         occasion: "Festive & Party Wear"
       },
       {
@@ -236,7 +332,6 @@
         fabric: "Pure Kanjivaram Soft Silk",
         work: "Pure Soft Zari All-Over Work with Elegant Peacock Centre Motif",
         dupatta: "Dupatta with Premium Soft Zari Border, Butis & Tassels",
-        bottom: "Soft Silk Stitched Lehenga Style Bottom",
         occasion: "Karwa Chauth, Weddings & Festive Celebrations"
       },
       {
@@ -248,7 +343,6 @@
         fabric: "Pure Mal Cotton (Feather Soft & Breathable)",
         work: "Elegant Resham Work with Hints of Mirror Work & Cotton Lace Daman",
         dupatta: "Premium Dupatta with Booti Work & Zari Border with Cotton Lace",
-        bottom: "Same colour soft cotton bottom",
         occasion: "Parties, Festive Wear & Special Occasions"
       },
       {
@@ -260,7 +354,6 @@
         fabric: "Pure Jamdani Silk with Self Zari Weaving",
         work: "Rich Resham Embroidery with Mirror Work & Self Zari Weaving",
         dupatta: "Premium Dupatta with Zari Border & All Around Cotton Lace",
-        bottom: "Premium Cotton Bottom Fabric",
         occasion: "Weddings, Festivals & Special Occasions"
       },
       {
@@ -272,7 +365,6 @@
         fabric: "Pure Kanjivaram Silk with Self Weaving Work",
         work: "Knot Work with Sequin Detailing & Self Zari Floral Design",
         dupatta: "Premium Woven Dupatta with Zari Work and Tassels",
-        bottom: "Plain Kanjivaram Silk Bottom Fabric",
         occasion: "Festive, Wedding & Party Wear"
       },
       {
@@ -284,7 +376,6 @@
         fabric: "Pure Maheshwari Silk with Lining",
         work: "Patola Inspired Traditional Print with Zari Border",
         dupatta: "Pure Maheshwari Silk Dupatta with Zari Border",
-        bottom: "Plain Bottom Fabric",
         occasion: "Office Wear, Festive & Party Wear"
       },
       {
@@ -296,7 +387,6 @@
         fabric: "100% Pure Gajji Silk Kurti & Dupatta",
         work: "Mirror Work Yoke & Embellished Daman Detail",
         dupatta: "Pure Gajji Silk Dupatta with traditional prints",
-        bottom: "Pure Cotton Plain Bottom",
         occasion: "Premium Ethnic Wear"
       },
       {
@@ -308,7 +398,6 @@
         fabric: "Pure Jaipuri Cotton",
         work: "Printed Kurta with Patch Work & Lace Work",
         dupatta: "Dupatta with Lace Border",
-        bottom: "Bottom with Patch Work & Lace Work",
         occasion: "Summers & Rainy Weather / Everyday Wear"
       },
       {
@@ -320,7 +409,6 @@
         fabric: "Premium Jacquard Cotton",
         work: "Jaipuri Thread Patch Work",
         dupatta: "Full length festive dupatta",
-        bottom: "Premium Cotton (Plain)",
         occasion: "Everyday & Festive Wear"
       },
       {
@@ -332,7 +420,6 @@
         fabric: "Pure Jaipuri Cotton with Foil Print",
         work: "Elegant Thread Work with Beautiful Knot Work & Hand-Embroidered Daman",
         dupatta: "Premium Chiffon Dupatta with Tassels",
-        bottom: "Soft, breathable skin-friendly fabric",
         occasion: "Everyday Elegance & Festive Wear"
       },
       {
@@ -344,7 +431,6 @@
         fabric: "Pure Premium Silk Shimmer Linen",
         work: "Elegant Neck Detailing with Thread Work & Mirror Accents",
         dupatta: "Silk Shimmer Linen Dupatta with Self Weaving Zari Border",
-        bottom: "Soft & Comfortable Premium Cotton Bottom",
         occasion: "Festive & Family Occasions"
       },
       {
@@ -356,7 +442,6 @@
         fabric: "Pure South Cotton",
         work: "Beautiful all-over floral print with rich zari border",
         dupatta: "Pure South Cotton Dupatta with rich zari border",
-        bottom: "Premium South Cotton Plain Bottom",
         occasion: "Festive & Everyday Wear"
       },
       {
@@ -368,7 +453,6 @@
         fabric: "Pure Premium Silk with Texture",
         work: "Original Pearl with Dabka Work and Star Booti Detailing",
         dupatta: "Striped Dupatta Detail with Lace",
-        bottom: "Matching Soft Bottom Fabric",
         occasion: "Ethnic Party Wear"
       },
       {
@@ -380,7 +464,6 @@
         fabric: "Premium Jaipur Cotton Suit",
         work: "Beautiful Star Work with Gota & Dabka",
         dupatta: "Pure Mal Cotton Dupatta with Elegant Bandhani Print",
-        bottom: "3 Metre Extra-Wide Salwar Fabric (Suitable for Plus Sizes)",
         occasion: "Premium Party & Festive Wear"
       },
       {
@@ -392,7 +475,6 @@
         fabric: "Soft Chanderi Fabric",
         work: "Exquisite Resham Work with Neckline Detailing & All Over Buti",
         dupatta: "Dupatta with embroidered border",
-        bottom: "Matching Bottom Fabric",
         occasion: "Festive & Special Occasions"
       },
       {
@@ -404,7 +486,6 @@
         fabric: "Premium Silk Blend",
         work: "Handcrafted intricate embroidery with zari border",
         dupatta: "Matching designer dupatta",
-        bottom: "Comfortable soft bottom fabric",
         occasion: "Festive & Party Wear"
       },
       {
@@ -416,7 +497,6 @@
         fabric: "Traditional Pure Silk",
         work: "Fine zari thread weaving and stone work",
         dupatta: "Rich zari work dupatta",
-        bottom: "Matching silk bottom",
         occasion: "Wedding & Special Occasions"
       },
       {
@@ -428,7 +508,6 @@
         fabric: "Soft Muslin Silk",
         work: "Digital print with delicate hand embroidery",
         dupatta: "Printed lightweight dupatta",
-        bottom: "Breathable comfort bottom",
         occasion: "Casual Party & Festive Wear"
       },
       {
@@ -440,7 +519,6 @@
         fabric: "Pure Organza",
         work: "Intricate lacework and pearl embellishments",
         dupatta: "Scallop bordered organza dupatta",
-        bottom: "Soft inner and bottom set",
         occasion: "Grand Festivities & Parties"
       }
     ];
@@ -461,7 +539,6 @@
                 ${s.images.length} Photos • Tap to view
               </div>
             </div>
-
             <div class="card-body">
               <h3 class="card-title">${s.title}</h3>
               <div class="details-box">
@@ -472,7 +549,6 @@
               </div>
             </div>
           </div>
-
           <div class="card-action">
             <button class="add-btn" onclick="event.stopPropagation(); addToCart('${s.id}')">+ Add to Shortlist</button>
           </div>
@@ -505,12 +581,10 @@
             `).join("")}
           </div>
         </div>
-
         <div class="modal-info">
           <div>
             <span class="item-tag">${suit.itemNo}</span>
             <h3>${suit.title}</h3>
-            
             <div class="details-box" style="margin-top: 14px;">
               <div><strong>Fabric:</strong> ${suit.fabric}</div>
               <div><strong>Work & Pattern:</strong> ${suit.work}</div>
@@ -518,13 +592,11 @@
               <div><strong>Ideal For:</strong> ${suit.occasion}</div>
             </div>
           </div>
-
           <div style="margin-top: 24px;">
             <button class="add-btn" onclick="addToCart('${suit.id}'); closeDetailModal();">+ Add to Shortlist</button>
           </div>
         </div>
       `;
-
       modal.style.display = "flex";
 
       const track = document.getElementById("swipeTrack");
@@ -598,6 +670,64 @@
     function closeCart() {
       document.getElementById("overlay").style.display = "none";
       document.getElementById("drawer").style.transform = "translateX(100%)";
+    }
+
+    /* Login Modal Functions */
+    function openLoginModal() {
+      document.getElementById("loginModal").style.display = "flex";
+    }
+
+    function closeLoginModal() {
+      document.getElementById("loginModal").style.display = "none";
+      document.getElementById("otpSection").style.display = "none";
+    }
+
+    function switchLoginMode(mode) {
+      const phoneBtn = document.getElementById("phoneTabBtn");
+      const emailBtn = document.getElementById("emailTabBtn");
+      const phoneForm = document.getElementById("phoneLoginForm");
+      const emailForm = document.getElementById("emailLoginForm");
+
+      if (mode === 'phone') {
+        phoneBtn.style.background = "#FFFFFF";
+        phoneBtn.style.fontWeight = "700";
+        phoneBtn.style.boxShadow = "0 2px 4px rgba(0,0,0,0.05)";
+        emailBtn.style.background = "transparent";
+        emailBtn.style.fontWeight = "600";
+        emailBtn.style.boxShadow = "none";
+        phoneForm.style.display = "block";
+        emailForm.style.display = "none";
+      } else {
+        emailBtn.style.background = "#FFFFFF";
+        emailBtn.style.fontWeight = "700";
+        emailBtn.style.boxShadow = "0 2px 4px rgba(0,0,0,0.05)";
+        phoneBtn.style.background = "transparent";
+        phoneBtn.style.fontWeight = "600";
+        phoneBtn.style.boxShadow = "none";
+        emailForm.style.display = "block";
+        phoneForm.style.display = "none";
+      }
+      document.getElementById("otpSection").style.display = "none";
+    }
+
+    function sendOTP(type) {
+      let val = type === 'phone' ? document.getElementById("phoneNumberInput").value : document.getElementById("emailInput").value;
+      if(!val) {
+        alert("Please enter a valid " + type);
+        return;
+      }
+      document.getElementById("otpSection").style.display = "block";
+      alert("Simulated OTP sent successfully to " + val);
+    }
+
+    function verifyOTP() {
+      const otp = document.getElementById("otpInput").value;
+      if(otp.length < 4) {
+        alert("Please enter a 4-digit OTP");
+        return;
+      }
+      alert("Login Successful! Welcome to Soch Vastra.");
+      closeLoginModal();
     }
 
     renderGrid();

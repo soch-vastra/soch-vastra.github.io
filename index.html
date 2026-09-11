@@ -36,7 +36,6 @@
     .tag-left { position: absolute; top: 14px; left: 14px; background: rgba(255,255,255,0.95); color: #1C1917; font-size: 11px; font-weight: 700; padding: 5px 12px; border-radius: 8px; border: 1px solid #E7E5E4; box-shadow: 0 2px 6px rgba(0,0,0,0.05); z-index: 5; }
     .tag-right { position: absolute; top: 14px; right: 14px; background: #1C1917; color: #ffffff; font-size: 11px; font-weight: 700; padding: 5px 12px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); z-index: 5; }
     .swipe-hint { position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,0.75); backdrop-filter: blur(4px); color: #ffffff; font-size: 10px; font-weight: 600; padding: 6px 12px; border-radius: 20px; display: flex; align-items: center; gap: 6px; letter-spacing: 0.3px; }
-    .sold-out-badge { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-8deg); background: rgba(127, 29, 29, 0.94); color: #ffffff; border: 3px solid #ffffff; padding: 10px 22px; border-radius: 8px; font-size: 18px; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase; box-shadow: 0 4px 12px rgba(0,0,0,0.25); z-index: 6; white-space: nowrap; }
 
     .card-body { padding: 22px; flex: 1; }
     .card-title { font-size: 18px; font-weight: 800; margin-bottom: 14px; color: #1C1917; line-height: 1.35; }
@@ -384,7 +383,6 @@
         itemNo: "ITEM NO: B-22",
         title: "Artistic Folk Art Unstitched Suit Set",
         badge: "Cotton-Silk Blend",
-        soldOut: true,
         images: ["images/15.jpg"],
         fabric: "Premium Cotton-Silk Blend with a soft feel",
         work: "Artistic folk art print with detailed neckline and daman design",
@@ -452,7 +450,6 @@
         itemNo: "ITEM NO: B-10",
         title: "Soft Chanderi Resham Work Suit",
         badge: "Chanderi",
-        soldOut: true,
         images: ["images/21.jpg"],
         fabric: "Soft Chanderi Fabric",
         work: "Exquisite Resham Work with Neckline Detailing & All Over Buti",
@@ -508,7 +505,6 @@
               <img src="${s.images[0]}" alt="${s.title}" onerror="this.onerror=null; this.src='https://placehold.co/600x800/FAF5EE/7C2D12?text=Soch+Vastr';" />
               <span class="tag-left">${s.badge}</span>
               <span class="tag-right">${s.itemNo}</span>
-              ${s.soldOut ? '<span class="sold-out-badge">Sold Out</span>' : ''}
               <div class="swipe-hint">
                 <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg>
                 ${s.images.length} Photos • Tap to view

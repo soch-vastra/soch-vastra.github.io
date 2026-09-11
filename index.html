@@ -47,6 +47,8 @@
     .add-btn { width: 100%; background: #7C2D12; color: #ffffff; border: none; padding: 13px; border-radius: 12px; font-size: 13px; font-weight: 700; cursor: pointer; transition: background 0.2s, transform 0.1s; letter-spacing: 0.4px; }
     .add-btn:hover { background: #601F0C; }
     .add-btn:active { transform: scale(0.98); }
+    .add-btn:disabled { background: #D6D3D1; color: #78716C; cursor: not-allowed; }
+    .add-btn:disabled:hover, .add-btn:disabled:active { background: #D6D3D1; transform: none; }
 
     /* Modal Styling */
     .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(5px); z-index: 60; display: none; align-items: center; justify-content: center; padding: 16px; }
@@ -366,11 +368,24 @@
         itemNo: "ITEM NO: b-24 (Jacquard)",
         title: "Jacquard Cotton Thread Patch Suit",
         badge: "Jacquard Cotton",
+        soldOut: true,
         images: ["images/Soch_Vastra_page-0032.jpg"],
         fabric: "Premium Jacquard Cotton",
         work: "Jaipuri Thread Patch Work",
         dupatta: "Full length festive dupatta",
         occasion: "Everyday & Festive Wear"
+      },
+      {
+        id: "b-22-folk-art",
+        itemNo: "ITEM NO: B-22",
+        title: "Artistic Folk Art Unstitched Suit Set",
+        badge: "Cotton-Silk Blend",
+        soldOut: true,
+        images: ["images/388863.png"],
+        fabric: "Premium Cotton-Silk Blend with a soft feel",
+        work: "Artistic folk art print with detailed neckline and daman design",
+        dupatta: "Premium Jiraf Silk Dupatta with traditional folk art print",
+        occasion: "Premium Ethnic, Party & Festive Wear"
       },
       {
         id: "jaipuri-foil",
@@ -471,17 +486,6 @@
         dupatta: "Printed lightweight dupatta",
         occasion: "Casual Party & Festive Wear"
       },
-      {
-        id: "extra-suit-24",
-        itemNo: "ITEM NO: EXT-24",
-        title: "Heritage Organza Celebration Suit",
-        badge: "Organza",
-        images: ["images/Soch_Vastra_page-0015.jpg"],
-        fabric: "Pure Organza",
-        work: "Intricate lacework and pearl embellishments",
-        dupatta: "Scallop bordered organza dupatta",
-        occasion: "Grand Festivities & Parties"
-      }
     ];
 
     let cart = [];
@@ -512,7 +516,7 @@
             </div>
           </div>
           <div class="card-action">
-            <button class="add-btn" onclick="event.stopPropagation(); addToCart('${s.id}')">+ Add to Shortlist</button>
+            <button class="add-btn" ${s.soldOut ? 'disabled' : ''} onclick="event.stopPropagation(); addToCart('${s.id}')">${s.soldOut ? 'Sold Out' : '+ Add to Shortlist'}</button>
           </div>
         </div>
       `).join("");
@@ -555,7 +559,7 @@
             </div>
           </div>
           <div style="margin-top: 24px;">
-            <button class="add-btn" onclick="addToCart('${suit.id}'); closeDetailModal();">+ Add to Shortlist</button>
+            <button class="add-btn" ${suit.soldOut ? 'disabled' : ''} onclick="addToCart('${suit.id}'); closeDetailModal();">${suit.soldOut ? 'Sold Out' : '+ Add to Shortlist'}</button>
           </div>
         </div>
       `;
@@ -585,6 +589,7 @@
 
     function addToCart(id) {
       const suit = suits.find(s => s.id === id);
+      if (!suit || suit.soldOut) return;
       const existing = cart.find(c => c.id === id);
       if (existing) {
         existing.qty += 1;

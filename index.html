@@ -39,7 +39,6 @@
     .card:hover .card-img-wrap img { transform: scale(1.02); }
     
     .tag-left { position: absolute; top: 14px; left: 14px; background: rgba(255,255,255,0.95); color: #1C1917; font-size: 11px; font-weight: 700; padding: 5px 12px; border-radius: 8px; border: 1px solid #E7E5E4; box-shadow: 0 2px 6px rgba(0,0,0,0.05); z-index: 5; }
-    .tag-right { position: absolute; top: 14px; right: 14px; background: #1C1917; color: #ffffff; font-size: 11px; font-weight: 700; padding: 5px 12px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); z-index: 5; }
     .swipe-hint { position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,0.75); backdrop-filter: blur(4px); color: #ffffff; font-size: 10px; font-weight: 600; padding: 6px 12px; border-radius: 20px; display: flex; align-items: center; gap: 6px; letter-spacing: 0.3px; }
     .sold-out-badge { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-8deg); background: rgba(127, 29, 29, 0.94); color: #ffffff; border: 3px solid #ffffff; padding: 10px 22px; border-radius: 8px; font-size: 18px; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase; box-shadow: 0 4px 12px rgba(0,0,0,0.25); z-index: 6; white-space: nowrap; }
     .sold-out-mark { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); background: rgba(127, 29, 29, 0.75); color: #ffffff; border: 1px solid rgba(255,255,255,0.8); width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 800; z-index: 7; box-shadow: 0 1px 4px rgba(0,0,0,0.15); }
@@ -85,7 +84,6 @@
     /* Modal Info */
     .modal-info { flex: 1; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; }
     .modal-info h3 { font-size: 24px; font-weight: 800; color: #1C1917; margin-bottom: 8px; line-height: 1.3; }
-    .modal-info .item-tag { font-size: 12px; font-weight: 700; color: #7C2D12; background: #FEF3C7; padding: 5px 12px; border-radius: 8px; display: inline-block; margin-bottom: 16px; letter-spacing: 0.5px; }
   </style>
 </head>
 <body>
@@ -441,15 +439,36 @@
       },
       {
         id: "item-25",
-        itemNo: "ITEM NO: 25",
         title: "Designer Embroidered Festive Suit Set",
         badge: "Festive Collection",
         soldOut: false,
-        images: ["images/25 (1).jpg", "images/25 (2).jpg", "images/25.jpg"],
+        images: ["images/25(1).jpeg", "images/25(2).jpeg", "images/25.jpeg"],
         fabric: "Premium Designer Fabric with Soft Inner Lining",
         work: "Intricate Thread Embroidery, Neckline Detailing & Fine Work",
         dupatta: "Matching Designer Dupatta with Elegant Border",
         occasion: "Festive, Wedding & Special Party Wear"
+      },
+      {
+        id: "item-26",
+        title: "Mehendi Grace Taneria Silk Suit",
+        badge: "Taneria Silk Edit",
+        soldOut: false,
+        images: ["images/26.jpeg"],
+        fabric: "Taneria Silk Suit with Fine Aura Silk Bottom",
+        work: "Thread & Zari Embroidery with Sequin Highlights, Delicate Buti Work & Elegant Neckline Detail",
+        dupatta: "Taneria Silk Dupatta with Detailed Border",
+        occasion: "Festive & Special Occasions"
+      },
+      {
+        id: "item-27",
+        title: "Peach Blossom Taneria Silk Suit",
+        badge: "Taneria Silk Edit",
+        soldOut: false,
+        images: ["images/27.jpeg"],
+        fabric: "Taneria Silk Suit with Fine Aura Silk Bottom",
+        work: "Thread & Zari Embroidery with Sequin Highlights, Fine Handwork & Elegant Design",
+        dupatta: "Taneria Silk Dupatta with Detailed Border",
+        occasion: "Festive & Special Occasions"
       }
   ];
 
@@ -461,7 +480,6 @@
           <div class="card-img-wrap">
             <img src="${s.images[0]}" alt="${s.title}" onerror="this.onerror=null; this.src='https://placehold.co/600x800/FAF5EE/7C2D12?text=Soch+Vastr';" />
             <span class="tag-left">${s.badge}</span>
-            <span class="tag-right">${s.itemNo}</span>
             ${s.soldOutMark ? `<span class="sold-out-mark">${s.soldOutMark}</span>` : ''}
             ${s.soldOut ? '<span class="sold-out-badge">Sold Out</span>' : ''}
             <div class="swipe-hint">
@@ -513,7 +531,6 @@
       </div>
       <div class="modal-info">
         <div>
-          <span class="item-tag">${suit.itemNo}</span>
           <h3>${suit.title}</h3>
           <div class="details-box" style="margin-top: 14px;">
             <div><strong>Fabric:</strong> ${suit.fabric}</div>

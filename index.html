@@ -109,10 +109,10 @@
   <div class="container">
     <div class="banner">
       <div class="banner-content">
-        <h2><span>✨</span> Festive Collection Vol. I</h2>
-        <p>Immerse yourself in our handcrafted artisanal ensembles. Tap any masterpiece to view intricate close-ups and complete specifications.</p>
+        <h2><span>⚡</span> Aap Pasand Karo, Aadhe Ghante Mein Service Pao!</h2>
+        <p>Apne hometown ka apna trusted boutique. Kisi bhi masterpiece par tap karein, close-ups dekhein aur sirf 30 minutes mein doorstep service ka anand lein.</p>
       </div>
-      <div class="notice-tag">Curated Preview</div>
+      <div class="notice-tag">Fast Local Service</div>
     </div>
 
     <div class="grid" id="productGrid"></div>
@@ -497,46 +497,46 @@
                 <img src="${img}" alt="thumb" onerror="this.onerror=null; this.src='https://placehold.co/100x100/FAF5EE/7C2D12?text=Img';" />
               </button>
             `).join("")}
-        </div>
-      </div>
-      <div class="modal-info">
-        <div>
-          <span class="item-tag">${suit.itemNo}</span>
-          <h3>${suit.title}</h3>
-          <div class="details-box" style="margin-top: 14px;">
-            <div><strong>Fabric:</strong> ${suit.fabric}</div>
-            <div><strong>Work & Pattern:</strong> ${suit.work}</div>
-            <div><strong>Dupatta:</strong> ${suit.dupatta}</div>
-            <div><strong>Ideal For:</strong> ${suit.occasion}</div>
           </div>
         </div>
-      </div>
-    `;
-    modal.style.display = "flex";
+        <div class="modal-info">
+          <div>
+            <span class="item-tag">${suit.itemNo}</span>
+            <h3>${suit.title}</h3>
+            <div class="details-box" style="margin-top: 14px;">
+              <div><strong>Fabric:</strong> ${suit.fabric}</div>
+              <div><strong>Work & Pattern:</strong> ${suit.work}</div>
+              <div><strong>Dupatta:</strong> ${suit.dupatta}</div>
+              <div><strong>Ideal For:</strong> ${suit.occasion}</div>
+            </div>
+          </div>
+        </div>
+      `;
+      modal.style.display = "flex";
 
-    const track = document.getElementById("swipeTrack");
-    track.addEventListener("scroll", () => {
-      const slideWidth = track.offsetWidth;
-      const currentIdx = Math.round(track.scrollLeft / slideWidth);
-      document.querySelectorAll(".thumb-btn").forEach((btn, i) => {
-        btn.classList.toggle("active", i === currentIdx);
+      const track = document.getElementById("swipeTrack");
+      track.addEventListener("scroll", () => {
+        const slideWidth = track.offsetWidth;
+        const currentIdx = Math.round(track.scrollLeft / slideWidth);
+        document.querySelectorAll(".thumb-btn").forEach((btn, i) => {
+          btn.classList.toggle("active", i === currentIdx);
+        });
       });
-    });
-  }
-
-  function scrollToSlide(idx) {
-    const track = document.getElementById("swipeTrack");
-    const slide = document.getElementById(`slide-${idx}`);
-    if (slide && track) {
-      track.scrollTo({ left: slide.offsetLeft - track.offsetLeft, behavior: "smooth" });
     }
-  }
 
-  function closeDetailModal() {
-    document.getElementById("detailModal").style.display = "none";
-  }
+    function scrollToSlide(idx) {
+      const track = document.getElementById("swipeTrack");
+      const slide = document.getElementById(`slide-${idx}`);
+      if (slide && track) {
+        track.scrollTo({ left: slide.offsetLeft - track.offsetLeft, behavior: "smooth" });
+      }
+    }
 
-  renderGrid();
+    function closeDetailModal() {
+      document.getElementById("detailModal").style.display = "none";
+    }
+
+    renderGrid();
   </script>
 </body>
 </html>

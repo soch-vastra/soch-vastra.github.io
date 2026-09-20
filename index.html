@@ -109,8 +109,8 @@
   <div class="container">
     <div class="banner">
       <div class="banner-content">
-        <h2><span>⚡</span> Aap Pasand Karo, Aadhe Ghante Mein Service Pao!</h2>
-        <p>Apne hometown ka apna trusted boutique. Kisi bhi masterpiece par tap karein, close-ups dekhein aur sirf 30 minutes mein doorstep service ka anand lein.</p>
+        <h2><span>⚡</span> Tradition Meets You — In Just 30 Minutes!</h2>
+        <p>Aapki pasand ka sabse behtareen ethnicwear, ab aapke ghar par bina kisi intezaar ke. Kisi bhi masterpiece par tap karein, close-ups dekhein aur turant service payein.</p>
       </div>
       <div class="notice-tag">Fast Local Service</div>
     </div>
@@ -438,105 +438,117 @@
         work: "Artistic Folk Art Print with Detailed Neckline and Daman Work",
         dupatta: "Printed Dupatta with Traditional Folk Art Design",
         occasion: "Premium Ethnic Wear for Festive Gatherings & Special Occasions"
+      },
+      {
+        id: "item-25",
+        itemNo: "ITEM NO: 25",
+        title: "Designer Embroidered Festive Suit Set",
+        badge: "Festive Collection",
+        soldOut: false,
+        images: ["images/25 (1).jpg", "images/25 (2).jpg", "images/25.jpg"],
+        fabric: "Premium Designer Fabric with Soft Inner Lining",
+        work: "Intricate Thread Embroidery, Neckline Detailing & Fine Work",
+        dupatta: "Matching Designer Dupatta with Elegant Border",
+        occasion: "Festive, Wedding & Special Party Wear"
       }
-    ];
+  ];
 
-    function renderGrid() {
-      const container = document.getElementById("productGrid");
-      container.innerHTML = suits.map(s => `
-        <div class="card" onclick="openDetailModal('${s.id}')">
-          <div>
-            <div class="card-img-wrap">
-              <img src="${s.images[0]}" alt="${s.title}" onerror="this.onerror=null; this.src='https://placehold.co/600x800/FAF5EE/7C2D12?text=Soch+Vastr';" />
-              <span class="tag-left">${s.badge}</span>
-              <span class="tag-right">${s.itemNo}</span>
-              ${s.soldOutMark ? `<span class="sold-out-mark">${s.soldOutMark}</span>` : ''}
-              ${s.soldOut ? '<span class="sold-out-badge">Sold Out</span>' : ''}
-              <div class="swipe-hint">
-                <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg>
-                ${s.images.length} Photos • Tap to view
-              </div>
-            </div>
-            <div class="card-body">
-              <h3 class="card-title">${s.title}</h3>
-              <div class="details-box">
-                <div><strong>Kurta:</strong> ${s.fabric}</div>
-                <div><strong>Work:</strong> ${s.work}</div>
-                <div><strong>Dupatta:</strong> ${s.dupatta}</div>
-                <div><strong>Occasion:</strong> ${s.occasion}</div>
-              </div>
+  function renderGrid() {
+    const container = document.getElementById("productGrid");
+    container.innerHTML = suits.map(s => `
+      <div class="card" onclick="openDetailModal('${s.id}')">
+        <div>
+          <div class="card-img-wrap">
+            <img src="${s.images[0]}" alt="${s.title}" onerror="this.onerror=null; this.src='https://placehold.co/600x800/FAF5EE/7C2D12?text=Soch+Vastr';" />
+            <span class="tag-left">${s.badge}</span>
+            <span class="tag-right">${s.itemNo}</span>
+            ${s.soldOutMark ? `<span class="sold-out-mark">${s.soldOutMark}</span>` : ''}
+            ${s.soldOut ? '<span class="sold-out-badge">Sold Out</span>' : ''}
+            <div class="swipe-hint">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg>
+              ${s.images.length} Photos • Tap to view
             </div>
           </div>
-          <div class="card-action">
-            <button class="add-btn" ${s.soldOut ? 'disabled' : ''} onclick="event.stopPropagation();">${s.soldOut ? 'Sold Out' : 'View Details'}</button>
-          </div>
-        </div>
-      `).join("");
-    }
-
-    function openDetailModal(id) {
-      const suit = suits.find(s => s.id === id);
-      const modal = document.getElementById("detailModal");
-      const content = document.getElementById("modalDynamicContent");
-
-      content.innerHTML = `
-        <div class="gallery-container">
-          <div class="swipe-track" id="swipeTrack">
-            ${suit.images.map((img, idx) => `
-              <div class="swipe-slide" id="slide-${idx}">
-                <img src="${img}" alt="${suit.title} preview" onerror="this.onerror=null; this.src='https://placehold.co/600x800/FAF5EE/7C2D12?text=Soch+Vastr';" />
-              </div>
-            `).join("")}
-          </div>
-          <div style="font-size: 11px; color: #78716C; margin-top: 8px; display:flex; align-items:center; gap:5px; font-weight: 500;">
-            <span>👉 Swipe horizontally or select thumbnails below to inspect details</span>
-          </div>
-          <div class="thumbnail-row">
-            ${suit.images.map((img, idx) => `
-              <button class="thumb-btn ${idx === 0 ? 'active' : ''}" onclick="scrollToSlide(${idx})">
-                <img src="${img}" alt="thumb" onerror="this.onerror=null; this.src='https://placehold.co/100x100/FAF5EE/7C2D12?text=Img';" />
-              </button>
-            `).join("")}
-          </div>
-        </div>
-        <div class="modal-info">
-          <div>
-            <span class="item-tag">${suit.itemNo}</span>
-            <h3>${suit.title}</h3>
-            <div class="details-box" style="margin-top: 14px;">
-              <div><strong>Fabric:</strong> ${suit.fabric}</div>
-              <div><strong>Work & Pattern:</strong> ${suit.work}</div>
-              <div><strong>Dupatta:</strong> ${suit.dupatta}</div>
-              <div><strong>Ideal For:</strong> ${suit.occasion}</div>
+          <div class="card-body">
+            <h3 class="card-title">${s.title}</h3>
+            <div class="details-box">
+              <div><strong>Kurta:</strong> ${s.fabric}</div>
+              <div><strong>Work:</strong> ${s.work}</div>
+              <div><strong>Dupatta:</strong> ${s.dupatta}</div>
+              <div><strong>Occasion:</strong> ${s.occasion}</div>
             </div>
           </div>
         </div>
-      `;
-      modal.style.display = "flex";
+        <div class="card-action">
+          <button class="add-btn" ${s.soldOut ? 'disabled' : ''} onclick="event.stopPropagation();">${s.soldOut ? 'Sold Out' : 'View Details'}</button>
+        </div>
+      </div>
+    `).join("");
+  }
 
-      const track = document.getElementById("swipeTrack");
-      track.addEventListener("scroll", () => {
-        const slideWidth = track.offsetWidth;
-        const currentIdx = Math.round(track.scrollLeft / slideWidth);
-        document.querySelectorAll(".thumb-btn").forEach((btn, i) => {
-          btn.classList.toggle("active", i === currentIdx);
-        });
+  function openDetailModal(id) {
+    const suit = suits.find(s => s.id === id);
+    const modal = document.getElementById("detailModal");
+    const content = document.getElementById("modalDynamicContent");
+
+    content.innerHTML = `
+      <div class="gallery-container">
+        <div class="swipe-track" id="swipeTrack">
+          ${suit.images.map((img, idx) => `
+            <div class="swipe-slide" id="slide-${idx}">
+              <img src="${img}" alt="${suit.title} preview" onerror="this.onerror=null; this.src='https://placehold.co/600x800/FAF5EE/7C2D12?text=Soch+Vastr';" />
+            </div>
+          `).join("")}
+        </div>
+        <div style="font-size: 11px; color: #78716C; margin-top: 8px; display:flex; align-items:center; gap:5px; font-weight: 500;">
+          <span>👉 Swipe horizontally or select thumbnails below to inspect details</span>
+        </div>
+        <div class="thumbnail-row">
+          ${suit.images.map((img, idx) => `
+            <button class="thumb-btn ${idx === 0 ? 'active' : ''}" onclick="scrollToSlide(${idx})">
+              <img src="${img}" alt="thumb" onerror="this.onerror=null; this.src='https://placehold.co/100x100/FAF5EE/7C2D12?text=Img';" />
+            </button>
+          `).join("")}
+        </div>
+      </div>
+      <div class="modal-info">
+        <div>
+          <span class="item-tag">${suit.itemNo}</span>
+          <h3>${suit.title}</h3>
+          <div class="details-box" style="margin-top: 14px;">
+            <div><strong>Fabric:</strong> ${suit.fabric}</div>
+            <div><strong>Work & Pattern:</strong> ${suit.work}</div>
+            <div><strong>Dupatta:</strong> ${suit.dupatta}</div>
+            <div><strong>Ideal For:</strong> ${suit.occasion}</div>
+          </div>
+        </div>
+      </div>
+    `;
+    modal.style.display = "flex";
+
+    const track = document.getElementById("swipeTrack");
+    track.addEventListener("scroll", () => {
+      const slideWidth = track.offsetWidth;
+      const currentIdx = Math.round(track.scrollLeft / slideWidth);
+      document.querySelectorAll(".thumb-btn").forEach((btn, i) => {
+        btn.classList.toggle("active", i === currentIdx);
       });
-    }
+    });
+  }
 
-    function scrollToSlide(idx) {
-      const track = document.getElementById("swipeTrack");
-      const slide = document.getElementById(`slide-${idx}`);
-      if (slide && track) {
-        track.scrollTo({ left: slide.offsetLeft - track.offsetLeft, behavior: "smooth" });
-      }
+  function scrollToSlide(idx) {
+    const track = document.getElementById("swipeTrack");
+    const slide = document.getElementById(`slide-${idx}`);
+    if (slide && track) {
+      track.scrollTo({ left: slide.offsetLeft - track.offsetLeft, behavior: "smooth" });
     }
+  }
 
-    function closeDetailModal() {
-      document.getElementById("detailModal").style.display = "none";
-    }
+  function closeDetailModal() {
+    document.getElementById("detailModal").style.display = "none";
+  }
 
-    renderGrid();
+  renderGrid();
   </script>
 </body>
 </html>

@@ -29,7 +29,18 @@
     .notice-tag { background: linear-gradient(135deg, #92400E 0%, #78350F 100%); color: #ffffff; font-size: 11px; font-weight: 700; padding: 8px 16px; border-radius: 10px; letter-spacing: 1px; text-transform: uppercase; box-shadow: 0 4px 12px rgba(120, 53, 15, 0.2); position: relative; z-index: 1; white-space: nowrap; }
 
     .container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+    .catalog-layout { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 28px; align-items: start; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 30px; }
+    .status-filter { position: sticky; top: 104px; background: #ffffff; border: 1px solid #E7E5E4; border-radius: 14px; padding: 16px; }
+    .status-filter h3 { color: #1C1917; font-size: 13px; margin-bottom: 12px; }
+    .status-filter button { width: 100%; background: transparent; border: 1px solid #E7E5E4; border-radius: 8px; color: #44403C; cursor: pointer; font-size: 12px; font-weight: 600; margin-top: 8px; padding: 10px; text-align: left; }
+    .status-filter button.active, .status-filter button:hover { background: #7C2D12; border-color: #7C2D12; color: #ffffff; }
+    @media (max-width: 767px) {
+      .catalog-layout { grid-template-columns: 1fr; gap: 16px; }
+      .status-filter { position: static; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+      .status-filter h3 { width: 100%; margin-bottom: 0; }
+      .status-filter button { flex: 1 1 30%; margin-top: 0; text-align: center; }
+    }
 
     /* Product Card */
     .card { background: #ffffff; border: 1px solid #E7E5E4; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 16px rgba(0,0,0,0.03); cursor: pointer; transition: transform 0.25s ease, box-shadow 0.25s ease; }
@@ -39,9 +50,8 @@
     .card:hover .card-img-wrap img { transform: scale(1.02); }
     
     .tag-left { position: absolute; top: 14px; left: 14px; background: rgba(255,255,255,0.95); color: #1C1917; font-size: 11px; font-weight: 700; padding: 5px 12px; border-radius: 8px; border: 1px solid #E7E5E4; box-shadow: 0 2px 6px rgba(0,0,0,0.05); z-index: 5; }
-    .swipe-hint { position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,0.75); backdrop-filter: blur(4px); color: #ffffff; font-size: 10px; font-weight: 600; padding: 6px 12px; border-radius: 20px; display: flex; align-items: center; gap: 6px; letter-spacing: 0.3px; }
     .sold-out-badge { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-8deg); background: rgba(127, 29, 29, 0.94); color: #ffffff; border: 3px solid #ffffff; padding: 10px 22px; border-radius: 8px; font-size: 18px; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase; box-shadow: 0 4px 12px rgba(0,0,0,0.25); z-index: 6; white-space: nowrap; }
-    .sold-out-mark { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); background: rgba(127, 29, 29, 0.75); color: #ffffff; border: 1px solid rgba(255,255,255,0.8); width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 800; z-index: 7; box-shadow: 0 1px 4px rgba(0,0,0,0.15); }
+    .swipe-hint { position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,0.75); backdrop-filter: blur(4px); color: #ffffff; font-size: 10px; font-weight: 600; padding: 6px 12px; border-radius: 20px; display: flex; align-items: center; gap: 6px; letter-spacing: 0.3px; }
 
     .card-body { padding: 22px; flex: 1; }
     .card-title { font-size: 18px; font-weight: 800; margin-bottom: 14px; color: #1C1917; line-height: 1.35; }
@@ -113,7 +123,15 @@
       <div class="notice-tag">Fast Local Service</div>
     </div>
 
-    <div class="grid" id="productGrid"></div>
+    <div class="catalog-layout">
+      <aside class="status-filter" aria-label="Filter products by availability">
+        <h3>Availability</h3>
+        <button class="active" type="button" data-status-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-status-filter="available" aria-pressed="false">Available</button>
+        <button type="button" data-status-filter="soldOut" aria-pressed="false">Sold Out</button>
+      </aside>
+      <div class="grid" id="productGrid"></div>
+    </div>
   </div>
 
   <!-- Footer Section -->
@@ -173,6 +191,8 @@
         itemNo: "ITEM NO: B-50",
         title: "Green Jiraf Silk Heritage Suit",
         badge: "Jiraf Silk",
+        soldOut: true,
+        showSoldOut: true,
         images: ["images/2 (1).jpg", "images/2 (2).jpg"],
         fabric: "Pure Premium Jiraf Silk",
         work: "Beautiful Zari, Dabka & Sequin work on Neckline with Zari on Daman",
@@ -219,7 +239,6 @@
         itemNo: "ITEM NO: B-40",
         title: "Jacquard Shimmer Party Wear Suit",
         badge: "Jacquard Shimmer",
-        soldOut: true,
         images: ["images/6 (1).jpg", "images/6 (2).jpg"],
         fabric: "Jacquard Shimmer Kurta with Lining",
         work: "Premium Metallic Pearl & Sequence Work with Neck Patch Work",
@@ -242,6 +261,8 @@
         itemNo: "ITEM NO: B-40",
         title: "Pure Kanjivaram Silk Peacock Suit",
         badge: "Kanjivaram Silk",
+        soldOut: true,
+        showSoldOut: true,
         images: ["images/8 (1).jpg", "images/8 (2).jpg"],
         fabric: "Pure Kanjivaram Soft Silk",
         work: "Pure Soft Zari All-Over Work with Elegant Peacock Centre Motif",
@@ -266,6 +287,8 @@
         itemNo: "ITEM NO: B-19",
         title: "Pure Jamdani Silk Mirror Work Suit",
         badge: "Jamdani Silk",
+        soldOut: true,
+        showSoldOut: true,
         soldOutMark: "D",
         images: ["images/10 (1).jpg", "images/10 (2).jpg"],
         fabric: "Pure Jamdani Silk with Self Zari Weaving",
@@ -300,6 +323,8 @@
         itemNo: "ITEM NO: B-20",
         title: "Pure Maheshwari Silk Suit",
         badge: "Pure Maheshwari Silk",
+        soldOut: true,
+        showSoldOut: true,
         images: ["images/13.jpg"],
         fabric: "Pure Maheshwari Silk (With Lining)",
         work: "Elegant traditional print, soft, lightweight & skin-friendly, with lining for extra comfort",
@@ -323,7 +348,8 @@
         itemNo: "ITEM NO: B-20",
         title: "Pure Maheshwari Silk Suit",
         badge: "Pure Maheshwari Silk",
-        soldOut: false,
+        soldOut: true,
+        showSoldOut: true,
         images: ["images/15.jpg"],
         fabric: "Pure Maheshwari Silk with Plain Bottom",
         work: "Patola Inspired Traditional Print, lightweight & skin-friendly",
@@ -348,6 +374,8 @@
         itemNo: "ITEM NO: B-24",
         title: "Premium Jacquard Cotton Suit",
         badge: "Premium Jacquard Cotton",
+        soldOut: true,
+        showSoldOut: true,
         images: ["images/17.jpg"],
         fabric: "Premium Jacquard Cotton with Plain Cotton Bottom (Skin par bahut soft aur soothing hai)",
         work: "Thread Patch Work & Jaipuri Patch Work",
@@ -359,6 +387,8 @@
         itemNo: "ITEM NO: B-20",
         title: "Premium Jaipuri Cotton Suit",
         badge: "Jaipuri Cotton",
+        soldOut: true,
+        showSoldOut: true,
         images: ["images/18.jpg"],
         fabric: "Pure Jaipuri Cotton with Foil Print (Soft, Breathable & Skin-Friendly Fabric)",
         work: "Elegant Thread Work with Beautiful Knot Work, Hand-Embroidered Detailing on Front & Delicate Lace on Daman",
@@ -370,7 +400,8 @@
         itemNo: "ITEM NO: B-24",
         title: "Pure Premium Silk Shimmer Linen Suit Set",
         badge: "Shimmer Linen",
-        soldOut: false,
+        soldOut: true,
+        showSoldOut: true,
         images: ["images/19.jpg"],
         fabric: "Pure Premium Silk Shimmer Linen with Soft & Comfortable Premium Cotton Bottom",
         work: "Elegant Neck Detailing with Thread Work & Mirror Accents, Elegant Self Weaving",
@@ -382,7 +413,8 @@
         itemNo: "ITEM NO: B-18",
         title: "Pure South Cotton Floral Print Suit",
         badge: "Pure South Cotton",
-        soldOut: false,
+        soldOut: true,
+        showSoldOut: true,
         images: ["images/20.jpg"],
         fabric: "Pure South Cotton Kurta & Premium South Cotton Plain Bottom",
         work: "Beautiful all-over floral print, soft, breathable & comfortable",
@@ -472,15 +504,34 @@
       }
   ];
 
+  let statusFilter = "all";
+
+  document.querySelectorAll("[data-status-filter]").forEach(button => {
+    button.addEventListener("click", () => {
+      statusFilter = button.dataset.statusFilter;
+      document.querySelectorAll("[data-status-filter]").forEach(control => {
+        const isActive = control === button;
+        control.classList.toggle("active", isActive);
+        control.setAttribute("aria-pressed", String(isActive));
+      });
+      renderGrid();
+    });
+  });
+
   function renderGrid() {
     const container = document.getElementById("productGrid");
-    container.innerHTML = suits.map(s => `
+    const filteredSuits = suits.filter(s => {
+      if (statusFilter === "available") return !s.soldOut;
+      if (statusFilter === "soldOut") return s.soldOut === true;
+      return !s.soldOut || s.showSoldOut;
+    });
+
+    container.innerHTML = filteredSuits.map(s => `
       <div class="card" onclick="openDetailModal('${s.id}')">
         <div>
           <div class="card-img-wrap">
             <img src="${s.images[0]}" alt="${s.title}" onerror="this.onerror=null; this.src='https://placehold.co/600x800/FAF5EE/7C2D12?text=Soch+Vastr';" />
             <span class="tag-left">${s.badge}</span>
-            ${s.soldOutMark ? `<span class="sold-out-mark">${s.soldOutMark}</span>` : ''}
             ${s.soldOut ? '<span class="sold-out-badge">Sold Out</span>' : ''}
             <div class="swipe-hint">
               <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg>
@@ -498,7 +549,7 @@
           </div>
         </div>
         <div class="card-action">
-          <button class="add-btn" ${s.soldOut ? 'disabled' : ''} onclick="event.stopPropagation();">${s.soldOut ? 'Sold Out' : 'View Details'}</button>
+          <button class="add-btn" ${s.soldOut ? 'disabled' : ''} onclick="event.stopPropagation();">${s.soldOut ? 'Sold Out' : 'Add to Cart'}</button>
         </div>
       </div>
     `).join("");

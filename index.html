@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Soch Vastra | Festive Collection Vol. 1</title>
+  <title>Soch Vastr | Festive Collection Vol. 1</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Trebuchet MS", "Segoe UI", sans-serif; }
     body { background-color: #FAF8F5; color: #2D2A26; padding-bottom: 0px; }
     
     header { position: sticky; top: 0; z-index: 30; background: #ffffff; border-bottom: 1px solid #E7E5E4; padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 10px rgba(0,0,0,0.02); animation: pageReveal 0.55s ease-out both; }
@@ -27,6 +27,27 @@
     .banner h2 span { font-size: 20px; }
     .banner p { font-size: 14px; color: #92400E; font-weight: 500; line-height: 1.6; }
     .notice-tag { background: linear-gradient(135deg, #92400E 0%, #78350F 100%); color: #ffffff; font-size: 11px; font-weight: 700; padding: 8px 16px; border-radius: 10px; letter-spacing: 1px; text-transform: uppercase; box-shadow: 0 4px 12px rgba(120, 53, 15, 0.2); position: relative; z-index: 1; white-space: nowrap; }
+    .about-link { color: #7C2D12; font-size: 12px; font-weight: 800; text-decoration: none; padding: 9px 12px; border: 1px solid #EAD5B5; border-radius: 9px; transition: color 0.2s, background 0.2s, transform 0.2s; }
+    .about-link:hover { color: #ffffff; background: #7C2D12; transform: translateY(-1px); }
+    .about-section { display: none; position: fixed; inset: 0; z-index: 70; margin: 0; padding: 30px 18px; background: rgba(38, 18, 12, 0.86); backdrop-filter: blur(10px); overflow-y: auto; }
+    .about-section.is-open { display: block; animation: overlayFade 0.25s ease-out both; }
+    .about-panel { max-width: 1040px; margin: 0 auto; padding: 58px; background: linear-gradient(115deg, #FFFDF8 0%, #FFF7ED 58%, #FDEBCB 100%); border: 1px solid #D6A85C; border-radius: 24px; color: #3A2118; box-shadow: 0 24px 70px rgba(0, 0, 0, 0.38); position: relative; overflow: hidden; animation: modalPop 0.35s ease-out both; }
+    .about-panel::before { content: ""; position: absolute; inset: 12px; border: 1px solid rgba(184, 134, 69, 0.32); border-radius: 17px; pointer-events: none; }
+    .about-panel::after { content: "✦"; position: absolute; right: 48px; top: 26px; color: #B88645; font-size: 72px; line-height: 1; pointer-events: none; }
+    .about-close { position: absolute; top: 22px; right: 22px; width: 38px; height: 38px; border: 1px solid #C9A15B; border-radius: 50%; background: #FFF7ED; color: #7C2D12; cursor: pointer; font-size: 22px; line-height: 1; transition: background 0.2s, color 0.2s, transform 0.2s; z-index: 2; }
+    .about-close:hover { background: #7C2D12; color: #FFF7ED; transform: rotate(90deg); }
+    .about-kicker { color: #A16207; font-size: 11px; font-weight: 800; letter-spacing: 2.4px; text-transform: uppercase; margin-bottom: 12px; }
+    .about-section h2 { max-width: 700px; color: #4A1D12; font-family: Georgia, "Times New Roman", serif; font-size: clamp(30px, 4vw, 52px); line-height: 1.06; font-weight: 700; margin-bottom: 18px; }
+    .about-lead { max-width: 760px; color: #7C4A32; font-size: 16px; line-height: 1.75; margin-bottom: 34px; }
+    .about-content { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(250px, 0.65fr); gap: 42px; align-items: start; position: relative; z-index: 1; }
+    .about-story { color: #4F3429; font-size: 14px; line-height: 1.85; }
+    .about-story p + p { margin-top: 16px; }
+    .about-story em { color: #9A3412; font-family: Georgia, "Times New Roman", serif; font-size: 1.08em; }
+    .about-aside { border-left: 1px solid #D6A85C; padding-left: 26px; }
+    .about-aside h3 { color: #7C2D12; font-family: Georgia, "Times New Roman", serif; font-size: 23px; margin-bottom: 18px; }
+    .about-fact { padding: 13px 15px; border: 1px solid #EAD5B5; border-radius: 10px; background: rgba(255, 255, 255, 0.55); margin-top: 10px; }
+    .about-fact strong { display: block; color: #7C2D12; font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 5px; }
+    .about-fact span { color: #6B4A3A; font-size: 13px; line-height: 1.5; }
 
     .container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
     .catalog-layout { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 28px; align-items: start; }
@@ -45,26 +66,61 @@
     .status-filter button:hover { border-color: #C2410C; color: #7C2D12; transform: translateX(3px); }
     .status-filter button.active { background: linear-gradient(135deg, #9A3412, #C2410C); border-color: #9A3412; color: #ffffff; box-shadow: 0 6px 14px rgba(154, 52, 18, 0.2); }
     @media (max-width: 767px) {
+      header { padding: 14px 16px; }
+      .brand h1 { font-size: 21px; letter-spacing: 1px; }
+      .brand p { font-size: 9px; letter-spacing: 1.4px; }
+      .header-actions { gap: 6px; }
+      .insta-btn { padding: 9px 11px; font-size: 11px; gap: 0; }
+      .insta-btn span { display: none; }
+      .banner { margin: 18px 0; padding: 20px; border-radius: 16px; gap: 12px; }
+      .banner h2 { font-size: 19px; line-height: 1.25; }
+      .banner h2 span { font-size: 17px; }
+      .banner p { font-size: 12px; line-height: 1.5; }
+      .notice-tag { font-size: 10px; padding: 7px 11px; }
+      .about-link { padding: 8px 10px; font-size: 11px; }
+      .about-section { padding: 12px; }
+      .about-panel { padding: 42px 22px 28px; border-radius: 18px; }
+      .about-panel::after { right: 18px; top: 18px; font-size: 48px; }
+      .about-section h2 { font-size: 34px; max-width: 280px; }
+      .about-lead { font-size: 13px; line-height: 1.65; margin-bottom: 24px; }
+      .about-content { grid-template-columns: 1fr; gap: 28px; }
+      .about-story { font-size: 13px; line-height: 1.75; }
+      .about-aside { border-left: 0; border-top: 1px solid rgba(253, 230, 138, 0.42); padding: 22px 0 0; }
       .catalog-layout { grid-template-columns: 1fr; gap: 16px; }
+      .grid { grid-template-columns: 1fr; gap: 20px; }
       .status-filter { position: static; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
       .status-filter h3 { width: 100%; margin-bottom: 0; }
       .status-filter button { flex: 1 1 30%; margin-top: 0; text-align: center; }
+      .availability-message { margin-bottom: 16px; padding: 12px 14px; gap: 10px; }
+      .availability-message strong { font-size: 13px; }
+      .availability-message span { font-size: 11px; line-height: 1.4; }
+      .card-body { padding: 18px; }
+      .card-title { font-size: 19px; }
+      .card-action { padding: 14px 18px; }
+      .modal-overlay { padding: 10px; }
+      .modal-box { border-radius: 18px; max-height: 94vh; }
+      .gallery-container { padding: 14px; }
+      .swipe-slide { height: 320px; }
+      .modal-info { padding: 20px; }
+      .modal-info h3 { font-size: 20px; }
     }
 
     /* Product Card */
-    .card { background: #ffffff; border: 1px solid #E7E5E4; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 16px rgba(0,0,0,0.03); cursor: pointer; transition: transform 0.25s ease, box-shadow 0.25s ease; animation: cardReveal 0.5s calc(var(--card-index) * 70ms) ease-out both; }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,0.08); }
-    .card-img-wrap { position: relative; width: 100%; height: 390px; background: #F5F5F4; overflow: hidden; }
+    .card { position: relative; background: linear-gradient(#ffffff, #ffffff) padding-box, linear-gradient(135deg, #B88645, #F4E2BC 48%, #A44220) border-box; border: 1px solid transparent; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 16px rgba(124, 45, 18, 0.06), inset 0 0 0 4px #FFFDF8; cursor: pointer; transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; animation: cardReveal 0.5s calc(var(--card-index) * 70ms) ease-out both; }
+    .card::before { content: ""; position: absolute; inset: 8px; border: 1px solid rgba(184, 134, 69, 0.32); border-radius: 14px; pointer-events: none; z-index: 8; transition: border-color 0.25s ease, inset 0.25s ease; }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 14px 30px rgba(124, 45, 18, 0.14), inset 0 0 0 4px #FFFDF8; }
+    .card:hover::before { inset: 6px; border-color: rgba(164, 66, 32, 0.55); }
+    .card-img-wrap { position: relative; width: 100%; aspect-ratio: 1241 / 1754; background: #F5F5F4; overflow: hidden; }
     .card-img-wrap img { width: 100%; height: 100%; object-fit: contain; background-color: #f7f5f0; transition: transform 0.3s ease; }
     .card:hover .card-img-wrap img { transform: scale(1.02); }
     
-    .tag-left { position: absolute; top: 14px; left: 14px; background: rgba(255,255,255,0.95); color: #1C1917; font-size: 11px; font-weight: 700; padding: 5px 12px; border-radius: 8px; border: 1px solid #E7E5E4; box-shadow: 0 2px 6px rgba(0,0,0,0.05); z-index: 5; }
+    .tag-left { position: absolute; top: 14px; left: 14px; background: rgba(255,255,255,0.95); color: #1C1917; font-size: 11px; font-weight: 700; padding: 5px 12px; border-radius: 8px; border: 1px solid #E7E5E4; box-shadow: 0 2px 6px rgba(0,0,0,0.05); z-index: 9; }
     .swipe-hint { position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,0.75); backdrop-filter: blur(4px); color: #ffffff; font-size: 10px; font-weight: 600; padding: 6px 12px; border-radius: 20px; display: flex; align-items: center; gap: 6px; letter-spacing: 0.3px; }
 
     .card-body { padding: 22px; flex: 1; }
-    .card-title { font-size: 18px; font-weight: 800; margin-bottom: 14px; color: #1C1917; line-height: 1.35; }
-    .details-box { background: #FAF9F6; border: 1px solid #F0EEE9; border-radius: 12px; padding: 14px; font-size: 12px; line-height: 1.65; color: #44403C; display: flex; flex-direction: column; gap: 6px; }
-    .details-box strong { color: #1C1917; font-weight: 600; }
+    .card-title { font-family: Georgia, "Times New Roman", serif; font-size: 20px; font-weight: 700; margin-bottom: 14px; color: #6F2A12; line-height: 1.3; letter-spacing: 0.25px; }
+    .details-box { background: #FFFCF7; border: 1px solid #EAD5B5; border-radius: 12px; padding: 14px; font-size: 12px; line-height: 1.7; color: #57504A; display: flex; flex-direction: column; gap: 7px; }
+    .details-box strong { font-family: Georgia, "Times New Roman", serif; color: #7C2D12; font-weight: 700; }
 
     .card-action { padding: 16px 22px; border-top: 1px solid #F5F5F4; }
     .add-btn { width: 100%; background: linear-gradient(135deg, #9A3412, #C2410C); color: #ffffff; border: 1px solid #9A3412; padding: 13px; border-radius: 12px; font-size: 13px; font-weight: 800; cursor: pointer; transition: background 0.2s, transform 0.15s, box-shadow 0.2s; letter-spacing: 0.4px; box-shadow: 0 6px 14px rgba(154, 52, 18, 0.18); }
@@ -118,10 +174,11 @@
   <!-- Header Section -->
   <header>
     <div class="brand">
-      <h1>SOCH VASTRA</h1>
+      <h1>SOCH VASTR</h1>
       <p>Tradition in Every Thread</p>
     </div>
     <div class="header-actions">
+      <a href="#about" class="about-link">About</a>
       <!-- Follow Us Instagram Button -->
       <a href="https://www.instagram.com/soch.vastra" target="_blank" class="insta-btn" title="Follow Us">
         <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
@@ -143,7 +200,7 @@
     <div class="availability-message" id="availabilityMessage" aria-live="polite">
       <div class="availability-icon">✦</div>
       <div>
-        <strong>The complete Soch Vastra edit</strong>
+        <strong>The complete Soch Vastr edit</strong>
         <span>Browse available and sold-out styles in the original collection order.</span>
       </div>
     </div>
@@ -157,13 +214,35 @@
       </aside>
       <div class="grid" id="productGrid"></div>
     </div>
+
+    <section class="about-section" id="about" aria-labelledby="about-title" aria-hidden="true">
+      <div class="about-panel" role="dialog" aria-modal="true">
+        <button class="about-close" type="button" aria-label="Close About section">&times;</button>
+        <div class="about-kicker">The Story Behind The Thread</div>
+        <h2 id="about-title">How Soch Vastr Began</h2>
+        <p class="about-lead">Some brands begin with a business plan. Soch Vastr began with a feeling: the search for something truly different, thoughtful, and made to stay close to the heart.</p>
+        <div class="about-content">
+          <div class="about-story">
+            <p>One fine day, I found myself struggling to find clothing that felt distinct from the ordinary choices available everywhere. That everyday search turned into a simple but powerful question: <em>Why not explore this space myself and give people the absolute best?</em></p>
+            <p>People often say that after 40, you stop chasing new ventures. I believe age is just a number, and it is never too late to begin something meaningful. Coming from a small hometown, I wanted to create a trusted local brand where people would not have to wait days or compromise on quality.</p>
+            <p>That single thought planted the seed for Soch Vastr: a curated world of premium ethnic wear, handcrafted details, skin-soothing fabrics, and festive pieces chosen with genuine care.</p>
+          </div>
+          <aside class="about-aside">
+            <h3>Our Vision & Founder</h3>
+            <div class="about-fact"><strong>Founder</strong><span>Sheetu Rastogi</span></div>
+            <div class="about-fact"><strong>Our belief</strong><span>Clothing is never just fabric. It is a living legacy and a reflection of who you are.</span></div>
+            <div class="about-fact"><strong>Our promise</strong><span>We choose every piece with care, so compliments follow you wherever you go.</span></div>
+          </aside>
+        </div>
+      </div>
+    </section>
   </div>
 
   <!-- Footer Section -->
   <footer style="background-color: #1C1917; color: #E7E5E4; padding: 48px 24px 24px; border-top: 2px solid #7C2D12; margin-top: 40px;">
     <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 36px; padding-bottom: 36px; border-bottom: 1px solid #292524;">
       <div>
-        <h2 style="font-size: 22px; font-weight: 800; color: #FDE68A; letter-spacing: 1.5px; margin-bottom: 8px;">SOCH VASTRA</h2>
+        <h2 style="font-size: 22px; font-weight: 800; color: #FDE68A; letter-spacing: 1.5px; margin-bottom: 8px;">SOCH VASTR</h2>
         <p style="font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: #D6D3D1; font-weight: 600; margin-bottom: 14px;">Tradition in Every Thread</p>
         <p style="font-size: 13px; line-height: 1.6; color: #A8A29E;">Discover our exclusive collection of handcrafted artisanal ensembles, designed to bring timeless elegance to your ethnic wardrobe.</p>
       </div>
@@ -183,7 +262,7 @@
       </div>
     </div>
     <div style="max-width: 1200px; margin: 24px auto 0; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; font-size: 12px; color: #78716C; gap: 12px;">
-      <p>&copy; 2026 Soch Vastra. All Rights Reserved. Tradition Meets You.</p>
+      <p>&copy; 2026 Soch Vastr. All Rights Reserved. Tradition Meets You.</p>
       <p>Crafted for Festive Elegance</p>
     </div>
   </footer>
@@ -535,7 +614,7 @@
       all: {
         className: "",
         icon: "✦",
-        title: "The complete Soch Vastra edit",
+        title: "The complete Soch Vastr edit",
         description: "Browse available and sold-out styles in the original collection order."
       },
       available: {
@@ -561,6 +640,36 @@
       </div>
     `;
   }
+
+  const aboutSection = document.getElementById("about");
+  const aboutLink = document.querySelector(".about-link");
+  const aboutClose = document.querySelector(".about-close");
+
+  function openAbout() {
+    aboutSection.classList.add("is-open");
+    aboutSection.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    aboutClose.focus();
+  }
+
+  function closeAbout() {
+    aboutSection.classList.remove("is-open");
+    aboutSection.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    aboutLink.focus();
+  }
+
+  aboutLink.addEventListener("click", event => {
+    event.preventDefault();
+    openAbout();
+  });
+  aboutClose.addEventListener("click", closeAbout);
+  aboutSection.addEventListener("click", event => {
+    if (event.target === aboutSection) closeAbout();
+  });
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && aboutSection.classList.contains("is-open")) closeAbout();
+  });
 
   document.querySelectorAll("[data-status-filter]").forEach(button => {
     button.addEventListener("click", () => {

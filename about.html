@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Soch Vastr - Tradition in Every Thread</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Trebuchet MS", "Segoe UI", sans-serif; }
+    body { background-color: #FAF8F5; color: #2D2A26; line-height: 1.6; }
+
+    /* Header */
+    header { position: sticky; top: 0; z-index: 30; background: #ffffff; border-bottom: 1px solid #E7E5E4; padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
+    .brand h1 { font-size: 26px; font-weight: 800; color: #7C2D12; letter-spacing: 1.5px; text-decoration: none; }
+    .brand p { font-size: 11px; color: #78716C; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; margin-top: 2px; }
+    .back-link { color: #7C2D12; font-size: 13px; font-weight: 800; text-decoration: none; padding: 9px 16px; border: 1px solid #EAD5B5; border-radius: 9px; background: #FFF7ED; transition: color 0.2s, background 0.2s, transform 0.2s; }
+    .back-link:hover { color: #ffffff; background: #7C2D12; transform: translateY(-1px); }
+
+    /* Hero Section */
+    .about-hero { max-width: 1000px; margin: 48px auto 20px; padding: 0 24px; text-align: center; }
+    .about-kicker { color: #A16207; font-size: 12px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 14px; }
+    .about-hero h2 { color: #4A1D12; font-family: Georgia, "Times New Roman", serif; font-size: clamp(34px, 5vw, 56px); line-height: 1.15; font-weight: 700; margin-bottom: 20px; }
+    .about-lead { max-width: 760px; margin: 0 auto; color: #7C4A32; font-size: 17px; line-height: 1.8; }
+
+    /* Main Content Panel */
+    .about-container { max-width: 1040px; margin: 30px auto 60px; padding: 0 20px; }
+    .about-panel { padding: 58px; background: linear-gradient(115deg, #FFFDF8 0%, #FFF7ED 58%, #FDEBCB 100%); border: 1px solid #D6A85C; border-radius: 24px; color: #3A2118; box-shadow: 0 24px 70px rgba(0, 0, 0, 0.08); position: relative; overflow: hidden; }
+    .about-panel::before { content: ""; position: absolute; inset: 12px; border: 1px solid rgba(184, 134, 69, 0.32); border-radius: 17px; pointer-events: none; }
+    .about-panel::after { content: "✦"; position: absolute; right: 48px; top: 26px; color: #B88645; font-size: 72px; line-height: 1; pointer-events: none; }
+
+    .about-content { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(250px, 0.65fr); gap: 42px; align-items: start; position: relative; z-index: 1; }
+    .about-story { color: #4F3429; font-size: 15px; line-height: 1.9; }
+    .about-story p + p { margin-top: 20px; }
+    .about-story em { color: #9A3412; font-family: Georgia, "Times New Roman", serif; font-size: 1.08em; }
+
+    /* Founder Aside Styles */
+    .about-aside { border-left: 1px solid #D6A85C; padding-left: 26px; text-align: center; }
+    .founder-img-wrap { width: 130px; height: 130px; margin: 0 auto 16px; border-radius: 50%; overflow: hidden; border: 3px solid #D6A85C; box-shadow: 0 8px 20px rgba(124, 45, 18, 0.18); background: #FFF7ED; }
+    .founder-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+    .about-aside h3 { color: #7C2D12; font-family: Georgia, "Times New Roman", serif; font-size: 23px; margin-bottom: 18px; text-align: left; }
+    .about-fact { padding: 14px 16px; border: 1px solid #EAD5B5; border-radius: 10px; background: rgba(255, 255, 255, 0.65); margin-top: 12px; text-align: left; }
+    .about-fact strong { display: block; color: #7C2D12; font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 5px; }
+    .about-fact span { color: #6B4A3A; font-size: 13px; line-height: 1.5; }
+
+    /* Values Grid */
+    .values-grid { max-width: 1040px; margin: 0 auto 60px; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .value-card { background: #ffffff; border: 1px solid #EAD5B5; border-radius: 16px; padding: 28px; box-shadow: 0 4px 16px rgba(124, 45, 18, 0.04); }
+    .value-card h4 { font-family: Georgia, "Times New Roman", serif; font-size: 20px; color: #7C2D12; margin-bottom: 10px; }
+    .value-card p { font-size: 14px; color: #57504A; line-height: 1.7; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header { padding: 14px 16px; }
+      .brand h1 { font-size: 21px; }
+      .about-panel { padding: 36px 20px; border-radius: 18px; }
+      .about-panel::after { display: none; }
+      .about-content { grid-template-columns: 1fr; gap: 28px; }
+      .about-aside { border-left: 0; border-top: 1px solid rgba(214, 168, 92, 0.4); padding: 24px 0 0; text-align: left; }
+      .about-aside h3 { text-align: left; }
+      .founder-img-wrap { margin: 0 0 16px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="brand">
+      <a href="index.html" style="text-decoration: none;"><h1 style="color: #7C2D12;">SOCH VASTR</h1></a>
+      <p>Tradition in Every Thread</p>
+    </div>
+    <a href="index.html" class="back-link">← Back to Catalog</a>
+  </header>
+
+  <!-- Hero Intro -->
+  <section class="about-hero">
+    <div class="about-kicker">The Story Behind The Thread</div>
+    <h2>How Soch Vastr Began</h2>
+    <p class="about-lead">Some brands begin with a business plan. Soch Vastr began with a feeling: the search for something truly different, thoughtful, and made to stay close to the heart.</p>
+  </section>
+
+  <!-- Detailed Story Container -->
+  <div class="about-container">
+    <div class="about-panel">
+      <div class="about-content">
+        <div class="about-story">
+          <p>One fine day, I found myself struggling to find clothing that felt distinct from the ordinary choices available everywhere. That everyday search turned into a simple but powerful question: <em>Why not explore this space myself and give people the absolute best?</em></p>
+          <p>People often say that after 40, you stop chasing new ventures. I believe age is just a number, and it is never too late to begin something meaningful. Coming from a small hometown, I wanted to create a trusted local brand where people would not have to wait days or compromise on quality.</p>
+          <p>That single thought planted the seed for Soch Vastr: a curated world of premium ethnic wear, handcrafted details, skin-soothing fabrics, and festive pieces chosen with genuine care.</p>
+        </div>
+        <aside class="about-aside">
+          <div class="founder-img-wrap">
+            <img src="images/founder.png" alt="Sheetu Rastogi - Founder of Soch Vastr" onerror="this.src='https://placehold.co/200x200/FAF5EE/7C2D12?text=Founder';" />
+          </div>
+          <h3>Our Vision & Founder</h3>
+          <div class="about-fact"><strong>Founder</strong><span>Sheetu Rastogi</span></div>
+          <div class="about-fact"><strong>Our belief</strong><span>Clothing is never just fabric. It is a living legacy and a reflection of who you are.</span></div>
+          <div class="about-fact"><strong>Our promise</strong><span>We choose every piece with care, so compliments follow you wherever you go.</span></div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- Core Values Section -->
+  <div class="values-grid">
+    <div class="value-card">
+      <h4>Handcrafted Authenticity</h4>
+      <p>Every single ensemble is handpicked to ensure authentic weaves, rich traditional prints, and flawless embroidery details that stand out.</p>
+    </div>
+    <div class="value-card">
+      <h4>Skin-Soothing Fabrics</h4>
+      <p>We prioritize breathable, premium-quality textiles like Pure Organza, Kanjivaram Silk, Modal Musleen, and Mal Cotton that feel wonderful on your skin.</p>
+    </div>
+    <div class="value-card">
+      <h4>Rooted in Trust</h4>
+      <p>Built with personal dedication and warmth, our goal is to bring timeless ethnic elegance right to your wardrobe with effortless convenience.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer style="background-color: #1C1917; color: #E7E5E4; padding: 36px 24px; text-align: center; border-top: 2px solid #7C2D12; font-size: 13px;">
+    <p>&copy; 2026 Soch Vastr. All Rights Reserved. Tradition Meets You.</p>
+  </footer>
+
+</body>
+</html>

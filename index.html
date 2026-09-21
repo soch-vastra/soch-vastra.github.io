@@ -6,7 +6,7 @@
   <title>Soch Vastr | Festive Collection Vol. 1</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Trebuchet MS", "Segoe UI", sans-serif; }
-    body { background-color: #FAF8F5; color: #2D2A26; padding-bottom: 0px; }
+    body { background-color: #FAF8F5; color: #2D2A26; padding-bottom: 0px; scroll-behavior: smooth; }
     
     header { position: sticky; top: 0; z-index: 30; background: #ffffff; border-bottom: 1px solid #E7E5E4; padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 10px rgba(0,0,0,0.02); animation: pageReveal 0.55s ease-out both; }
     .brand h1 { font-size: 26px; font-weight: 800; color: #7C2D12; letter-spacing: 1.5px; }
@@ -29,25 +29,6 @@
     .notice-tag { background: linear-gradient(135deg, #92400E 0%, #78350F 100%); color: #ffffff; font-size: 11px; font-weight: 700; padding: 8px 16px; border-radius: 10px; letter-spacing: 1px; text-transform: uppercase; box-shadow: 0 4px 12px rgba(120, 53, 15, 0.2); position: relative; z-index: 1; white-space: nowrap; }
     .about-link { color: #7C2D12; font-size: 12px; font-weight: 800; text-decoration: none; padding: 9px 12px; border: 1px solid #EAD5B5; border-radius: 9px; transition: color 0.2s, background 0.2s, transform 0.2s; }
     .about-link:hover { color: #ffffff; background: #7C2D12; transform: translateY(-1px); }
-    .about-section { display: none; position: fixed; inset: 0; z-index: 70; margin: 0; padding: 30px 18px; background: rgba(38, 18, 12, 0.86); backdrop-filter: blur(10px); overflow-y: auto; }
-    .about-section.is-open { display: block; animation: overlayFade 0.25s ease-out both; }
-    .about-panel { max-width: 1040px; margin: 0 auto; padding: 58px; background: linear-gradient(115deg, #FFFDF8 0%, #FFF7ED 58%, #FDEBCB 100%); border: 1px solid #D6A85C; border-radius: 24px; color: #3A2118; box-shadow: 0 24px 70px rgba(0, 0, 0, 0.38); position: relative; overflow: hidden; animation: modalPop 0.35s ease-out both; }
-    .about-panel::before { content: ""; position: absolute; inset: 12px; border: 1px solid rgba(184, 134, 69, 0.32); border-radius: 17px; pointer-events: none; }
-    .about-panel::after { content: "✦"; position: absolute; right: 48px; top: 26px; color: #B88645; font-size: 72px; line-height: 1; pointer-events: none; }
-    .about-close { position: absolute; top: 22px; right: 22px; width: 38px; height: 38px; border: 1px solid #C9A15B; border-radius: 50%; background: #FFF7ED; color: #7C2D12; cursor: pointer; font-size: 22px; line-height: 1; transition: background 0.2s, color 0.2s, transform 0.2s; z-index: 2; }
-    .about-close:hover { background: #7C2D12; color: #FFF7ED; transform: rotate(90deg); }
-    .about-kicker { color: #A16207; font-size: 11px; font-weight: 800; letter-spacing: 2.4px; text-transform: uppercase; margin-bottom: 12px; }
-    .about-section h2 { max-width: 700px; color: #4A1D12; font-family: Georgia, "Times New Roman", serif; font-size: clamp(30px, 4vw, 52px); line-height: 1.06; font-weight: 700; margin-bottom: 18px; }
-    .about-lead { max-width: 760px; color: #7C4A32; font-size: 16px; line-height: 1.75; margin-bottom: 34px; }
-    .about-content { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(250px, 0.65fr); gap: 42px; align-items: start; position: relative; z-index: 1; }
-    .about-story { color: #4F3429; font-size: 14px; line-height: 1.85; }
-    .about-story p + p { margin-top: 16px; }
-    .about-story em { color: #9A3412; font-family: Georgia, "Times New Roman", serif; font-size: 1.08em; }
-    .about-aside { border-left: 1px solid #D6A85C; padding-left: 26px; }
-    .about-aside h3 { color: #7C2D12; font-family: Georgia, "Times New Roman", serif; font-size: 23px; margin-bottom: 18px; }
-    .about-fact { padding: 13px 15px; border: 1px solid #EAD5B5; border-radius: 10px; background: rgba(255, 255, 255, 0.55); margin-top: 10px; }
-    .about-fact strong { display: block; color: #7C2D12; font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 5px; }
-    .about-fact span { color: #6B4A3A; font-size: 13px; line-height: 1.5; }
 
     .container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
     .catalog-layout { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 28px; align-items: start; }
@@ -65,6 +46,36 @@
     .status-filter button { width: 100%; background: #FFFBEB; border: 1px solid #E7E5E4; border-radius: 10px; color: #44403C; cursor: pointer; font-size: 12px; font-weight: 700; margin-top: 8px; padding: 11px 12px; text-align: left; transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s, box-shadow 0.2s; }
     .status-filter button:hover { border-color: #C2410C; color: #7C2D12; transform: translateX(3px); }
     .status-filter button.active { background: linear-gradient(135deg, #9A3412, #C2410C); border-color: #9A3412; color: #ffffff; box-shadow: 0 6px 14px rgba(154, 52, 18, 0.2); }
+
+    /* Integrated In-Page About Section Styles */
+    .about-section-wrapper { max-width: 1200px; margin: 60px auto 20px; padding: 0 16px; }
+    .about-hero-block { text-align: center; margin-bottom: 30px; }
+    .about-kicker { color: #A16207; font-size: 12px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; }
+    .about-hero-block h2 { color: #4A1D12; font-family: Georgia, "Times New Roman", serif; font-size: clamp(30px, 4vw, 46px); font-weight: 700; margin-bottom: 14px; }
+    .about-lead { max-width: 760px; margin: 0 auto; color: #7C4A32; font-size: 16px; line-height: 1.8; }
+    
+    .about-panel { padding: 48px; background: linear-gradient(115deg, #FFFDF8 0%, #FFF7ED 58%, #FDEBCB 100%); border: 1px solid #D6A85C; border-radius: 24px; color: #3A2118; box-shadow: 0 16px 50px rgba(0, 0, 0, 0.06); position: relative; overflow: hidden; }
+    .about-panel::before { content: ""; position: absolute; inset: 12px; border: 1px solid rgba(184, 134, 69, 0.32); border-radius: 17px; pointer-events: none; }
+    .about-panel::after { content: "✦"; position: absolute; right: 48px; top: 26px; color: #B88645; font-size: 64px; line-height: 1; pointer-events: none; }
+
+    .about-content { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(250px, 0.65fr); gap: 42px; align-items: start; position: relative; z-index: 1; }
+    .about-story { color: #4F3429; font-size: 15px; line-height: 1.9; }
+    .about-story p + p { margin-top: 20px; }
+    .about-story em { color: #9A3412; font-family: Georgia, "Times New Roman", serif; font-size: 1.08em; }
+
+    .about-aside { border-left: 1px solid #D6A85C; padding-left: 26px; text-align: center; }
+    .founder-img-wrap { width: 130px; height: 130px; margin: 0 auto 16px; border-radius: 50%; overflow: hidden; border: 3px solid #D6A85C; box-shadow: 0 8px 20px rgba(124, 45, 18, 0.18); background: #FFF7ED; }
+    .founder-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+    .about-aside h3 { color: #7C2D12; font-family: Georgia, "Times New Roman", serif; font-size: 23px; margin-bottom: 18px; text-align: left; }
+    .about-fact { padding: 14px 16px; border: 1px solid #EAD5B5; border-radius: 10px; background: rgba(255, 255, 255, 0.65); margin-top: 12px; text-align: left; }
+    .about-fact strong { display: block; color: #7C2D12; font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 5px; }
+    .about-fact span { color: #6B4A3A; font-size: 13px; line-height: 1.5; }
+
+    .values-grid { max-width: 1200px; margin: 24px auto 0; padding: 0 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .value-card { background: #ffffff; border: 1px solid #EAD5B5; border-radius: 16px; padding: 24px; box-shadow: 0 4px 16px rgba(124, 45, 18, 0.04); }
+    .value-card h4 { font-family: Georgia, "Times New Roman", serif; font-size: 18px; color: #7C2D12; margin-bottom: 8px; }
+    .value-card p { font-size: 13px; color: #57504A; line-height: 1.6; }
+
     @media (max-width: 767px) {
       header { padding: 14px 16px; }
       .brand h1 { font-size: 21px; letter-spacing: 1px; }
@@ -78,31 +89,17 @@
       .banner p { font-size: 12px; line-height: 1.5; }
       .notice-tag { font-size: 10px; padding: 7px 11px; }
       .about-link { padding: 8px 10px; font-size: 11px; }
-      .about-section { padding: 12px; }
-      .about-panel { padding: 42px 22px 28px; border-radius: 18px; }
-      .about-panel::after { right: 18px; top: 18px; font-size: 48px; }
-      .about-section h2 { font-size: 34px; max-width: 280px; }
-      .about-lead { font-size: 13px; line-height: 1.65; margin-bottom: 24px; }
-      .about-content { grid-template-columns: 1fr; gap: 28px; }
-      .about-story { font-size: 13px; line-height: 1.75; }
-      .about-aside { border-left: 0; border-top: 1px solid rgba(253, 230, 138, 0.42); padding: 22px 0 0; }
       .catalog-layout { grid-template-columns: 1fr; gap: 16px; }
       .grid { grid-template-columns: 1fr; gap: 20px; }
       .status-filter { position: static; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
       .status-filter h3 { width: 100%; margin-bottom: 0; }
       .status-filter button { flex: 1 1 30%; margin-top: 0; text-align: center; }
-      .availability-message { margin-bottom: 16px; padding: 12px 14px; gap: 10px; }
-      .availability-message strong { font-size: 13px; }
-      .availability-message span { font-size: 11px; line-height: 1.4; }
-      .card-body { padding: 18px; }
-      .card-title { font-size: 19px; }
-      .card-action { padding: 14px 18px; }
-      .modal-overlay { padding: 10px; }
-      .modal-box { border-radius: 18px; max-height: 94vh; }
-      .gallery-container { padding: 14px; }
-      .swipe-slide { height: 320px; }
-      .modal-info { padding: 20px; }
-      .modal-info h3 { font-size: 20px; }
+      .about-panel { padding: 32px 20px; border-radius: 18px; }
+      .about-panel::after { display: none; }
+      .about-content { grid-template-columns: 1fr; gap: 28px; }
+      .about-aside { border-left: 0; border-top: 1px solid rgba(214, 168, 92, 0.4); padding: 24px 0 0; text-align: left; }
+      .about-aside h3 { text-align: left; }
+      .founder-img-wrap { margin: 0 0 16px 0; }
     }
 
     /* Product Card */
@@ -125,9 +122,7 @@
     .card-action { padding: 16px 22px; border-top: 1px solid #F5F5F4; }
     .add-btn { width: 100%; background: linear-gradient(135deg, #9A3412, #C2410C); color: #ffffff; border: 1px solid #9A3412; padding: 13px; border-radius: 12px; font-size: 13px; font-weight: 800; cursor: pointer; transition: background 0.2s, transform 0.15s, box-shadow 0.2s; letter-spacing: 0.4px; box-shadow: 0 6px 14px rgba(154, 52, 18, 0.18); }
     .add-btn:hover { background: linear-gradient(135deg, #7C2D12, #9A3412); transform: translateY(-2px); box-shadow: 0 9px 18px rgba(124, 45, 18, 0.24); }
-    .add-btn:active { transform: scale(0.98); }
     .add-btn:disabled { background: #E7E5E4; border-color: #D6D3D1; color: #78716C; box-shadow: none; cursor: not-allowed; }
-    .add-btn:disabled:hover, .add-btn:disabled:active { background: #D6D3D1; transform: none; }
 
     /* Modal Styling */
     .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(5px); z-index: 60; display: none; align-items: center; justify-content: center; padding: 16px; animation: overlayFade 0.2s ease-out both; }
@@ -139,10 +134,6 @@
     @keyframes overlayFade { from { opacity: 0; } to { opacity: 1; } }
     @keyframes modalPop { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
-    }
-    
     .modal-close { position: absolute; top: 18px; right: 18px; background: #F5F5F4; border: none; font-size: 20px; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; color: #44403C; transition: background 0.2s; }
     .modal-close:hover { background: #E7E5E4; }
     
@@ -164,7 +155,6 @@
     .thumb-btn.active { border-color: #7C2D12; }
     .thumb-btn img { width: 100%; height: 100%; object-fit: cover; }
 
-    /* Modal Info */
     .modal-info { flex: 1; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; }
     .modal-info h3 { font-size: 24px; font-weight: 800; color: #1C1917; margin-bottom: 8px; line-height: 1.3; }
   </style>
@@ -178,7 +168,7 @@
       <p>Tradition in Every Thread</p>
     </div>
     <div class="header-actions">
-      <a href="#about" class="about-link">About</a>
+      <a href="#about" class="about-link">About Us</a>
       <!-- Follow Us Instagram Button -->
       <a href="https://www.instagram.com/soch.vastra" target="_blank" class="insta-btn" title="Follow Us">
         <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
@@ -214,32 +204,53 @@
       </aside>
       <div class="grid" id="productGrid"></div>
     </div>
-
-    <section class="about-section" id="about" aria-labelledby="about-title" aria-hidden="true">
-      <div class="about-panel" role="dialog" aria-modal="true">
-        <button class="about-close" type="button" aria-label="Close About section">&times;</button>
-        <div class="about-kicker">The Story Behind The Thread</div>
-        <h2 id="about-title">How Soch Vastr Began</h2>
-        <p class="about-lead">Some brands begin with a business plan. Soch Vastr began with a feeling: the search for something truly different, thoughtful, and made to stay close to the heart.</p>
-        <div class="about-content">
-          <div class="about-story">
-            <p>One fine day, I found myself struggling to find clothing that felt distinct from the ordinary choices available everywhere. That everyday search turned into a simple but powerful question: <em>Why not explore this space myself and give people the absolute best?</em></p>
-            <p>People often say that after 40, you stop chasing new ventures. I believe age is just a number, and it is never too late to begin something meaningful. Coming from a small hometown, I wanted to create a trusted local brand where people would not have to wait days or compromise on quality.</p>
-            <p>That single thought planted the seed for Soch Vastr: a curated world of premium ethnic wear, handcrafted details, skin-soothing fabrics, and festive pieces chosen with genuine care.</p>
-          </div>
-          <aside class="about-aside">
-            <h3>Our Vision & Founder</h3>
-            <div class="about-fact"><strong>Founder</strong><span>Sheetu Rastogi</span></div>
-            <div class="about-fact"><strong>Our belief</strong><span>Clothing is never just fabric. It is a living legacy and a reflection of who you are.</span></div>
-            <div class="about-fact"><strong>Our promise</strong><span>We choose every piece with care, so compliments follow you wherever you go.</span></div>
-          </aside>
-        </div>
-      </div>
-    </section>
   </div>
 
+  <!-- Integrated About Us Section -->
+  <section class="about-section-wrapper" id="about">
+    <div class="about-hero-block">
+      <div class="about-kicker">The Story Behind The Thread</div>
+      <h2>How Soch Vastr Began</h2>
+      <p class="about-lead">Some brands begin with a business plan. Soch Vastr began with a feeling: the search for something truly different, thoughtful, and made to stay close to the heart.</p>
+    </div>
+
+    <div class="about-panel">
+      <div class="about-content">
+        <div class="about-story">
+          <p>One fine day, I found myself struggling to find clothing that felt distinct from the ordinary choices available everywhere. That everyday search turned into a simple but powerful question: <em>Why not explore this space myself and give people the absolute best?</em></p>
+          <p>People often say that after 40, you stop chasing new ventures. I believe age is just a number, and it is never too late to begin something meaningful. Coming from a small hometown, I wanted to create a trusted local brand where people would not have to wait days or compromise on quality.</p>
+          <p>That single thought planted the seed for Soch Vastr: a curated world of premium ethnic wear, handcrafted details, skin-soothing fabrics, and festive pieces chosen with genuine care.</p>
+        </div>
+        <aside class="about-aside">
+          <div class="founder-img-wrap">
+            <img src="images/founder.png" alt="Sheetu Rastogi - Founder of Soch Vastr" onerror="this.src='https://placehold.co/200x200/FAF5EE/7C2D12?text=Founder';" />
+          </div>
+          <h3>Our Vision & Founder</h3>
+          <div class="about-fact"><strong>Founder</strong><span>Sheetu Rastogi</span></div>
+          <div class="about-fact"><strong>Our belief</strong><span>Clothing is never just fabric. It is a living legacy and a reflection of who you are.</span></div>
+          <div class="about-fact"><strong>Our promise</strong><span>We choose every piece with care, so compliments follow you wherever you go.</span></div>
+        </aside>
+      </div>
+    </div>
+
+    <div class="values-grid">
+      <div class="value-card">
+        <h4>Handcrafted Authenticity</h4>
+        <p>Every single ensemble is handpicked to ensure authentic weaves, rich traditional prints, and flawless embroidery details that stand out.</p>
+      </div>
+      <div class="value-card">
+        <h4>Skin-Soothing Fabrics</h4>
+        <p>We prioritize breathable, premium-quality textiles like Pure Organza, Kanjivaram Silk, Modal Musleen, and Mal Cotton that feel wonderful on your skin.</p>
+      </div>
+      <div class="value-card">
+        <h4>Rooted in Trust</h4>
+        <p>Built with personal dedication and warmth, our goal is to bring timeless ethnic elegance right to your wardrobe with effortless convenience.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer Section -->
-  <footer style="background-color: #1C1917; color: #E7E5E4; padding: 48px 24px 24px; border-top: 2px solid #7C2D12; margin-top: 40px;">
+  <footer style="background-color: #1C1917; color: #E7E5E4; padding: 48px 24px 24px; border-top: 2px solid #7C2D12; margin-top: 50px;">
     <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 36px; padding-bottom: 36px; border-bottom: 1px solid #292524;">
       <div>
         <h2 style="font-size: 22px; font-weight: 800; color: #FDE68A; letter-spacing: 1.5px; margin-bottom: 8px;">SOCH VASTR</h2>
@@ -557,7 +568,7 @@
         fabric: "Pure Premium Silk with a soft textured finish",
         work: "Original Pearl with Dabka Work and elegant embroidered neckline",
         dupatta: "Premium striped dupatta with a coordinated border",
-        occasion: "Ethnic Parties & Festive Celebrations"
+        occasion: "Ethnic Parties & Festive Gatherings"
       },
       {
         id: "b-22-folk-art",
@@ -604,185 +615,155 @@
         dupatta: "Taneria Silk Dupatta with Detailed Border",
         occasion: "Festive & Special Occasions"
       }
-  ];
+    ];
 
-  let statusFilter = "all";
+    let statusFilter = "all";
 
-  function updateAvailabilityMessage() {
-    const message = document.getElementById("availabilityMessage");
-    const copy = {
-      all: {
-        className: "",
-        icon: "✦",
-        title: "The complete Soch Vastr edit",
-        description: "Browse available and sold-out styles in the original collection order."
-      },
-      available: {
-        className: "available",
-        icon: "✓",
-        title: "Ready to become your next favourite",
-        description: "These styles are available now and ready to add to your cart."
-      },
-      soldOut: {
-        className: "sold-out",
-        icon: "—",
-        title: "Archive pieces, currently sold out",
-        description: "A look back at the styles that have already found their homes."
-      }
-    }[statusFilter];
+    function updateAvailabilityMessage() {
+      const message = document.getElementById("availabilityMessage");
+      const copy = {
+        all: {
+          className: "",
+          icon: "✦",
+          title: "The complete Soch Vastr edit",
+          description: "Browse available and sold-out styles in the original collection order."
+        },
+        available: {
+          className: "available",
+          icon: "✓",
+          title: "Ready to become your next favourite",
+          description: "These styles are available now and ready to add to your cart."
+        },
+        soldOut: {
+          className: "sold-out",
+          icon: "—",
+          title: "Archive pieces, currently sold out",
+          description: "A look back at the styles that have already found their homes."
+        }
+      }[statusFilter];
 
-    message.className = `availability-message ${copy.className}`;
-    message.innerHTML = `
-      <div class="availability-icon">${copy.icon}</div>
-      <div>
-        <strong>${copy.title}</strong>
-        <span>${copy.description}</span>
-      </div>
-    `;
-  }
-
-  const aboutSection = document.getElementById("about");
-  const aboutLink = document.querySelector(".about-link");
-  const aboutClose = document.querySelector(".about-close");
-
-  function openAbout() {
-    aboutSection.classList.add("is-open");
-    aboutSection.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-    aboutClose.focus();
-  }
-
-  function closeAbout() {
-    aboutSection.classList.remove("is-open");
-    aboutSection.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
-    aboutLink.focus();
-  }
-
-  aboutLink.addEventListener("click", event => {
-    event.preventDefault();
-    openAbout();
-  });
-  aboutClose.addEventListener("click", closeAbout);
-  aboutSection.addEventListener("click", event => {
-    if (event.target === aboutSection) closeAbout();
-  });
-  document.addEventListener("keydown", event => {
-    if (event.key === "Escape" && aboutSection.classList.contains("is-open")) closeAbout();
-  });
-
-  document.querySelectorAll("[data-status-filter]").forEach(button => {
-    button.addEventListener("click", () => {
-      statusFilter = button.dataset.statusFilter;
-      document.querySelectorAll("[data-status-filter]").forEach(control => {
-        const isActive = control === button;
-        control.classList.toggle("active", isActive);
-        control.setAttribute("aria-pressed", String(isActive));
-      });
-      updateAvailabilityMessage();
-      renderGrid();
-    });
-  });
-
-  function renderGrid() {
-    const container = document.getElementById("productGrid");
-    const filteredSuits = suits.filter(s => {
-      if (statusFilter === "available") return !s.soldOut;
-      if (statusFilter === "soldOut") return s.soldOut === true;
-      return true;
-    });
-
-    container.innerHTML = filteredSuits.map((s, index) => `
-      <div class="card" style="--card-index: ${index};" onclick="openDetailModal('${s.id}')">
+      message.className = `availability-message ${copy.className}`;
+      message.innerHTML = `
+        <div class="availability-icon">${copy.icon}</div>
         <div>
-          <div class="card-img-wrap">
-            <img src="${s.images[0]}" alt="${s.title}" onerror="this.onerror=null; this.src='https://placehold.co/600x800/FAF5EE/7C2D12?text=Soch+Vastr';" />
-            <span class="tag-left">${s.badge}</span>
-            <div class="swipe-hint">
-              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg>
-              ${s.images.length} Photos • Tap to view
-            </div>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">${s.title}</h3>
-            <div class="details-box">
-              <div><strong>Kurta:</strong> ${s.fabric}</div>
-              <div><strong>Work:</strong> ${s.work}</div>
-              <div><strong>Dupatta:</strong> ${s.dupatta}</div>
-              <div><strong>Occasion:</strong> ${s.occasion}</div>
-            </div>
-          </div>
+          <strong>${copy.title}</strong>
+          <span>${copy.description}</span>
         </div>
-        <div class="card-action">
-          <button class="add-btn" ${s.soldOut ? 'disabled' : ''} onclick="event.stopPropagation();">${s.soldOut ? 'Sold Out' : 'Add to Cart'}</button>
-        </div>
-      </div>
-    `).join("");
-  }
-
-  function openDetailModal(id) {
-    const suit = suits.find(s => s.id === id);
-    const modal = document.getElementById("detailModal");
-    const content = document.getElementById("modalDynamicContent");
-
-    content.innerHTML = `
-      <div class="gallery-container">
-        <div class="swipe-track" id="swipeTrack">
-          ${suit.images.map((img, idx) => `
-            <div class="swipe-slide" id="slide-${idx}">
-              <img src="${img}" alt="${suit.title} preview" onerror="this.onerror=null; this.src='https://placehold.co/600x800/FAF5EE/7C2D12?text=Soch+Vastr';" />
-            </div>
-          `).join("")}
-        </div>
-        <div style="font-size: 11px; color: #78716C; margin-top: 8px; display:flex; align-items:center; gap:5px; font-weight: 500;">
-          <span>👉 Swipe horizontally or select thumbnails below to inspect details</span>
-        </div>
-        <div class="thumbnail-row">
-          ${suit.images.map((img, idx) => `
-            <button class="thumb-btn ${idx === 0 ? 'active' : ''}" onclick="scrollToSlide(${idx})">
-              <img src="${img}" alt="thumb" onerror="this.onerror=null; this.src='https://placehold.co/100x100/FAF5EE/7C2D12?text=Img';" />
-            </button>
-          `).join("")}
-        </div>
-      </div>
-      <div class="modal-info">
-        <div>
-          <h3>${suit.title}</h3>
-          <div class="details-box" style="margin-top: 14px;">
-            <div><strong>Fabric:</strong> ${suit.fabric}</div>
-            <div><strong>Work & Pattern:</strong> ${suit.work}</div>
-            <div><strong>Dupatta:</strong> ${suit.dupatta}</div>
-            <div><strong>Ideal For:</strong> ${suit.occasion}</div>
-          </div>
-        </div>
-      </div>
-    `;
-    modal.style.display = "flex";
-
-    const track = document.getElementById("swipeTrack");
-    track.addEventListener("scroll", () => {
-      const slideWidth = track.offsetWidth;
-      const currentIdx = Math.round(track.scrollLeft / slideWidth);
-      document.querySelectorAll(".thumb-btn").forEach((btn, i) => {
-        btn.classList.toggle("active", i === currentIdx);
-      });
-    });
-  }
-
-  function scrollToSlide(idx) {
-    const track = document.getElementById("swipeTrack");
-    const slide = document.getElementById(`slide-${idx}`);
-    if (slide && track) {
-      track.scrollTo({ left: slide.offsetLeft - track.offsetLeft, behavior: "smooth" });
+      `;
     }
-  }
 
-  function closeDetailModal() {
-    document.getElementById("detailModal").style.display = "none";
-  }
+    document.querySelectorAll("[data-status-filter]").forEach(button => {
+      button.addEventListener("click", () => {
+        statusFilter = button.dataset.statusFilter;
+        document.querySelectorAll("[data-status-filter]").forEach(control => {
+          const isActive = control === button;
+          control.classList.toggle("active", isActive);
+          control.setAttribute("aria-pressed", String(isActive));
+        });
+        updateAvailabilityMessage();
+        renderGrid();
+      });
+    });
 
-  updateAvailabilityMessage();
-  renderGrid();
+    function renderGrid() {
+      const container = document.getElementById("productGrid");
+      const filteredSuits = suits.filter(s => {
+        if (statusFilter === "available") return !s.soldOut;
+        if (statusFilter === "soldOut") return s.soldOut === true;
+        return true;
+      });
+
+      container.innerHTML = filteredSuits.map((s, index) => `
+        <div class="card" style="--card-index: ${index};" onclick="openDetailModal('${s.id}')">
+          <div>
+            <div class="card-img-wrap">
+              <img src="${s.images[0]}" alt="${s.title}" onerror="this.onerror=null; this.src='https://placehold.co/600x800/FAF5EE/7C2D12?text=Soch+Vastr';" />
+              <span class="tag-left">${s.badge}</span>
+              <div class="swipe-hint">
+                <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg>
+                ${s.images.length} Photos • Tap to view
+              </div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">${s.title}</h3>
+              <div class="details-box">
+                <div><strong>Kurta:</strong> ${s.fabric}</div>
+                <div><strong>Work:</strong> ${s.work}</div>
+                <div><strong>Dupatta:</strong> ${s.dupatta}</div>
+                <div><strong>Occasion:</strong> ${s.occasion}</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-action">
+            <button class="add-btn" ${s.soldOut ? 'disabled' : ''} onclick="event.stopPropagation();">${s.soldOut ? 'Sold Out' : 'Add to Cart'}</button>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function openDetailModal(id) {
+      const suit = suits.find(s => s.id === id);
+      const modal = document.getElementById("detailModal");
+      const content = document.getElementById("modalDynamicContent");
+
+      content.innerHTML = `
+        <div class="gallery-container">
+          <div class="swipe-track" id="swipeTrack">
+            ${suit.images.map((img, idx) => `
+              <div class="swipe-slide" id="slide-${idx}">
+                <img src="${img}" alt="${suit.title} preview" onerror="this.onerror=null; this.src='https://placehold.co/600x800/FAF5EE/7C2D12?text=Soch+Vastr';" />
+              </div>
+            `).join("")}
+          </div>
+          <div style="font-size: 11px; color: #78716C; margin-top: 8px; display:flex; align-items:center; gap:5px; font-weight: 500;">
+            <span>👉 Swipe horizontally or select thumbnails below to inspect details</span>
+          </div>
+          <div class="thumbnail-row">
+            ${suit.images.map((img, idx) => `
+              <button class="thumb-btn ${idx === 0 ? 'active' : ''}" onclick="scrollToSlide(${idx})">
+                <img src="${img}" alt="thumb" onerror="this.onerror=null; this.src='https://placehold.co/100x100/FAF5EE/7C2D12?text=Img';" />
+              </button>
+            `).join("")}
+          </div>
+        </div>
+        <div class="modal-info">
+          <div>
+            <h3>${suit.title}</h3>
+            <div class="details-box" style="margin-top: 14px;">
+              <div><strong>Fabric:</strong> ${suit.fabric}</div>
+              <div><strong>Work & Pattern:</strong> ${suit.work}</div>
+              <div><strong>Dupatta:</strong> ${suit.dupatta}</div>
+              <div><strong>Ideal For:</strong> ${suit.occasion}</div>
+            </div>
+          </div>
+        </div>
+      `;
+      modal.style.display = "flex";
+
+      const track = document.getElementById("swipeTrack");
+      track.addEventListener("scroll", () => {
+        const slideWidth = track.offsetWidth;
+        const currentIdx = Math.round(track.scrollLeft / slideWidth);
+        document.querySelectorAll(".thumb-btn").forEach((btn, i) => {
+          btn.classList.toggle("active", i === currentIdx);
+        });
+      });
+    }
+
+    function scrollToSlide(idx) {
+      const track = document.getElementById("swipeTrack");
+      const slide = document.getElementById(`slide-${idx}`);
+      if (slide && track) {
+        track.scrollTo({ left: slide.offsetLeft - track.offsetLeft, behavior: "smooth" });
+      }
+    }
+
+    function closeDetailModal() {
+      document.getElementById("detailModal").style.display = "none";
+    }
+
+    updateAvailabilityMessage();
+    renderGrid();
   </script>
 </body>
 </html>

@@ -4,160 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Soch Vastr | Festive Collection Vol. 1</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Trebuchet MS", "Segoe UI", sans-serif; }
-    body { background-color: #FAF8F5; color: #2D2A26; padding-bottom: 0px; scroll-behavior: smooth; }
-    
-    header { position: sticky; top: 0; z-index: 30; background: #ffffff; border-bottom: 1px solid #E7E5E4; padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 10px rgba(0,0,0,0.02); animation: pageReveal 0.55s ease-out both; }
-    .brand h1 { font-size: 26px; font-weight: 800; color: #7C2D12; letter-spacing: 1.5px; }
-    .brand p { font-size: 11px; color: #78716C; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; margin-top: 2px; }
-    
-    .header-actions { display: flex; gap: 12px; align-items: center; }
-
-    /* Instagram Follow Button Styling */
-    .insta-btn { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: #ffffff; border: none; padding: 10px 22px; border-radius: 999px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; text-decoration: none; transition: opacity 0.2s, transform 0.1s; box-shadow: 0 2px 8px rgba(220, 39, 67, 0.25); }
-    .insta-btn:hover { opacity: 0.92; transform: translateY(-1px); }
-    .insta-btn svg { width: 16px; height: 16px; fill: currentColor; }
-
-    /* Updated Classy Royal Banner */
-    .banner { max-width: 1200px; margin: 28px auto; padding: 28px 36px; background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 50%, #FDE68A 100%); border: 1.5px solid #FCD34D; border-radius: 20px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; box-shadow: 0 8px 24px rgba(217, 119, 6, 0.1); position: relative; overflow: hidden; animation: pageReveal 0.65s 0.12s ease-out both; }
-    .banner::before { content: ''; position: absolute; top: -50px; right: -50px; width: 180px; height: 180px; background: rgba(252, 211, 77, 0.3); border-radius: 50%; pointer-events: none; }
-    .banner-content { position: relative; z-index: 1; max-width: 820px; }
-    .banner h2 { font-size: 24px; color: #78350F; margin-bottom: 6px; font-weight: 800; letter-spacing: 0.5px; display: flex; align-items: center; gap: 8px; }
-    .banner h2 span { font-size: 20px; }
-    .banner p { font-size: 14px; color: #92400E; font-weight: 500; line-height: 1.6; }
-    .notice-tag { background: linear-gradient(135deg, #92400E 0%, #78350F 100%); color: #ffffff; font-size: 11px; font-weight: 700; padding: 8px 16px; border-radius: 10px; letter-spacing: 1px; text-transform: uppercase; box-shadow: 0 4px 12px rgba(120, 53, 15, 0.2); position: relative; z-index: 1; white-space: nowrap; }
-    .about-link { color: #7C2D12; font-size: 12px; font-weight: 800; text-decoration: none; padding: 9px 12px; border: 1px solid #EAD5B5; border-radius: 9px; transition: color 0.2s, background 0.2s, transform 0.2s; }
-    .about-link:hover { color: #ffffff; background: #7C2D12; transform: translateY(-1px); }
-
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
-    .catalog-layout { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 28px; align-items: start; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 30px; }
-    .availability-message { display: flex; align-items: center; gap: 14px; margin: 0 auto 22px; max-width: 1200px; padding: 14px 18px; border: 1px solid #FED7AA; border-left: 4px solid #C2410C; border-radius: 14px; background: linear-gradient(100deg, #FFF7ED, #FFFBEB); color: #7C2D12; box-shadow: 0 8px 20px rgba(124, 45, 18, 0.08); animation: messageReveal 0.45s ease-out both; }
-    .availability-message.sold-out { border-color: #FECACA; border-left-color: #B91C1C; background: linear-gradient(100deg, #FEF2F2, #FFF7ED); color: #991B1B; }
-    .availability-message.available { border-color: #BBF7D0; border-left-color: #15803D; background: linear-gradient(100deg, #F0FDF4, #FFFBEB); color: #166534; }
-    .availability-icon { display: grid; place-items: center; flex: 0 0 34px; width: 34px; height: 34px; border-radius: 50%; background: #C2410C; color: #ffffff; font-size: 18px; font-weight: 800; animation: messagePulse 2.2s ease-in-out infinite; }
-    .sold-out .availability-icon { background: #B91C1C; }
-    .available .availability-icon { background: #15803D; }
-    .availability-message strong { display: block; font-size: 14px; letter-spacing: 0.2px; }
-    .availability-message span { display: block; margin-top: 2px; font-size: 12px; color: currentColor; opacity: 0.78; }
-    .status-filter { position: sticky; top: 104px; background: #ffffff; border: 1px solid #E7E5E4; border-radius: 14px; padding: 16px; }
-    .status-filter h3 { color: #1C1917; font-size: 13px; margin-bottom: 12px; }
-    .status-filter button { width: 100%; background: #FFFBEB; border: 1px solid #E7E5E4; border-radius: 10px; color: #44403C; cursor: pointer; font-size: 12px; font-weight: 700; margin-top: 8px; padding: 11px 12px; text-align: left; transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s, box-shadow 0.2s; }
-    .status-filter button:hover { border-color: #C2410C; color: #7C2D12; transform: translateX(3px); }
-    .status-filter button.active { background: linear-gradient(135deg, #9A3412, #C2410C); border-color: #9A3412; color: #ffffff; box-shadow: 0 6px 14px rgba(154, 52, 18, 0.2); }
-
-    /* Integrated In-Page About Section Styles */
-    .about-section-wrapper { max-width: 1200px; margin: 60px auto 20px; padding: 0 16px; }
-    .about-hero-block { text-align: center; margin-bottom: 30px; }
-    .about-kicker { color: #A16207; font-size: 12px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; }
-    .about-hero-block h2 { color: #4A1D12; font-family: Georgia, "Times New Roman", serif; font-size: clamp(30px, 4vw, 46px); font-weight: 700; margin-bottom: 14px; }
-    .about-lead { max-width: 760px; margin: 0 auto; color: #7C4A32; font-size: 16px; line-height: 1.8; }
-    
-    .about-panel { padding: 48px; background: linear-gradient(115deg, #FFFDF8 0%, #FFF7ED 58%, #FDEBCB 100%); border: 1px solid #D6A85C; border-radius: 24px; color: #3A2118; box-shadow: 0 16px 50px rgba(0, 0, 0, 0.06); position: relative; overflow: hidden; }
-    .about-panel::before { content: ""; position: absolute; inset: 12px; border: 1px solid rgba(184, 134, 69, 0.32); border-radius: 17px; pointer-events: none; }
-    .about-panel::after { content: "✦"; position: absolute; right: 48px; top: 26px; color: #B88645; font-size: 64px; line-height: 1; pointer-events: none; }
-
-    .about-content { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(250px, 0.65fr); gap: 42px; align-items: start; position: relative; z-index: 1; }
-    .about-story { color: #4F3429; font-size: 15px; line-height: 1.9; }
-    .about-story p + p { margin-top: 20px; }
-    .about-story em { color: #9A3412; font-family: Georgia, "Times New Roman", serif; font-size: 1.08em; }
-
-    .about-aside { border-left: 1px solid #D6A85C; padding-left: 26px; text-align: center; }
-    .founder-img-wrap { width: 130px; height: 130px; margin: 0 auto 16px; border-radius: 50%; overflow: hidden; border: 3px solid #D6A85C; box-shadow: 0 8px 20px rgba(124, 45, 18, 0.18); background: #FFF7ED; }
-    .founder-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
-    .about-aside h3 { color: #7C2D12; font-family: Georgia, "Times New Roman", serif; font-size: 23px; margin-bottom: 18px; text-align: left; }
-    .about-fact { padding: 14px 16px; border: 1px solid #EAD5B5; border-radius: 10px; background: rgba(255, 255, 255, 0.65); margin-top: 12px; text-align: left; }
-    .about-fact strong { display: block; color: #7C2D12; font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 5px; }
-    .about-fact span { color: #6B4A3A; font-size: 13px; line-height: 1.5; }
-
-    .values-grid { max-width: 1200px; margin: 24px auto 0; padding: 0 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-    .value-card { background: #ffffff; border: 1px solid #EAD5B5; border-radius: 16px; padding: 24px; box-shadow: 0 4px 16px rgba(124, 45, 18, 0.04); }
-    .value-card h4 { font-family: Georgia, "Times New Roman", serif; font-size: 18px; color: #7C2D12; margin-bottom: 8px; }
-    .value-card p { font-size: 13px; color: #57504A; line-height: 1.6; }
-
-    @media (max-width: 767px) {
-      header { padding: 14px 16px; }
-      .brand h1 { font-size: 21px; letter-spacing: 1px; }
-      .brand p { font-size: 9px; letter-spacing: 1.4px; }
-      .header-actions { gap: 6px; }
-      .insta-btn { padding: 9px 11px; font-size: 11px; gap: 0; }
-      .insta-btn span { display: none; }
-      .banner { margin: 18px 0; padding: 20px; border-radius: 16px; gap: 12px; }
-      .banner h2 { font-size: 19px; line-height: 1.25; }
-      .banner h2 span { font-size: 17px; }
-      .banner p { font-size: 12px; line-height: 1.5; }
-      .notice-tag { font-size: 10px; padding: 7px 11px; }
-      .about-link { padding: 8px 10px; font-size: 11px; }
-      .catalog-layout { grid-template-columns: 1fr; gap: 16px; }
-      .grid { grid-template-columns: 1fr; gap: 20px; }
-      .status-filter { position: static; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-      .status-filter h3 { width: 100%; margin-bottom: 0; }
-      .status-filter button { flex: 1 1 30%; margin-top: 0; text-align: center; }
-      .about-panel { padding: 32px 20px; border-radius: 18px; }
-      .about-panel::after { display: none; }
-      .about-content { grid-template-columns: 1fr; gap: 28px; }
-      .about-aside { border-left: 0; border-top: 1px solid rgba(214, 168, 92, 0.4); padding: 24px 0 0; text-align: left; }
-      .about-aside h3 { text-align: left; }
-      .founder-img-wrap { margin: 0 0 16px 0; }
-    }
-
-    /* Product Card */
-    .card { position: relative; background: linear-gradient(#ffffff, #ffffff) padding-box, linear-gradient(135deg, #B88645, #F4E2BC 48%, #A44220) border-box; border: 1px solid transparent; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 16px rgba(124, 45, 18, 0.06), inset 0 0 0 4px #FFFDF8; cursor: pointer; transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; animation: cardReveal 0.5s calc(var(--card-index) * 70ms) ease-out both; }
-    .card::before { content: ""; position: absolute; inset: 8px; border: 1px solid rgba(184, 134, 69, 0.32); border-radius: 14px; pointer-events: none; z-index: 8; transition: border-color 0.25s ease, inset 0.25s ease; }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 14px 30px rgba(124, 45, 18, 0.14), inset 0 0 0 4px #FFFDF8; }
-    .card:hover::before { inset: 6px; border-color: rgba(164, 66, 32, 0.55); }
-    .card-img-wrap { position: relative; width: 100%; aspect-ratio: 1241 / 1754; background: #F5F5F4; overflow: hidden; }
-    .card-img-wrap img { width: 100%; height: 100%; object-fit: contain; background-color: #f7f5f0; transition: transform 0.3s ease; }
-    .card:hover .card-img-wrap img { transform: scale(1.02); }
-    
-    .tag-left { position: absolute; top: 14px; left: 14px; background: rgba(255,255,255,0.95); color: #1C1917; font-size: 11px; font-weight: 700; padding: 5px 12px; border-radius: 8px; border: 1px solid #E7E5E4; box-shadow: 0 2px 6px rgba(0,0,0,0.05); z-index: 9; }
-    .swipe-hint { position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,0.75); backdrop-filter: blur(4px); color: #ffffff; font-size: 10px; font-weight: 600; padding: 6px 12px; border-radius: 20px; display: flex; align-items: center; gap: 6px; letter-spacing: 0.3px; }
-
-    .card-body { padding: 22px; flex: 1; }
-    .card-title { font-family: Georgia, "Times New Roman", serif; font-size: 20px; font-weight: 700; margin-bottom: 14px; color: #6F2A12; line-height: 1.3; letter-spacing: 0.25px; }
-    .details-box { background: #FFFCF7; border: 1px solid #EAD5B5; border-radius: 12px; padding: 14px; font-size: 12px; line-height: 1.7; color: #57504A; display: flex; flex-direction: column; gap: 7px; }
-    .details-box strong { font-family: Georgia, "Times New Roman", serif; color: #7C2D12; font-weight: 700; }
-
-    .card-action { padding: 16px 22px; border-top: 1px solid #F5F5F4; }
-    .add-btn { width: 100%; background: linear-gradient(135deg, #9A3412, #C2410C); color: #ffffff; border: 1px solid #9A3412; padding: 13px; border-radius: 12px; font-size: 13px; font-weight: 800; cursor: pointer; transition: background 0.2s, transform 0.15s, box-shadow 0.2s; letter-spacing: 0.4px; box-shadow: 0 6px 14px rgba(154, 52, 18, 0.18); }
-    .add-btn:hover { background: linear-gradient(135deg, #7C2D12, #9A3412); transform: translateY(-2px); box-shadow: 0 9px 18px rgba(124, 45, 18, 0.24); }
-    .add-btn:disabled { background: #E7E5E4; border-color: #D6D3D1; color: #78716C; box-shadow: none; cursor: not-allowed; }
-
-    /* Modal Styling */
-    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(5px); z-index: 60; display: none; align-items: center; justify-content: center; padding: 16px; animation: overlayFade 0.2s ease-out both; }
-    .modal-box { background: #ffffff; border-radius: 24px; width: 100%; max-width: 920px; max-height: 90vh; overflow-y: auto; display: flex; flex-direction: column; position: relative; box-shadow: 0 24px 48px rgba(0,0,0,0.25); animation: modalPop 0.25s ease-out; }
-    @keyframes pageReveal { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes cardReveal { from { opacity: 0; transform: translateY(16px) scale(0.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
-    @keyframes messageReveal { from { opacity: 0; transform: translateY(-8px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
-    @keyframes messagePulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
-    @keyframes overlayFade { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes modalPop { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-
-    .modal-close { position: absolute; top: 18px; right: 18px; background: #F5F5F4; border: none; font-size: 20px; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; color: #44403C; transition: background 0.2s; }
-    .modal-close:hover { background: #E7E5E4; }
-    
-    .modal-content { display: flex; flex-direction: column; }
-    @media(min-width: 768px) {
-      .modal-content { flex-direction: row; }
-    }
-
-    /* Swipeable Gallery */
-    .gallery-container { flex: 1.2; background: #FAF9F6; padding: 24px; display: flex; flex-direction: column; align-items: center; border-right: 1px solid #F5F5F4; }
-    .swipe-track { width: 100%; display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; border-radius: 14px; padding-bottom: 8px; }
-    .swipe-track::-webkit-scrollbar { height: 6px; }
-    .swipe-track::-webkit-scrollbar-thumb { background: #D6D3D1; border-radius: 4px; }
-    .swipe-slide { flex: 0 0 100%; scroll-snap-align: center; height: 440px; display: flex; align-items: center; justify-content: center; background: #ffffff; border-radius: 14px; overflow: hidden; border: 1px solid #E7E5E4; }
-    .swipe-slide img { width: 100%; height: 100%; object-fit: contain; }
-    
-    .thumbnail-row { display: flex; gap: 8px; margin-top: 14px; width: 100%; overflow-x: auto; padding: 4px; }
-    .thumb-btn { flex: 0 0 64px; height: 64px; border-radius: 10px; border: 2px solid transparent; overflow: hidden; cursor: pointer; background: #ffffff; transition: border-color 0.2s; }
-    .thumb-btn.active { border-color: #7C2D12; }
-    .thumb-btn img { width: 100%; height: 100%; object-fit: cover; }
-
-    .modal-info { flex: 1; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; }
-    .modal-info h3 { font-size: 24px; font-weight: 800; color: #1C1917; margin-bottom: 8px; line-height: 1.3; }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -169,7 +16,6 @@
     </div>
     <div class="header-actions">
       <a href="#about" class="about-link">About Us</a>
-      <!-- Follow Us Instagram Button -->
       <a href="https://www.instagram.com/soch.vastra" target="_blank" class="insta-btn" title="Follow Us">
         <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
         <span>Follow Us</span>
@@ -206,75 +52,86 @@
     </div>
   </div>
 
-  <!-- Integrated About Us Section -->
+  <!-- Classic & Clean About Us Section -->
   <section class="about-section-wrapper" id="about">
-    <div class="about-hero-block">
-      <div class="about-kicker">The Story Behind The Thread</div>
-      <h2>How Soch Vastr Began</h2>
-      <p class="about-lead">Some brands begin with a business plan. Soch Vastr began with a feeling: the search for something truly different, thoughtful, and made to stay close to the heart.</p>
+    <div class="about-header-center">
+      <div class="about-tagline">The Story Behind The Thread</div>
+      <h2>The Soul of Soch Vastr</h2>
+      <div class="about-divider"></div>
     </div>
 
-    <div class="about-panel">
-      <div class="about-content">
-        <div class="about-story">
-          <p>One fine day, I found myself struggling to find clothing that felt distinct from the ordinary choices available everywhere. That everyday search turned into a simple but powerful question: <em>Why not explore this space myself and give people the absolute best?</em></p>
-          <p>People often say that after 40, you stop chasing new ventures. I believe age is just a number, and it is never too late to begin something meaningful. Coming from a small hometown, I wanted to create a trusted local brand where people would not have to wait days or compromise on quality.</p>
-          <p>That single thought planted the seed for Soch Vastr: a curated world of premium ethnic wear, handcrafted details, skin-soothing fabrics, and festive pieces chosen with genuine care.</p>
+    <div class="soch-about-card">
+      <div class="soch-story-text">
+        <p>Soch Vastr ki shuruaat kisi bade business plan se nahi, balki ek simple se khayal se hui thi—kuch aisa talashne ki jo market ki aam bheed se alag ho, jo dil ke kareeb ho aur jisme asli parampara ki khushboo ho.</p>
+        <p>Aksar log sochte hain ki ek umar ke baad naye sapne nahi dekhe jaate, lekin mera maanna hai ki <em>junoon ki koi umar nahi hoti</em>. Apne ghar-parivar ke beech rehkar, maine yeh chhota sa prayas shuru kiya taaki har mahila ko bina kisi lambe intezaar ke sabse behtareen aur shuddh ethnic wear mil sake.</p>
+        <p>Aaj <strong>Soch Vastr</strong> sirf kapde nahi, balki ek bharosa hai—skin-soothing fabrics, haath ki naazuk karigari aur har tyohar ko aur khaas banane ka ek chhota sa zariya.</p>
+      </div>
+
+      <div class="soch-founder-box">
+        <div class="soch-founder-img">
+          <img src="images/founder.png" alt="Sheetu Rastogi" onerror="this.src='https://placehold.co/150x150/FAF5EE/7C2D12?text=Founder';" />
         </div>
-        <aside class="about-aside">
-          <div class="founder-img-wrap">
-            <img src="images/founder.png" alt="Sheetu Rastogi - Founder of Soch Vastr" onerror="this.src='https://placehold.co/200x200/FAF5EE/7C2D12?text=Founder';" />
-          </div>
-          <h3>Our Vision & Founder</h3>
-          <div class="about-fact"><strong>Founder</strong><span>Sheetu Rastogi</span></div>
-          <div class="about-fact"><strong>Our belief</strong><span>Clothing is never just fabric. It is a living legacy and a reflection of who you are.</span></div>
-          <div class="about-fact"><strong>Our promise</strong><span>We choose every piece with care, so compliments follow you wherever you go.</span></div>
-        </aside>
+        <h4>Sheetu Rastogi</h4>
+        <span>Founder & Curator</span>
+        <div class="soch-founder-quote">
+          "Kapda sirf ek libaas nahi, aapke vyaktitva ki pehchan hai."
+        </div>
       </div>
     </div>
 
-    <div class="values-grid">
-      <div class="value-card">
-        <h4>Handcrafted Authenticity</h4>
-        <p>Every single ensemble is handpicked to ensure authentic weaves, rich traditional prints, and flawless embroidery details that stand out.</p>
+    <div class="soch-pillars-grid">
+      <div class="soch-pillar-item">
+        <h5>Asli Handloom</h5>
+        <p>Har ek suit aur dupatta bade dhyan se chuna gaya hai taaki aapko mile shuddh weaving aur unokha design.</p>
       </div>
-      <div class="value-card">
-        <h4>Skin-Soothing Fabrics</h4>
-        <p>We prioritize breathable, premium-quality textiles like Pure Organza, Kanjivaram Silk, Modal Musleen, and Mal Cotton that feel wonderful on your skin.</p>
+      <div class="soch-pillar-item">
+        <h5>Tvak-Anukul Kapda</h5>
+        <p>Pure Organza, Kanjivaram aur Mal Cotton jaise breathable fabrics jo skin par behad mulayam lagte hain.</p>
       </div>
-      <div class="value-card">
-        <h4>Rooted in Trust</h4>
-        <p>Built with personal dedication and warmth, our goal is to bring timeless ethnic elegance right to your wardrobe with effortless convenience.</p>
+      <div class="soch-pillar-item">
+        <h5>Apnaapan aur Bharosa</h5>
+        <p>Har order ke peeche personal mehnat aur pyaar juda hai, taaki aapka har tyohar aur bhi yaadgar bane.</p>
       </div>
     </div>
   </section>
 
-  <!-- Footer Section -->
-  <footer style="background-color: #1C1917; color: #E7E5E4; padding: 48px 24px 24px; border-top: 2px solid #7C2D12; margin-top: 50px;">
-    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 36px; padding-bottom: 36px; border-bottom: 1px solid #292524;">
+  <!-- Professional Footer Section -->
+  <footer class="soch-footer">
+    <div class="footer-container">
       <div>
-        <h2 style="font-size: 22px; font-weight: 800; color: #FDE68A; letter-spacing: 1.5px; margin-bottom: 8px;">SOCH VASTR</h2>
-        <p style="font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: #D6D3D1; font-weight: 600; margin-bottom: 14px;">Tradition in Every Thread</p>
-        <p style="font-size: 13px; line-height: 1.6; color: #A8A29E;">Discover our exclusive collection of handcrafted artisanal ensembles, designed to bring timeless elegance to your ethnic wardrobe.</p>
+        <h2 style="font-size: 22px; font-weight: 800; color: #7C2D12; letter-spacing: 1.5px; margin-bottom: 6px;">SOCH VASTR</h2>
+        <p style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #8C7A6B; font-weight: 600; margin-bottom: 16px;">Tradition in Every Thread</p>
+        <p style="font-size: 13px; color: #6E5E52; margin-bottom: 10px;">📍 Main Market, Sambhal, Uttar Pradesh</p>
+        <p style="font-size: 13px; color: #6E5E52; margin-bottom: 10px;">📞 +91-8882404526</p>
+        <p style="font-size: 13px; color: #6E5E52; margin-bottom: 10px;">✉️ support@sochvastra.com</p>
       </div>
       <div>
-        <h4 style="font-size: 14px; font-weight: 700; color: #FFFFFF; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px;">Collection Highlights</h4>
-        <ul style="list-style: none; font-size: 13px; line-height: 2; color: #A8A29E;">
-          <li>✨ Festive & Party Wear Ensembles</li>
-          <li>✨ Pure Organza & Kanjivaram Silks</li>
-          <li>✨ Handcrafted Zari & Dabka Details</li>
-          <li>✨ Premium Unstitched Suit Sets</li>
+        <h4>Our Shop</h4>
+        <ul style="list-style: none; padding: 0; font-size: 13px; color: #6E5E52; line-height: 2.2;">
+          <li>New Arrivals</li>
+          <li>Kurta & Suit Sets</li>
+          <li>Pure Organza & Silk</li>
         </ul>
       </div>
       <div>
-        <h4 style="font-size: 14px; font-weight: 700; color: #FFFFFF; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px;">Customer Care</h4>
-        <p style="font-size: 13px; line-height: 1.8; color: #A8A29E; margin-bottom: 10px;">For wholesale inquiries, order assistance, or catalogue previews, reach out to our support team.</p>
-        <span style="display: inline-block; background: #7C2D12; color: #FFFFFF; padding: 8px 16px; border-radius: 8px; font-size: 12px; font-weight: 700; letter-spacing: 0.5px;">Official Preview Portal</span>
+        <h4>About Us</h4>
+        <ul style="list-style: none; padding: 0; font-size: 13px; color: #6E5E52; line-height: 2.2;">
+          <li>About Store</li>
+          <li>Store Location</li>
+          <li>Contact Us</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Information</h4>
+        <ul style="list-style: none; padding: 0; font-size: 13px; color: #6E5E52; line-height: 2.2;">
+          <li>Privacy Policy</li>
+          <li>Terms & Condition</li>
+          <li>Shipping Policy</li>
+        </ul>
       </div>
     </div>
-    <div style="max-width: 1200px; margin: 24px auto 0; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; font-size: 12px; color: #78716C; gap: 12px;">
+    <div style="max-width: 1200px; margin: 25px auto 0; text-align: center; font-size: 12px; color: #8C7A6B;">
       <p>&copy; 2026 Soch Vastr. All Rights Reserved. Tradition Meets You.</p>
-      <p>Crafted for Festive Elegance</p>
     </div>
   </footer>
 
@@ -286,484 +143,6 @@
     </div>
   </div>
 
-  <script>
-    const suits = [
-      {
-        id: "101",
-        itemNo: "ITEM NO: 101",
-        title: "The 'Aayat' Embellished Organza Set",
-        badge: "Pure Organza",
-        soldOut: true,
-        soldOutMark: "D",
-        images: ["images/1 (1).jpg", "images/1 (2).jpg", "images/1 (3).jpg", "images/1 (4).jpg", "images/1(5).jpg"],
-        fabric: "Pure Twill Organza",
-        work: "Original Pearl with Dabka work, Timeless Paisley motif & Neckline detail",
-        dupatta: "Premium Organza Dupatta with fine embroidery and pearl detailing",
-        occasion: "Festive & Grand Celebrations"
-      },
-      {
-        id: "b-50",
-        itemNo: "ITEM NO: B-50",
-        title: "Green Jiraf Silk Heritage Suit",
-        badge: "Jiraf Silk",
-        soldOut: true,
-        showSoldOut: true,
-        images: ["images/2 (1).jpg", "images/2 (2).jpg"],
-        fabric: "Pure Premium Jiraf Silk",
-        work: "Beautiful Zari, Dabka & Sequin work on Neckline with Zari on Daman",
-        dupatta: "Pure Premium Jiraf Silk Dupatta with rich & graceful drape",
-        occasion: "Main Functions, Parties & Celebrations"
-      },
-      {
-        id: "b-42",
-        itemNo: "ITEM NO: B-42",
-        title: "Royal Maheshwari Zari Silk Suit",
-        badge: "Maheshwari Silk",
-        soldOut: true,
-        soldOutMark: "D",
-        images: ["images/3 (1).jpg", "images/3 (2).jpg"],
-        fabric: "Pure Maheshwari Premium Silk",
-        work: "Designer Neck with Nag buttons, Samosa Gota lace & fine Zari work",
-        dupatta: "Pure Silk with elegant Zari Work & beautiful Zari Tassels",
-        occasion: "Classy and Sophisticated Party Look"
-      },
-      {
-        id: "b-34-1",
-        itemNo: "ITEM NO: B-34",
-        title: "Maslin Silk Floral Digital Print Suit",
-        badge: "Silk Maslin",
-        images: ["images/4 (1).jpg", "images/4 (2).jpg"],
-        fabric: "Premium Silk Maslin",
-        work: "Original pearl with black metallic pot work, sequence and fine thread work",
-        dupatta: "Pure machine silk dupatta with stylish tassels",
-        occasion: "Ethnic Parties & Festive Gatherings"
-      },
-      {
-        id: "b-46",
-        itemNo: "ITEM NO: B-46",
-        title: "Modal Musleen Soothing Silk Suit",
-        badge: "Modal Musleen",
-        images: ["images/5 (1).jpg", "images/5 (2).jpg"],
-        fabric: "Pure Modal Musleen Silk (Skin soothing & breathable)",
-        work: "Designer neck with cut work, lace work on daman & sleeves",
-        dupatta: "Pure elegance dupatta with beautiful lace border",
-        occasion: "Premium Ethnic Wear for a Timeless You"
-      },
-      {
-        id: "b-40-shimmer",
-        itemNo: "ITEM NO: B-40",
-        title: "Jacquard Shimmer Party Wear Suit",
-        badge: "Jacquard Shimmer",
-        images: ["images/6 (1).jpg", "images/6 (2).jpg"],
-        fabric: "Jacquard Shimmer Kurta with Lining",
-        work: "Premium Metallic Pearl & Sequence Work with Neck Patch Work",
-        dupatta: "Full-length striped dupatta with an all-around lace border",
-        occasion: "Festive, Party & Special Occasions"
-      },
-      {
-        id: "b-34-final",
-        itemNo: "ITEM NO: B-34",
-        title: "Pure Soft Silk Self Weaving Suit",
-        badge: "Pure Soft Silk",
-        images: ["images/7 (1).jpg", "images/7 (2).jpg"],
-        fabric: "Pure Soft Silk with Soft Premium Bottom",
-        work: "All-Over Self Thread Weaving with Subtle Self Zari Work",
-        dupatta: "Striped Soft Organza Dupatta with Delicate Lace Detailing",
-        occasion: "Haldi Functions, Festive Gatherings & Special Parties"
-      },
-      {
-        id: "b-40-kanjivaram",
-        itemNo: "ITEM NO: B-40",
-        title: "Pure Kanjivaram Silk Peacock Suit",
-        badge: "Kanjivaram Silk",
-        soldOut: true,
-        showSoldOut: true,
-        images: ["images/8 (1).jpg", "images/8 (2).jpg"],
-        fabric: "Pure Kanjivaram Soft Silk",
-        work: "Pure Soft Zari All-Over Work with Elegant Peacock Centre Motif",
-        dupatta: "Dupatta with Premium Soft Zari Border, Butis & Tassels",
-        occasion: "Karwa Chauth, Weddings & Festive Celebrations"
-      },
-      {
-        id: "b-18-1",
-        itemNo: "ITEM NO: B-18",
-        title: "Pure Mal Cotton Mirror Work Suit",
-        badge: "Mal Cotton",
-        soldOut: true,
-        soldOutMark: "SA",
-        images: ["images/9 (1).jpg", "images/9 (2).jpg", "images/9 (3).jpg"],
-        fabric: "Pure Mal Cotton (Feather Soft & Breathable)",
-        work: "Elegant Resham Work with Hints of Mirror Work & Cotton Lace Daman",
-        dupatta: "Premium Dupatta with Booti Work & Zari Border with Cotton Lace",
-        occasion: "Parties, Festive Wear & Special Occasions"
-      },
-      {
-        id: "b-19",
-        itemNo: "ITEM NO: B-19",
-        title: "Pure Jamdani Silk Mirror Work Suit",
-        badge: "Jamdani Silk",
-        soldOut: true,
-        showSoldOut: true,
-        soldOutMark: "D",
-        images: ["images/10 (1).jpg", "images/10 (2).jpg"],
-        fabric: "Pure Jamdani Silk with Self Zari Weaving",
-        work: "Rich Resham Embroidery with Mirror Work & Self Zari Weaving",
-        dupatta: "Premium Dupatta with Zari Border & All Around Cotton Lace",
-        occasion: "Weddings, Festivals & Special Occasions"
-      },
-      {
-        id: "b-52-kanjivaram",
-        itemNo: "ITEM NO: B-52",
-        title: "Pure Kanjivaram Silk Knot Work Suit",
-        badge: "Pure Kanjivaram Silk",
-        images: ["images/11 (1).jpg", "images/11 (2).jpg"],
-        fabric: "Pure Kanjivaram Silk with Plain Bottom",
-        work: "Knot Work, Sequin Detailing, Intricate Embroidery & Self Zari Work",
-        dupatta: "Premium Dupatta with Stripes, Elegant Work & Lace Detailing",
-        occasion: "Festive, Wedding & Party Wear"
-      },
-      {
-        id: "b-52",
-        itemNo: "ITEM NO: B-52",
-        title: "Premium Gaji Silk Collection",
-        badge: "Premium Gaji Silk",
-        images: ["images/12 (1).jpg", "images/12 (2).jpg"],
-        fabric: "100% Pure Gaji Silk Kurti & Dupatta, Pure Cotton Plaited Bottom",
-        work: "Mirror work yoke, embellished daman detail, intricate hand-crafted embellishments, and finest traditional prints",
-        dupatta: "Pure Gaji silk dupatta with elegant traditional print and premium detailing",
-        occasion: "Unstitched suit set for festive, party, and ethnic wear"
-      },
-      {
-        id: "b-20-silk",
-        itemNo: "ITEM NO: B-20",
-        title: "Pure Maheshwari Silk Suit",
-        badge: "Pure Maheshwari Silk",
-        images: ["images/13.jpg"],
-        fabric: "Pure Maheshwari Silk (With Lining)",
-        work: "Elegant traditional print, soft, lightweight & skin-friendly, with lining for extra comfort",
-        dupatta: "Dupatta fabric with zari border",
-        occasion: "Perfect for office wear, party wear, ethnic wear & festive wear"
-      },
-      {
-        id: "gajji-silk-b20",
-        itemNo: "ITEM NO: B-20",
-        title: "Premium Gajji Silk Unstitched Suit Set",
-        badge: "Premium Gajji Silk",
-        soldOut: true,
-        images: ["images/14.jpg"],
-        fabric: "100% Pure Gajji Silk Kurti & Dupatta with Pure Cotton Plane Bottom",
-        work: "Mirror work yoke, embellished daman detail, finest traditional prints & hand-crafted embellishments",
-        dupatta: "Pure Gajji Silk Dupatta",
-        occasion: "Unstitched Suit Set - Festive & Traditional Wear"
-      },
-      {
-        id: "b-20-maheshwari-silk",
-        itemNo: "ITEM NO: B-20",
-        title: "Pure Maheshwari Silk Suit",
-        badge: "Pure Maheshwari Silk",
-        soldOut: true,
-        showSoldOut: true,
-        images: ["images/15.jpg"],
-        fabric: "Pure Maheshwari Silk with Plain Bottom",
-        work: "Patola Inspired Traditional Print, lightweight & skin-friendly",
-        dupatta: "Pure Maheshwari Silk Dupatta with Zari Border",
-        occasion: "Premium Party Wear, Festive Wear & Ethnic Wear"
-      },
-      {
-        id: "premium-cotton-b24",
-        itemNo: "ITEM NO: B-24",
-        title: "Premium Cotton Patch & Lace Work Suit",
-        badge: "Premium Cotton",
-        soldOut: true,
-        soldOutMark: "S",
-        images: ["images/16.jpg"],
-        fabric: "Premium Cotton Suit (Without Lining, Skin-Friendly & Soothing on Skin)",
-        work: "Printed Kurta with Patch Work & Lace Work, Bottom with Patch Work & Lace Work",
-        dupatta: "Dupatta with Lace Border",
-        occasion: "Perfect for Summers & Rainy Weather"
-      },
-      {
-        id: "jacquard-cotton-b24",
-        itemNo: "ITEM NO: B-24",
-        title: "Premium Jacquard Cotton Suit",
-        badge: "Premium Jacquard Cotton",
-        soldOut: true,
-        showSoldOut: true,
-        images: ["images/17.jpg"],
-        fabric: "Premium Jacquard Cotton with Plain Cotton Bottom (Skin par bahut soft aur soothing hai)",
-        work: "Thread Patch Work & Jaipuri Patch Work",
-        dupatta: "Matching Printed Dupatta with Floral Motifs",
-        occasion: "Elegant & Comfortable, Perfect for Everyday & Festive Wear"
-      },
-      {
-        id: "premium-jaipuri-cotton-b20",
-        itemNo: "ITEM NO: B-20",
-        title: "Premium Jaipuri Cotton Suit",
-        badge: "Jaipuri Cotton",
-        soldOut: true,
-        showSoldOut: true,
-        images: ["images/18.jpg"],
-        fabric: "Pure Jaipuri Cotton with Foil Print (Soft, Breathable & Skin-Friendly Fabric)",
-        work: "Elegant Thread Work with Beautiful Knot Work, Hand-Embroidered Detailing on Front & Delicate Lace on Daman",
-        dupatta: "Premium Chiffon Dupatta with Tassels",
-        occasion: "Perfect for Everyday Elegance & Festive Wear"
-      },
-      {
-        id: "b-24-shimmer-linen",
-        itemNo: "ITEM NO: B-24",
-        title: "Pure Premium Silk Shimmer Linen Suit Set",
-        badge: "Shimmer Linen",
-        soldOut: true,
-        showSoldOut: true,
-        images: ["images/19.jpg"],
-        fabric: "Pure Premium Silk Shimmer Linen with Soft & Comfortable Premium Cotton Bottom",
-        work: "Elegant Neck Detailing with Thread Work & Mirror Accents, Elegant Self Weaving",
-        dupatta: "Silk Shimmer Linen Dupatta with Self Weaving Zari Border",
-        occasion: "A Perfect Blend of Elegance, Comfort & Tradition - Timeless Ethnic Wear"
-      },
-      {
-        id: "south-cotton-b18",
-        itemNo: "ITEM NO: B-18",
-        title: "Pure South Cotton Floral Print Suit",
-        badge: "Pure South Cotton",
-        soldOut: true,
-        showSoldOut: true,
-        images: ["images/20.jpg"],
-        fabric: "Pure South Cotton Kurta & Premium South Cotton Plain Bottom",
-        work: "Beautiful all-over floral print, soft, breathable & comfortable",
-        dupatta: "Pure South Cotton Dupatta with rich zari border",
-        occasion: "Grace in every thread - Perfect for Everyday Elegance & Festive Wear"
-      },
-      {
-        id: "b-20-jaipuri",
-        itemNo: "ITEM NO: B-20",
-        title: "Premium Jaipuri Cotton Silk Suit",
-        badge: "Jaipuri Cotton Silk",
-        soldOut: true,
-        soldOutMark: "D",
-        images: ["images/22.jpg"],
-        fabric: "Premium Jaipuri Cotton Silk",
-        work: "Traditional Jaipuri print with handcrafted detailing",
-        dupatta: "Premium Jaipuri Cotton Silk Dupatta",
-        occasion: "Festive & Everyday Wear"
-      },
-      {
-        id: "b-10-chanderi",
-        itemNo: "ITEM NO: B-10",
-        title: "Premium Chanderi Suit with Exquisite Resham Work",
-        badge: "Chanderi",
-        soldOut: false,
-        images: ["images/23.jpg"],
-        fabric: "Soft Chanderi Fabric (Premium Quality)",
-        work: "Exquisite Resham Work, Neckline Detailing & All Over Buti Work",
-        dupatta: "Dupatta with Heavy Embroidered Floral Border",
-        occasion: "Grace in every drape - Perfect for Festive & Special Occasions"
-      },
-      {
-        id: "b-34-floral",
-        itemNo: "ITEM NO: B-34",
-        title: "Premium Silk Pearl & Dabka Work Suit",
-        badge: "Premium Silk",
-        images: ["images/21.jpg"],
-        fabric: "Pure Premium Silk with a soft textured finish",
-        work: "Original Pearl with Dabka Work and elegant embroidered neckline",
-        dupatta: "Premium striped dupatta with a coordinated border",
-        occasion: "Ethnic Parties & Festive Gatherings"
-      },
-      {
-        id: "b-22-folk-art",
-        itemNo: "ITEM NO: B-22",
-        title: "Artistic Folk Art Unstitched Suit Set",
-        badge: "Premium Cotton-Silk Blend",
-        soldOut: true,
-        images: ["images/388863.png"],
-        fabric: "Premium Cotton-Silk Blend Fabric with a Soft Feel",
-        work: "Artistic Folk Art Print with Detailed Neckline and Daman Work",
-        dupatta: "Printed Dupatta with Traditional Folk Art Design",
-        occasion: "Premium Ethnic Wear for Festive Gatherings & Special Occasions"
-      },
-      {
-        id: "item-25",
-        title: "Designer Embroidered Festive Suit Set",
-        badge: "Festive Collection",
-        soldOut: false,
-        images: ["images/25.jpeg", "images/25(1).jpeg", "images/25(2).jpeg"],
-        fabric: "Premium Designer Fabric with Soft Inner Lining",
-        work: "Intricate Thread Embroidery, Neckline Detailing & Fine Work",
-        dupatta: "Matching Designer Dupatta with Elegant Border",
-        occasion: "Festive, Wedding & Special Party Wear"
-      },
-      {
-        id: "item-26",
-        title: "Mehendi Grace Taneria Silk Suit",
-        badge: "Taneria Silk Edit",
-        soldOut: false,
-        images: ["images/26.jpeg"],
-        fabric: "Taneria Silk Suit with Fine Aura Silk Bottom",
-        work: "Thread & Zari Embroidery with Sequin Highlights, Delicate Buti Work & Elegant Neckline Detail",
-        dupatta: "Taneria Silk Dupatta with Detailed Border",
-        occasion: "Festive & Special Occasions"
-      },
-      {
-        id: "item-27",
-        title: "Peach Blossom Taneria Silk Suit",
-        badge: "Taneria Silk Edit",
-        soldOut: false,
-        images: ["images/27.jpeg"],
-        fabric: "Taneria Silk Suit with Fine Aura Silk Bottom",
-        work: "Thread & Zari Embroidery with Sequin Highlights, Fine Handwork & Elegant Design",
-        dupatta: "Taneria Silk Dupatta with Detailed Border",
-        occasion: "Festive & Special Occasions"
-      }
-    ];
-
-    let statusFilter = "all";
-
-    function updateAvailabilityMessage() {
-      const message = document.getElementById("availabilityMessage");
-      const copy = {
-        all: {
-          className: "",
-          icon: "✦",
-          title: "The complete Soch Vastr edit",
-          description: "Browse available and sold-out styles in the original collection order."
-        },
-        available: {
-          className: "available",
-          icon: "✓",
-          title: "Ready to become your next favourite",
-          description: "These styles are available now and ready to add to your cart."
-        },
-        soldOut: {
-          className: "sold-out",
-          icon: "—",
-          title: "Archive pieces, currently sold out",
-          description: "A look back at the styles that have already found their homes."
-        }
-      }[statusFilter];
-
-      message.className = `availability-message ${copy.className}`;
-      message.innerHTML = `
-        <div class="availability-icon">${copy.icon}</div>
-        <div>
-          <strong>${copy.title}</strong>
-          <span>${copy.description}</span>
-        </div>
-      `;
-    }
-
-    document.querySelectorAll("[data-status-filter]").forEach(button => {
-      button.addEventListener("click", () => {
-        statusFilter = button.dataset.statusFilter;
-        document.querySelectorAll("[data-status-filter]").forEach(control => {
-          const isActive = control === button;
-          control.classList.toggle("active", isActive);
-          control.setAttribute("aria-pressed", String(isActive));
-        });
-        updateAvailabilityMessage();
-        renderGrid();
-      });
-    });
-
-    function renderGrid() {
-      const container = document.getElementById("productGrid");
-      const filteredSuits = suits.filter(s => {
-        if (statusFilter === "available") return !s.soldOut;
-        if (statusFilter === "soldOut") return s.soldOut === true;
-        return true;
-      });
-
-      container.innerHTML = filteredSuits.map((s, index) => `
-        <div class="card" style="--card-index: ${index};" onclick="openDetailModal('${s.id}')">
-          <div>
-            <div class="card-img-wrap">
-              <img src="${s.images[0]}" alt="${s.title}" onerror="this.onerror=null; this.src='https://placehold.co/600x800/FAF5EE/7C2D12?text=Soch+Vastr';" />
-              <span class="tag-left">${s.badge}</span>
-              <div class="swipe-hint">
-                <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg>
-                ${s.images.length} Photos • Tap to view
-              </div>
-            </div>
-            <div class="card-body">
-              <h3 class="card-title">${s.title}</h3>
-              <div class="details-box">
-                <div><strong>Kurta:</strong> ${s.fabric}</div>
-                <div><strong>Work:</strong> ${s.work}</div>
-                <div><strong>Dupatta:</strong> ${s.dupatta}</div>
-                <div><strong>Occasion:</strong> ${s.occasion}</div>
-              </div>
-            </div>
-          </div>
-          <div class="card-action">
-            <button class="add-btn" ${s.soldOut ? 'disabled' : ''} onclick="event.stopPropagation();">${s.soldOut ? 'Sold Out' : 'Add to Cart'}</button>
-          </div>
-        </div>
-      `).join("");
-    }
-
-    function openDetailModal(id) {
-      const suit = suits.find(s => s.id === id);
-      const modal = document.getElementById("detailModal");
-      const content = document.getElementById("modalDynamicContent");
-
-      content.innerHTML = `
-        <div class="gallery-container">
-          <div class="swipe-track" id="swipeTrack">
-            ${suit.images.map((img, idx) => `
-              <div class="swipe-slide" id="slide-${idx}">
-                <img src="${img}" alt="${suit.title} preview" onerror="this.onerror=null; this.src='https://placehold.co/600x800/FAF5EE/7C2D12?text=Soch+Vastr';" />
-              </div>
-            `).join("")}
-          </div>
-          <div style="font-size: 11px; color: #78716C; margin-top: 8px; display:flex; align-items:center; gap:5px; font-weight: 500;">
-            <span>👉 Swipe horizontally or select thumbnails below to inspect details</span>
-          </div>
-          <div class="thumbnail-row">
-            ${suit.images.map((img, idx) => `
-              <button class="thumb-btn ${idx === 0 ? 'active' : ''}" onclick="scrollToSlide(${idx})">
-                <img src="${img}" alt="thumb" onerror="this.onerror=null; this.src='https://placehold.co/100x100/FAF5EE/7C2D12?text=Img';" />
-              </button>
-            `).join("")}
-          </div>
-        </div>
-        <div class="modal-info">
-          <div>
-            <h3>${suit.title}</h3>
-            <div class="details-box" style="margin-top: 14px;">
-              <div><strong>Fabric:</strong> ${suit.fabric}</div>
-              <div><strong>Work & Pattern:</strong> ${suit.work}</div>
-              <div><strong>Dupatta:</strong> ${suit.dupatta}</div>
-              <div><strong>Ideal For:</strong> ${suit.occasion}</div>
-            </div>
-          </div>
-        </div>
-      `;
-      modal.style.display = "flex";
-
-      const track = document.getElementById("swipeTrack");
-      track.addEventListener("scroll", () => {
-        const slideWidth = track.offsetWidth;
-        const currentIdx = Math.round(track.scrollLeft / slideWidth);
-        document.querySelectorAll(".thumb-btn").forEach((btn, i) => {
-          btn.classList.toggle("active", i === currentIdx);
-        });
-      });
-    }
-
-    function scrollToSlide(idx) {
-      const track = document.getElementById("swipeTrack");
-      const slide = document.getElementById(`slide-${idx}`);
-      if (slide && track) {
-        track.scrollTo({ left: slide.offsetLeft - track.offsetLeft, behavior: "smooth" });
-      }
-    }
-
-    function closeDetailModal() {
-      document.getElementById("detailModal").style.display = "none";
-    }
-
-    updateAvailabilityMessage();
-    renderGrid();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
